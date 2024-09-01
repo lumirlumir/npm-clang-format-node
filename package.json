@@ -1,0 +1,82 @@
+{
+  "name": "clang-format-node",
+  "version": "0.0.0",
+  "description": "Node repackaging of the clang-format native binary inspired by angular/clang-format.🐉",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "clang-format",
+    "clang",
+    "cli",
+    "format",
+    "formatter",
+    "lint",
+    "linter",
+    "cpplint",
+    "eslint",
+    "prettier",
+    "checker",
+    "c",
+    "cpp",
+    "c++"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://github.com/lumirlumir/npm-clang-format-node",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-clang-format-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-clang-format-node/issues"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "prepublishOnly": "npm run build",
+    "build": "npx babel src -d build --no-comments --compact true --minified",
+    "test": "concurrently \"npm:test-*\"",
+    "test-tests": "npx mocha ./tests --inline-diffs true",
+    "coverage": "npx nyc --reporter=lcov npm run test",
+    "lint": "concurrently \"npm:lint-*\"",
+    "lint-eslint": "npx eslint . --ext .js",
+    "lint-prettier": "npx prettier . --check",
+    "lint-editorconfig": "npx editorconfig-checker",
+    "lint-markdownlint": "npx markdownlint **/*.md",
+    "fix": "concurrently \"npm:fix-*\"",
+    "fix-eslint": "npx eslint . --fix --ext .js",
+    "fix-prettier": "npx prettier . --write"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "concurrently": "^8.2.2",
+    "editorconfig-checker": "^5.1.8",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "markdownlint-cli": "^0.41.0",
+    "mocha": "^10.7.3",
+    "nyc": "^17.0.0",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*": [
+      "npx prettier --check",
+      "npx editorconfig-checker -exclude README.md"
+    ],
+    "*.js": "npx eslint",
+    "*.md": "npx markdownlint",
+    "{src,tests}/**": [
+      "npm run test-tests"
+    ]
+  }
+}
