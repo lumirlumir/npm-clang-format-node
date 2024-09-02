@@ -1,0 +1,20 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📗Contributing Guides
+    url: https://github.com/lumirlumir/npm-clang-format-node?tab=readme-ov-file#contributing
+    about: Contributing Guides for clang-format-node.
+  - name: 📘LLVM GitHub Repository
+    url: https://github.com/llvm/llvm-project
+    about: LLVM GitHub Repository.
+  - name: 📕LLVM Download Page
+    url: https://releases.llvm.org/download.html
+    about: LLVM Download Page.
+  - name: 📙Clang-Format Style Options
+    url: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+    about: Clang-Format Style Options.
+  - name: 📗Clang-Format CLI
+    url: https://clang.llvm.org/docs/ClangFormat.html
+    about: Clang-Format CLI.
+  - name: 📘Getting Started with the LLVM System
+    url: https://llvm.org/docs/GettingStarted.html
+    about: Getting Started with the LLVM System.

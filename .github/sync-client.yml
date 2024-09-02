@@ -1,0 +1,65 @@
+lumirlumir/lumirlumir-configs:
+  - source: ./.github/sync-client.yml
+    dest: ./clients/npm-clang-format-node.yml
+  # ./.github/ISSUE_TEMPLATE
+  - source: ./.github/ISSUE_TEMPLATE/bug.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/bug.md
+  - source: ./.github/ISSUE_TEMPLATE/others.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/others.md
+  - source: ./.github/ISSUE_TEMPLATE/suggestion.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/suggestion.md
+  # ./.github/workflows
+  - source: ./.github/workflows/bump.yml
+    dest: ./configs/.github/workflows/bump.yml
+  - source: ./.github/workflows/labeler.yml
+    dest: ./configs/.github/workflows/labeler.yml
+  - source: ./.github/workflows/lint.yml
+    dest: ./configs/.github/workflows/lint.yml
+  - source: ./.github/workflows/publish.yml
+    dest: ./configs/.github/workflows/publish.yml
+  - source: ./.github/workflows/sync-client.yml
+    dest: ./configs/.github/workflows/sync-client.yml
+  - source: ./.github/workflows/test.yml
+    dest: ./configs/.github/workflows/test.yml
+  # ./.github
+  - source: ./.github/dependabot.yml
+    dest: ./configs/.github/dependabot.yml
+  - source: ./.github/FUNDING.yml
+    dest: ./configs/.github/FUNDING.yml
+  - source: ./.github/labeler.yml
+    dest: ./configs/.github/labeler.yml
+  - source: ./.github/PULL_REQUEST_TEMPLATE.md
+    dest: ./configs/.github/PULL_REQUEST_TEMPLATE.md
+  - source: ./.github/release.yml
+    dest: ./configs/.github/release.yml
+  # ./.husky
+  - source: ./.husky/pre-commit
+    dest: ./configs/.husky/pre-commit
+  # ./.vscode
+  - source: ./.vscode/settings.json
+    dest: ./configs/.vscode/settings.json
+  # ./
+  - source: ./.editorconfig
+    dest: ./configs/.editorconfig
+  - source: ./.eslintignore
+    dest: ./configs/.eslintignore
+  - source: ./.eslintrc.js
+    dest: ./configs/.eslintrc.js
+  - source: ./.gitignore
+    dest: ./configs/.gitignore
+  - source: ./.markdownlint.json
+    dest: ./configs/.markdownlint.json
+  - source: ./.markdownlintignore
+    dest: ./configs/.markdownlintignore
+  - source: ./.nvmrc
+    dest: ./configs/.nvmrc
+  - source: ./.prettierignore
+    dest: ./configs/.prettierignore
+  - source: ./.prettierrc.js
+    dest: ./configs/.prettierrc.js
+  - source: ./babel.config.js
+    dest: ./configs/babel.config.js
+  - source: ./LICENSE
+    dest: ./configs/LICENSE
+  - source: ./VScode.code-workspace
+    dest: ./configs/VScode.code-workspace
