@@ -1,0 +1,269 @@
+name: llvm-build-bump-pr
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 1 * * 1'
+
+env:
+  GH_TOKEN: ${{ secrets.GH_PAT }}
+  LLVM_REPO: llvm/llvm-project
+  LLVM_REPO_SHORT: llvm-project
+
+jobs:
+  # Check if my package is up-to-date
+  stage1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Set up dependencies
+        run: sudo apt-get install -y jq
+
+      - name: Fetch LLVM current release tag name from local
+        run: |
+          LLVM_CURRENT_RELEASE_TAG_NAME=$(cat .clang-format-version)
+          echo "LLVM_CURRENT_RELEASE_TAG_NAME=$LLVM_CURRENT_RELEASE_TAG_NAME" >> $GITHUB_ENV
+          echo "LLVM_CURRENT_RELEASE_TAG_NAME: $LLVM_CURRENT_RELEASE_TAG_NAME"
+
+      - name: Fetch LLVM latest release tag name from ${{ env.LLVM_REPO }}
+        run: |
+          LLVM_LATEST_RELEASE=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ env.LLVM_REPO }}/releases/latest)
+
+          LLVM_LATEST_RELEASE_TAG_NAME=$(echo "$LLVM_LATEST_RELEASE" | jq -r .tag_name)
+          echo "LLVM_LATEST_RELEASE_TAG_NAME=$LLVM_LATEST_RELEASE_TAG_NAME" >> $GITHUB_ENV
+          echo "LLVM_LATEST_RELEASE_TAG_NAME: $LLVM_LATEST_RELEASE_TAG_NAME"
+
+      - name: Debug outputs
+        run: |
+          echo "LLVM_CURRENT_RELEASE_TAG_NAME: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME }}"
+          echo "LLVM_LATEST_RELEASE_TAG_NAME: ${{ env.LLVM_LATEST_RELEASE_TAG_NAME }}"
+          echo "IS_LATEST: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME == env.LLVM_LATEST_RELEASE_TAG_NAME }}"
+
+    outputs:
+      LLVM_CURRENT_RELEASE_TAG_NAME: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME }}
+      LLVM_LATEST_RELEASE_TAG_NAME: ${{ env.LLVM_LATEST_RELEASE_TAG_NAME }}
+      IS_LATEST: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME == env.LLVM_LATEST_RELEASE_TAG_NAME }}
+
+  # Linux
+  stage2-build-linux:
+    runs-on: ubuntu-latest
+
+    needs: [stage1]
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+
+    strategy:
+      matrix:
+        docker:
+          - arch: amd64
+            image: amd64
+            node-name: x64
+          - arch: arm/v7
+            image: arm32v7
+            node-name: arm
+          - arch: arm64/v8
+            image: arm64v8
+            node-name: arm64
+          - arch: ppc64le
+            image: ppc64le
+            node-name: ppc64
+          - arch: s390x
+            image: s390x
+            node-name: s390x
+
+    steps:
+      - name: Debug matrix
+        run: echo ${{ matrix.docker.arch }} ${{ matrix.docker.image }} ${{ matrix.docker.node-name }}
+
+      - name: Set up QEMU
+        run: |
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+      - name: Docker run
+        run: |
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.arch }} ${{ matrix.docker.image }}/ubuntu:latest /bin/bash -c "
+            uname -m &&
+            pwd &&
+
+            apt update -y &&
+            apt install -y git python3 g++ cmake ninja-build &&
+
+            git clone --depth 1 --branch ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} https://github.com/${{ env.LLVM_REPO }}.git &&
+            cd ${{ env.LLVM_REPO_SHORT }} &&
+
+            cmake -S llvm -B build -G Ninja \
+              -DLLVM_ENABLE_PROJECTS="clang" \
+              -DCMAKE_BUILD_TYPE=Release &&
+
+            ninja -C build clang-format &&
+
+            echo clang-format version info &&
+
+            build/bin/clang-format --version &&
+            uname -m
+          "
+
+      - name: Copy file from Docker container
+        run: |
+          docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./linux-${{ matrix.docker.node-name }}
+
+      - name: Debug copied build folder
+        run: |
+          ls ./linux-${{ matrix.docker.node-name }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-${{ matrix.docker.node-name }}
+          path: ./linux-${{ matrix.docker.node-name }}/clang-format
+
+  # MacOS
+  stage2-build-darwin:
+    strategy:
+      matrix:
+        type:
+          - macos-14 # arm64 (macos-latest: arm64)
+          - macos-13 # x64 (macos-12: x64)
+
+    runs-on: ${{ matrix.type }}
+
+    needs: [stage1]
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+
+    steps:
+      - name: Set up node
+        uses: actions/setup-node@v4
+
+      - name: Set up os platform and os arch
+        run: |
+          OS_PLATFORM=$(node -p "require('os').platform()")
+          echo "OS_PLATFORM=$OS_PLATFORM" >> $GITHUB_ENV
+          echo "OS_PLATFORM: $OS_PLATFORM"
+
+          OS_ARCH=$(node -p "require('os').arch()")
+          echo "OS_ARCH=$OS_ARCH" >> $GITHUB_ENV
+          echo "OS_ARCH: $OS_ARCH"
+
+      - name: Set up checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.LLVM_REPO }}
+          ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
+
+      - name: Set up dependencies
+        run: |
+          brew update
+          brew install python3 cmake ninja
+
+      - name: Build cmake
+        run: |
+          cmake -S llvm -B build -G Ninja \
+            -DLLVM_ENABLE_PROJECTS="clang" \
+            -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build clang-format
+        run: |
+          ninja -C build clang-format
+
+      - name: Debug clang-format version
+        run: |
+          build/bin/clang-format --version
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: build/bin/clang-format
+
+  # Windows
+  stage2-build-win32:
+    runs-on: windows-latest
+
+    needs: [stage1]
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+
+    steps:
+      - name: Set up node
+        uses: actions/setup-node@v4
+
+      - name: Set up os platform and os arch
+        run: |
+          $OS_PLATFORM = node -p "require('os').platform()"
+          echo "OS_PLATFORM=$OS_PLATFORM" >> $env:GITHUB_ENV
+          echo "OS_PLATFORM: $OS_PLATFORM"
+
+          $OS_ARCH = node -p "require('os').arch()"
+          echo "OS_ARCH=$OS_ARCH" >> $env:GITHUB_ENV
+          echo "OS_ARCH: $OS_ARCH"
+
+      - name: Set up checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.LLVM_REPO }}
+          ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
+
+      - name: Set up dependencies
+        run: |
+          choco install -y python cmake ninja
+
+      - name: Build cmake
+        run: |
+          cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build clang-format
+        run: |
+          ninja -C build clang-format
+
+      - name: Debug clang-format version
+        run: |
+          build\bin\clang-format --version
+
+      - name: Upload a artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: build\bin\clang-format.exe
+
+  # Create PR using build artifacts and bump version
+  stage3:
+    runs-on: ubuntu-latest
+
+    needs: [stage1, stage2-build-linux, stage2-build-darwin, stage2-build-win32]
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: src/bin
+
+      - name: Debug structure of downloaded files
+        run: ls -R src/bin
+
+      - name: Bump version
+        run: echo ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} > .clang-format-version
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GH_PAT }}
+          commit-message: 'build(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
+          branch: 'bump-llvm-from-${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }}-to-${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
+          base: 'main'
+          title: 'build(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
+          body: |
+            This PR bumps the LLVM version from `${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }}` to `${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}` using LLVM binary that was built automatically. :tada:
+
+            See [Actions](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.
+          labels: dependencies
