@@ -100,7 +100,7 @@ jobs:
 
             cmake -S llvm -B build -G Ninja \
               -DLLVM_ENABLE_PROJECTS="clang" \
-              -DCMAKE_BUILD_TYPE=Release &&
+              -DCMAKE_BUILD_TYPE=MinSizeRel &&
 
             ninja -C build clang-format &&
 
@@ -167,7 +167,7 @@ jobs:
         run: |
           cmake -S llvm -B build -G Ninja \
             -DLLVM_ENABLE_PROJECTS="clang" \
-            -DCMAKE_BUILD_TYPE=Release
+            -DCMAKE_BUILD_TYPE=MinSizeRel
 
       - name: Build clang-format
         run: |
@@ -217,7 +217,7 @@ jobs:
 
       - name: Build cmake
         run: |
-          cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=Release
+          cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
 
       - name: Build clang-format
         run: |
