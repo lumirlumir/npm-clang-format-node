@@ -8,6 +8,9 @@
     "LICENSE",
     "README.md"
   ],
+  "bin": {
+    "clang-format": "build/index.js"
+  },
   "keywords": [
     "clang-format",
     "clang",
@@ -37,9 +40,8 @@
   "scripts": {
     "prepare": "husky",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build --no-comments --compact true --minified",
-    "test": "concurrently \"npm:test-*\"",
-    "test-tests": "npx mocha ./tests --inline-diffs true",
+    "build": "npx babel src -d build --no-comments --compact true --minified && cp -r src/bin build",
+    "test": "npx mocha ./tests --inline-diffs true",
     "coverage": "npx nyc --reporter=lcov npm run test",
     "lint": "concurrently \"npm:lint-*\"",
     "lint-eslint": "npx eslint . --ext .js",
@@ -76,7 +78,7 @@
     "*.js": "npx eslint",
     "*.md": "npx markdownlint",
     "{src,tests}/**": [
-      "npm run test-tests"
+      "npm run test"
     ]
   }
 }
