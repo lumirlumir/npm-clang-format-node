@@ -77,7 +77,7 @@
     ],
     "*.js": "npx eslint",
     "*.md": "npx markdownlint",
-    "{src,tests}/**": [
+    "{src,tests}/**/!(index.js)": [
       "npm run test"
     ]
   }
