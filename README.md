@@ -4,7 +4,7 @@
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
-![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release(LLVM%20version)&color=violet)
+![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 
 Node repackaging(wrapping) of the `clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
 
