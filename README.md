@@ -10,6 +10,12 @@ Node repackaging(wrapping) of the `clang-format` native binary inspired by ['ang
 
 This package intends to release a new npm package for every **latest** release of the `clang-format`. It **checks** for the latest LLVM release every week, builds `clang-format` using its own pipeline, and makes a **pull request**. All processes are run automatically. If you are interested in build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml)
 
+## Why I started this project
+
+['angular/clang-format'](https://github.com/angular/clang-format) is no longer maintained. (See [#79](https://github.com/angular/clang-format/issues/79) [#82](https://github.com/angular/clang-format/issues/82) [#83](https://github.com/angular/clang-format/pull/83)) Nevertheless, new versions of `clang-format` continue to be released. Bugs are fixed, and new features are added. However, using `clang-format` directly in a Node.js environment without any support can be somewhat cumbersome. So I decided to make a **new**, **maintained** one.
+
+Note that some feautures from 'angular/clang-format' are not included in this package. Specifically `check-clang-format` and `git-clang-format` are not used. There are a few reasons for this. Both commands **rely on Python**, so if you haven't installed Python, they cannot be executed. Many people would prefer if this package worked without dependencies beyond Node.js. **So, this package relies only on Node.js.** See the [Migration](#migration-from-angularclang-format) for alternative methods to `check-clang-format` and `git-clang-format`.
+
 ## Supported OS platforms and architectures
 
 It supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/main/BUILDING.md#strategy) and some [**Tier2**](https://github.com/nodejs/node/blob/main/BUILDING.md#strategy) platforms of Node.js. *Note that the functionality cannot be guaranteed on platforms which is not mentioned below*.
@@ -114,7 +120,51 @@ To match all files in a directory, use e.g. `foo/bar/*`. To match all files in t
 
 ### Use with `husky` and `lint-staged`
 
-Ensuring that changes to your code are properly formatted is an important part of your development workflow.
+Ensuring that changes to your code are properly formatted is an important part of your development workflow. Use `husky` and `lint-staged` for your continuous integration process.
+
+#### `husky` (v8.x)
+
+```bash
+# .husky/pre-commit
+
+npx lint-staged
+```
+
+#### `lint-staged` (v15.x)
+
+```json
+/* package.json */
+
+{
+  // ...
+  "lint-staged": {
+    "*.{c,cpp,h}": "npx clang-format -Werror -n",
+  }
+  // ...
+}
+```
+
+> [!TIP]
+>
+> If `example1.cpp` and `example2.c` are staged, then `npx clang-format -Werror -n example1.cpp example2.c` will be excuted.
+
+## Migration from 'angular/clang-format'
+
+### `check-clang-format`
+
+This package only uses native `clang-format` features to check formatting. The following commands will produce an error if the target files are not correctly formatted. So use them with `husky` and `lint-staged`. (`--dry-run` and `-n` options are equivalent.)
+
+```bash
+npx clang-format -Werror --dry-run example.cpp
+```
+
+```bash
+npx clang-format -Werror -n example.cpp
+```
+
+### `git-clang-format`
+
+Use [`husky`](https://typicode.github.io/husky/) and [`lint-staged`](https://github.com/lint-staged/lint-staged) for the `pre-commit` hook instead. See [Use with `husky` and `lint-staged`](#use-with-husky-and-lint-staged) for details.
 
 ## Contributing
 
