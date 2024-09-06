@@ -168,6 +168,12 @@ To recursively search for all `.cpp` files in the current directory, use:
 npx clang-format $(find . -name "*.cpp")
 ```
 
+If the argument list is too long, use `xargs`. And if file names contain spaces or special characters, use `-print0` and `-0` options. `-print0` makes `find` output file names separated by null characters (`\0`), and `-0` tells `xargs` to correctly handle these null-separated file names.
+
+```bash
+find . -name "*.cpp" -print0 | xargs -0 npx clang-format
+```
+
 #### With regular expressions
 
 To recursively search for all `.cpp` and `.h` files in the current directory using a regular expression, use:
