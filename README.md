@@ -71,6 +71,14 @@ yarn add --dev clang-format-node
 
 If you want to learn more about `clang-format` itself, see the [`clang-format style options`](https://clang.llvm.org/docs/ClangFormatStyleOptions.html).
 
+> [!TIP]
+>
+> `clang-format` can take multiple files as arguments.
+>
+> ```bash
+> npx clang-format -n -Werror file1.cpp file2.cpp src/file3.cpp
+> ```
+
 ### Basic
 
 #### Global
@@ -87,21 +95,53 @@ Use `npx` to run a locally installed package.
 npx clang-format [options] [@<file>] [<file> ...]
 ```
 
-#### Help
+#### Frequently used commands
 
-Use `--help` to view additional options.
+1. `--version`: Check the version of `clang-format`.
 
-```bash
-npx clang-format --help
-```
+    ``` bash
+    npx clang-format --version
+    ```
 
-> [!TIP]
->
-> `clang-format` can take multiple files as arguments.
->
-> ```bash
-> npx clang-format -n -Werror file1.cpp file2.cpp src/file3.cpp
-> ```
+1. `--help`: Help view additional options.
+
+    ```bash
+    npx clang-format --help
+    ```
+
+1. `--dry-run` or `-n`: Makes an **WARNING** when `example.cpp` is not correctly formatted.
+
+    `--dry-run` and `-n` options are equivalent.
+
+    ```bash
+    npx clang-format --dry-run example.cpp
+    ```
+
+    ```bash
+    npx clang-format -n example.cpp
+    ```
+
+1. `-Werror --dry-run` or `-Werror -n`: Makes an **ERROR** when `example.cpp` is not correctly formatted.
+
+    > Similar to `eslint` or `prettier --check` commands.
+
+    `--dry-run` and `-n` options are equivalent.
+
+    ```bash
+    npx clang-format -Werror --dry-run example.cpp
+    ```
+
+    ```bash
+    npx clang-format -Werror -n example.cpp
+    ```
+
+1. `-i`: Automatically fix unformatted files.
+
+    > Similar to `eslint --fix` or `prettier --write` commands.
+
+    ```bash
+    npx clang-format -i example.cpp
+    ```
 
 ### [`.clang-format-ignore`](https://clang.llvm.org/docs/ClangFormat.html#clang-format-ignore)
 
