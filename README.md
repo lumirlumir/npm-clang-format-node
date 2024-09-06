@@ -152,6 +152,38 @@ npx clang-format [options] [@<file>] [<file> ...]
     npx clang-format -i example.cpp
     ```
 
+### Glob patterns
+
+Unfortunately, there is no way to apply `clang-format` recursively. `*.cpp` will only match files in the current directory, not subdirectories. Even `**/*` doesn't work.
+
+**So, you need to use the `find` command in Linux.** If you are a Windows user, use ***git bash***. then you can use the `find` command. The `find` command recursively searches through directories.
+
+It is simple but can produce an error if the [**Argument list is too long**](https://stackoverflow.com/questions/11289551/argument-list-too-long-error-for-rm-cp-mv-commands). In that case, use `xargs`
+
+#### Basic
+
+To recursively search for all `.cpp` files in the current directory, use:
+
+```bash
+npx clang-format $(find . -name "*.cpp")
+```
+
+#### With regular expressions
+
+To recursively search for all `.cpp` and `.h` files in the current directory using a regular expression, use:
+
+```bash
+npx clang-format $(find . -regex ".*\.\(cpp\|h\)")
+```
+
+#### With negation patterns
+
+To exclude `excluded_file.cpp` from the `.cpp` files, use:
+
+```bash
+npx clang-format $(find . -name "*.cpp" ! -name "excluded_file.cpp")
+```
+
 ### [`.clang-format-ignore`](https://clang.llvm.org/docs/ClangFormat.html#clang-format-ignore)
 
 You can create `.clang-format-ignore` files to make `clang-format` ignore certain files. A `.clang-format-ignore` file consists of patterns of file path names. It has the following format:
@@ -183,7 +215,7 @@ npx lint-staged
 
 1. Check
 
-    ```json
+    ```jsonc
     /* package.json */
 
     {
@@ -197,7 +229,7 @@ npx lint-staged
 
 1. Fix
 
-    ```json
+    ```jsonc
     /* package.json */
 
     {
