@@ -103,6 +103,15 @@ npx clang-format [options] [@<file>] [<file> ...]
     npx clang-format --version
     ```
 
+    Output example
+
+    ```bash
+    clang-format version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+    ```
+
+    - `https://github.com/llvm/llvm-project`: Git repository URL for the LLVM project, which includes Clang.
+    - `3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff`: The commit hash of the Git repository where the source code for that version is stored. This hash allows you to precisely trace which source code version was used to generate `clang-format`.
+
 1. `--help`: Help view additional options.
 
     ```bash
@@ -172,17 +181,33 @@ npx lint-staged
 
 #### `lint-staged` (v15.x)
 
-```json
-/* package.json */
+1. Check
 
-{
-  // ...
-  "lint-staged": {
-    "*.{c,cpp,h}": "npx clang-format -Werror -n",
-  }
-  // ...
-}
-```
+    ```json
+    /* package.json */
+
+    {
+      // ...
+      "lint-staged": {
+        "*.{c,cpp,h}": "npx clang-format -Werror -n",
+      }
+      // ...
+    }
+    ```
+
+1. Fix
+
+    ```json
+    /* package.json */
+
+    {
+      // ...
+      "lint-staged": {
+        "*.{c,cpp,h}": "npx clang-format -i",
+      }
+      // ...
+    }
+    ```
 
 > [!TIP]
 >
@@ -277,6 +302,12 @@ s390x              | `s390x`                        | `SystemZ` | `s390x`       
 x64                | `x64`                          | `X86`     | `amd64`         | `amd64`             |
 
 [^1]: `le` stands for little-endian, but the `os.arch()` function does not distinguish between endianness and returns a single value.
+
+### Build process
+
+Some packages for **cross-compilation** have been deprecated, making it difficult to make build processes directly, so **cross-compilation** is not used.
+
+**Linux** is built using QEMU and Docker. **macOS** and **Windows** are built using the `macos-13`, `macos-14`, and `windows-latest` runners on GitHub Actions.
 
 ## Versioning
 
