@@ -2,6 +2,12 @@ name: llvm-build-bump-pr
 
 on:
   workflow_dispatch:
+    inputs:
+      force-run:
+        description: Force run
+        required: false
+        default: false
+        type: boolean
 
   schedule:
     - cron: '0 1 * * 1'
@@ -57,7 +63,7 @@ jobs:
 
     needs: [stage1]
 
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     strategy:
       matrix:
@@ -137,7 +143,7 @@ jobs:
 
     needs: [stage1]
 
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
       - name: Set up node
@@ -191,7 +197,7 @@ jobs:
 
     needs: [stage1]
 
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' }}
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
       - name: Set up node
