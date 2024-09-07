@@ -103,6 +103,7 @@ jobs:
               -DCMAKE_BUILD_TYPE=MinSizeRel &&
 
             ninja -C build clang-format &&
+            chmod 755 build/bin/clang-format &&
 
             echo clang-format version info &&
 
@@ -172,6 +173,7 @@ jobs:
       - name: Build clang-format
         run: |
           ninja -C build clang-format
+          chmod 755 build/bin/clang-format
 
       - name: Debug clang-format version
         run: |
