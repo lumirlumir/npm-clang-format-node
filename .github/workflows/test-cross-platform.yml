@@ -12,9 +12,9 @@ jobs:
     strategy:
       matrix:
         os-version:
-          - macos-14-large # macos-latest-large or macos-14-large
+          # - macos-14-large # macos-latest-large or macos-14-large
           - macos-14 # macos-latest, macos-14, macos-latest-xlarge or macos-14-xlarge
-          - macos-13-xlarge # macos-13-xlarge
+          # - macos-13-xlarge # macos-13-xlarge
           - macos-13 # macos-13 or macos-13-large
           - macos-12 # macos-12 or macos-12-large
           - ubuntu-24.04 # ubuntu-24.04
