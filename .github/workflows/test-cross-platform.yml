@@ -49,5 +49,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Chmod
+        run: npm run postinstall
+
+      - name: Debug Permission
+        if: runner.os != 'Windows'
+        run: ls build/bin -alR
+
       - name: Test
         run: npx clang-format --version
