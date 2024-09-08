@@ -57,8 +57,61 @@ jobs:
       LLVM_LATEST_RELEASE_TAG_NAME: ${{ env.LLVM_LATEST_RELEASE_TAG_NAME }}
       IS_LATEST: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME == env.LLVM_LATEST_RELEASE_TAG_NAME }}
 
-  # Linux
-  stage2-build-linux:
+  # Linux-x64
+  stage2-build-linux-x64:
+    runs-on: ubuntu-latest
+
+    needs: [stage1]
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
+
+    steps:
+      - name: Set up node
+        uses: actions/setup-node@v4
+
+      - name: Set up os platform and os arch
+        run: |
+          OS_PLATFORM=$(node -p "require('os').platform()")
+          echo "OS_PLATFORM=$OS_PLATFORM" >> $GITHUB_ENV
+          echo "OS_PLATFORM: $OS_PLATFORM"
+
+          OS_ARCH=$(node -p "require('os').arch()")
+          echo "OS_ARCH=$OS_ARCH" >> $GITHUB_ENV
+          echo "OS_ARCH: $OS_ARCH"
+
+      - name: Set up checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.LLVM_REPO }}
+          ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
+
+      - name: Set up dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y python3 g++ cmake ninja-build
+
+      - name: Build cmake
+        run: |
+          cmake -S llvm -B build -G Ninja \
+            -DLLVM_ENABLE_PROJECTS="clang" \
+            -DCMAKE_BUILD_TYPE=MinSizeRel
+
+      - name: Build clang-format
+        run: |
+          ninja -C build clang-format
+
+      - name: Debug clang-format version
+        run: |
+          build/bin/clang-format --version
+
+      - name: Download artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: build/bin/clang-format
+
+  # Linux-qemu(cross-platform)
+  stage2-build-linux-qemu:
     runs-on: ubuntu-latest
 
     needs: [stage1]
@@ -68,9 +121,6 @@ jobs:
     strategy:
       matrix:
         docker:
-          - arch: amd64
-            image: amd64
-            node-name: x64
           - arch: arm/v7
             image: arm32v7
             node-name: arm
@@ -95,7 +145,7 @@ jobs:
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.arch }} ${{ matrix.docker.image }}/ubuntu:20.04 /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.arch }} ${{ matrix.docker.image }}/ubuntu:22.04 /bin/bash -c "
             export DEBIAN_FRONTEND=noninteractive &&
 
             uname -m &&
@@ -196,7 +246,7 @@ jobs:
   # Windows
   stage2-build-win32:
     # Use the oldest version possible for backward compatibility.
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     needs: [stage1]
 
@@ -248,7 +298,14 @@ jobs:
   stage3:
     runs-on: ubuntu-latest
 
-    needs: [stage1, stage2-build-linux, stage2-build-darwin, stage2-build-win32]
+    needs:
+      [
+        stage1,
+        stage2-build-linux-x64,
+        stage2-build-linux-qemu,
+        stage2-build-darwin,
+        stage2-build-win32,
+      ]
 
     steps:
       - name: Set up checkout
