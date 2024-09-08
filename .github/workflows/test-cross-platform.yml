@@ -42,6 +42,10 @@ jobs:
         if: runner.os == 'Linux'
         run: ldd --version
 
+      - name: Debug Permission
+        if: runner.os != 'Windows'
+        run: ls build/bin -alR
+
       - name: Build
         run: npm run build
 
