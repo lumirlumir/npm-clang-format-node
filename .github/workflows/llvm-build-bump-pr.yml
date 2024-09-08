@@ -63,7 +63,7 @@ jobs:
 
     needs: [stage1]
 
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false'  || inputs.force-run }}
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
       - name: Set up node
