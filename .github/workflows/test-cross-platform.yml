@@ -50,7 +50,7 @@ jobs:
 
       - name: Debug Permission
         if: runner.os != 'Windows'
-        run: ls build/bin -alR
+        run: ls -alR build/bin
 
       - name: Test
         run: npx clang-format --version
