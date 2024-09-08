@@ -96,6 +96,8 @@ jobs:
       - name: Docker run
         run: |
           docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.arch }} ${{ matrix.docker.image }}/ubuntu:20.04 /bin/bash -c "
+            export DEBIAN_FRONTEND=noninteractive &&
+
             uname -m &&
             pwd &&
 
