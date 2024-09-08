@@ -10,32 +10,38 @@ Node repackaging(wrapping) of the `clang-format` native binary inspired by ['ang
 
 This package intends to release a new npm package for every **latest** release of the `clang-format`. It **checks** for the latest LLVM release every week, builds `clang-format` using its own pipeline, and makes a **pull request**. All processes are run automatically. If you are interested in build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml)
 
+> [!IMPORTANT]
+>
+> Please participate in the issue regarding the introduction of a **glob pattern**. Click [here](https://github.com/lumirlumir/npm-clang-format-node/issues/14).
+
 ## Why I started this project
 
 ['angular/clang-format'](https://github.com/angular/clang-format) is no longer maintained. (See [#79](https://github.com/angular/clang-format/issues/79) [#82](https://github.com/angular/clang-format/issues/82) [#83](https://github.com/angular/clang-format/pull/83)) Nevertheless, new versions of `clang-format` continue to be released. Bugs are fixed, and new features are added. However, using `clang-format` directly in a Node.js environment without any support can be somewhat cumbersome. So I decided to make a **new**, **maintained** one.
 
 Note that some feautures from 'angular/clang-format' are not included in this package. Specifically `check-clang-format` and `git-clang-format` are not used. There are a few reasons for this. Both commands **rely on Python**, so if you haven't installed Python, they cannot be executed. Many people would prefer if this package worked without dependencies beyond Node.js. **So, this package relies only on Node.js.** See the [Migration](#migration-from-angularclang-format) for alternative methods to `check-clang-format` and `git-clang-format`.
 
-## Supported OS platforms and architectures
+## Supported
+
+### OS Platforms and Architectures
 
 It supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/main/BUILDING.md#strategy) and some [**Tier2**](https://github.com/nodejs/node/blob/main/BUILDING.md#strategy) platforms of Node.js. *Note that the functionality cannot be guaranteed on platforms which is not mentioned below*.
 
 (To see the full list of platforms supported by Node.js, click [here](<https://github.com/nodejs/node/blob/main/BUILDING.md#platform-list>).)
 
-<br> | Operating System | Architectures    | Versions                          | Support Type |
----- | ---------------- | ---------------- | --------------------------------- | ------------ |
-1    | macOS            | arm64            | >= 11.0                           | Tier 1       |
-2    | macOS            | x64              | >= 11.0                           | Tier 1       |
-3    | GNU/Linux        | armv7            | kernel >= 4.18, glibc >= 2.28     | Tier 1       |
-4    | GNU/Linux        | arm64            | kernel >= 4.18, glibc >= 2.28     | Tier 1       |
-5    | GNU/Linux        | ppc64le >=power8 | kernel >= 4.18, glibc >= 2.28     | Tier 2       |
-6    | GNU/Linux        | s390x            | kernel >= 4.18, glibc >= 2.28     | Tier 2       |
-7    | GNU/Linux        | x64              | kernel >= 4.18, glibc >= 2.28     | Tier 1       |
-8    | Windows          | x64              | >= Windows 10/Server 2016         | Tier 1       |
+<br> | Operating System | Architectures    | Support Type |
+---- | ---------------- | ---------------- | ------------ |
+1    | macOS            | arm64            | Tier 1       |
+2    | macOS            | x64              | Tier 1       |
+3    | GNU/Linux        | armv7            | Tier 1       |
+4    | GNU/Linux        | arm64            | Tier 1       |
+5    | GNU/Linux        | ppc64le >=power8 | Tier 2       |
+6    | GNU/Linux        | s390x            | Tier 2       |
+7    | GNU/Linux        | x64              | Tier 1       |
+8    | Windows          | x64              | Tier 1       |
 
 > [!TIP]
 >
-> 1. If your platform isn't yet supported, you can build the `clang-format` native binary from the latest upstream clang sources. Refer to [`docs/llvm-build-linux.sh`](/docs/llvm-build-linux.sh) and [`docs/llvm-build-linux-x64.yml`](/docs/llvm-build-linux-x64.yml) for the Linux build scripts for **Shell** and **GitHub Actions**, respectively.
+> 1. If your platform isn't yet supported, you can build the `clang-format` native binary from the latest upstream clang sources. Refer to [`docs/llvm-build-linux.sh`](/docs/llvm-build-linux.sh) and [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml) for the build scripts for **Linux Shell** and **GitHub Actions**, respectively.
 >
 > 1. Or you can download `clang-format` native binary from [LLVM release assets](https://github.com/llvm/llvm-project/releases) that match your operating system platform and architecture like the lists below.
 >
@@ -44,6 +50,47 @@ It supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/main/BUILDIN
 >     - `clang+llvm-18.1.7-powerpc64-ibm-aix-7.2.tar.xz`
 >     - `clang+llvm-18.1.7-x86_64-pc-windows-msvc.tar.xz`
 >     - `and more...`
+
+### [GitHub Actions Runner Images](https://github.com/actions/runner-images?tab=readme-ov-file#available-images)
+
+If you want to use `clang-format-node` in continuous integration (CI), You can use **GitHub Actions**. The following basic runner images are compatible(available) with `clang-format-node`.
+
+Image                        | YAML Label                                                             | Included Software |
+---------------------------- | ---------------------------------------------------------------------- | ----------------- |
+macOS 14                     | `macos-latest-large` or `macos-14-large`                               | [macOS-14]        |
+macOS 14 Arm64               | `macos-latest`, `macos-14`, `macos-latest-xlarge` or `macos-14-xlarge` | [macOS-14-arm64]  |
+macOS 13                     | `macos-13` or `macos-13-large`                                         | [macOS-13]        |
+macOS 13 Arm64               | `macos-13-xlarge`                                                      | [macOS-13-arm64]  |
+macOS 12                     | `macos-12` or `macos-12-large`                                         | [macOS-12]        |
+Ubuntu 24.04 <sup>beta</sup> | `ubuntu-24.04`                                                         | [ubuntu-24.04]    |
+Ubuntu 22.04                 | `ubuntu-latest` or `ubuntu-22.04`                                      | [ubuntu-22.04]    |
+Windows Server 2022          | `windows-latest` or `windows-2022`                                     | [windows-2022]    |
+
+However, the following basic runner images are **NOT** compatible(available) with `clang-format-node`. It's because the ***dependencies*** for LLVM's latest release version are not compatible with the following images.
+
+Image                   | YAML Label     | Included Software |
+----------------------- | -------------- | ----------------- |
+~~Ubuntu 20.04~~        | `ubuntu-20.04` | [ubuntu-20.04]    |
+~~Windows Server 2019~~ | `windows-2019` | [windows-2019]    |
+
+### Docker(Build) Images
+
+I used the following Images to build `clang-format` excuatable binaries.
+
+> [!TIP]
+>
+> If you want to see which software is included in **GitHub Actions runner**, click [here](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) and refer to the 'Included Software' column.
+
+binary folder name | Build(Docker) Image                                                |
+------------------ | ------------------------------------------------------------------ |
+`darwin-arm64`     | GitHub Actions runner `macos-14`                                   |
+`darwin-x64`       | GitHub Actions runner `macos-12`                                   |
+`linux-arm`        | [`arm32v7/ubuntu:22.04`](https://hub.docker.com/r/arm32v7/ubuntu/) |
+`linux-arm64`      | [`arm64v8/ubuntu:22.04`](https://hub.docker.com/r/arm64v8/ubuntu/) |
+`linux-ppc64`      | [`ppc64le/ubuntu:22.04`](https://hub.docker.com/r/ppc64le/ubuntu/) |
+`linux-s390x`      | [`s390x/ubuntu:22.04`](https://hub.docker.com/r/s390x/ubuntu/)     |
+`linux-x64`        | GitHub Actions runner `ubuntu-22.04`                               |
+`win32-x64`        | GitHub Actions runner `windows-2022`                               |
 
 ## Installation
 
@@ -321,7 +368,7 @@ I recommend you to read the guides on [LLVM and clang-format mentioned in issues
 
 The return value is equivalent to `process.platform`.
 
-OS      | return value of `os.platform()` |
+OS      | return value of `os.platform()`    |
 ------- | ---------------------------------- |
 macOS   | `darwin`                           |
 Linux   | `linux`                            |
@@ -331,7 +378,7 @@ Windows | `win32`                            |
 
 The return value is equivalent to `process.arch`.
 
-Architecture       | return value of `os.arch()` | LLVM      | Docker Platform | Docker Ubuntu Image |
+Architecture       | return value of `os.arch()`    | LLVM      | Docker Platform | Docker Ubuntu Image |
 ------------------ | ------------------------------ | --------- | --------------- | ------------------- |
 arm(armv7, armv7l) | `arm`                          | `ARM`     | `arm/v7`        | `arm32v7`           |
 arm64              | `arm64`                        | `AArch64` | `arm64/v8`      | `arm64v8`           |
@@ -343,9 +390,9 @@ x64                | `x64`                          | `X86`     | `amd64`       
 
 ### Build process
 
-Some packages for **cross-compilation** have been deprecated, making it difficult to make build processes directly, so **cross-compilation** is not used.
+Some packages for **cross-compilation** have been deprecated, making it difficult to make build processes directly, so **cross-compilation** is not used. Instead, I utilize **QEMU** and **Docker** to build cross-compiled binaries.
 
-**Linux** is built using QEMU and Docker. **macOS** and **Windows** are built using the `macos-13`, `macos-14`, and `windows-latest` runners on GitHub Actions.
+If you want to learn more about the images I used, see [Docker(Build) Images](#dockerbuild-images)
 
 ## Versioning
 
