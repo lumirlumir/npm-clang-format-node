@@ -12,12 +12,16 @@ jobs:
     strategy:
       matrix:
         os-version:
-          - macos-14
-          - macos-13
-          - macos-12
-          - ubuntu-24.04
-          - ubuntu-22.04
-          - windows-2022
+          # - macos-14-large # macos-latest-large or macos-14-large
+          - macos-14 # macos-latest, macos-14, macos-latest-xlarge or macos-14-xlarge
+          # - macos-13-xlarge # macos-13-xlarge
+          - macos-13 # macos-13 or macos-13-large
+          - macos-12 # macos-12 or macos-12-large
+          - ubuntu-24.04 # ubuntu-24.04
+          - ubuntu-22.04 # ubuntu-latest or ubuntu-22.04
+          # - ubuntu-20.04 # ubuntu-20.04
+          - windows-2022 # windows-latest or windows-2022
+          # - windows-2019 # windows-2019
 
     runs-on: ${{ matrix.os-version }}
 
@@ -49,4 +53,4 @@ jobs:
         run: ls -alR build/bin
 
       - name: Test
-        run: npx clang-format --version
+        run: npx --no-install clang-format --version
