@@ -2,6 +2,7 @@
 
 [![lint](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml)
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
+[![test-cross-platform](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
 ![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
@@ -81,7 +82,7 @@ I used the following Images to build `clang-format` excuatable binaries.
 >
 > If you want to see which software is included in **GitHub Actions runner**, click [here](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) and refer to the 'Included Software' column.
 
-binary folder name | Build(Docker) Image                                                |
+Binary Folder Name | Build(Docker) Image                                                |
 ------------------ | ------------------------------------------------------------------ |
 `darwin-arm64`     | GitHub Actions runner `macos-14`                                   |
 `darwin-x64`       | GitHub Actions runner `macos-12`                                   |
@@ -368,7 +369,7 @@ I recommend you to read the guides on [LLVM and clang-format mentioned in issues
 
 The return value is equivalent to `process.platform`.
 
-OS      | return value of `os.platform()`    |
+OS      | Return value of `os.platform()`    |
 ------- | ---------------------------------- |
 macOS   | `darwin`                           |
 Linux   | `linux`                            |
@@ -378,7 +379,7 @@ Windows | `win32`                            |
 
 The return value is equivalent to `process.arch`.
 
-Architecture       | return value of `os.arch()`    | LLVM      | Docker Platform | Docker Ubuntu Image |
+Architecture       | Return value of `os.arch()`    | LLVM      | Docker Platform | Docker Ubuntu Image |
 ------------------ | ------------------------------ | --------- | --------------- | ------------------- |
 arm(armv7, armv7l) | `arm`                          | `ARM`     | `arm/v7`        | `arm32v7`           |
 arm64              | `arm64`                        | `AArch64` | `arm64/v8`      | `arm64v8`           |
