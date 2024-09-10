@@ -10,7 +10,7 @@ changelog:
       labels:
         - feat
 
-    - title: 🐛 Bugfixes
+    - title: 🐛 Bug Fixes
       labels:
         - fix
 
@@ -28,7 +28,7 @@ changelog:
       labels:
         - test
 
-    - title: ⬆️ Dependency updates
+    - title: ⬆️ Dependency Updates
       labels:
         - dependencies
 

@@ -2,10 +2,10 @@ on:
   workflow_dispatch:
     inputs:
       type:
-        description: 'Select the type of version bump'
+        description: Select the type of version bump
         required: true
         type: choice
-        default: 'patch'
+        default: patch
         options:
           - patch
           - minor
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GH_TOKEN: ${{ secrets.GH_PAT }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Set up checkout
@@ -37,28 +37,23 @@ jobs:
       - name: Set up node_modules
         run: npm ci
 
-      - name: Set up SHA
-        run: echo "SHORT_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: Set up environment variables
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+          echo "OLD_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
-      - name: Set up old version
-        run: echo "OLD_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
-
-      - name: Set up github
+      - name: Bump
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'actions@github.com'
           git switch -c release-${{ inputs.type }}-${{ env.SHORT_SHA }}
-
-      - name: Bump
-        run: |
           npm version ${{ inputs.type }} -m "release(${{ inputs.type }}): v%s"
 
-      - name: Set up new version
+      - name: Set up environment variables
         run: echo "NEW_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
       - name: Push
-        run: |
-          git push --set-upstream origin release-${{ inputs.type }}-${{ env.SHORT_SHA }}
+        run: git push --set-upstream origin release-${{ inputs.type }}-${{ env.SHORT_SHA }}
 
       - name: Create pull request
         run: |
