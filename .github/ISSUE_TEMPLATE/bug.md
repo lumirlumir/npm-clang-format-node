@@ -22,7 +22,7 @@ title: 'Bug: '
 Link to code example:
 
 <!--
-  Please provide a CodeSandbox, a link to a repository on GitHub, or provide a minimal code example that reproduces the problem.
+  Provide a CodeSandbox, link to a repository on GitHub, or minimal code example that reproduces the problem.
   You may provide a screenshot of the application if you think it is relevant to your bug report.
   Here are some tips for providing a minimal example: https://stackoverflow.com/help/mcve.
 -->
