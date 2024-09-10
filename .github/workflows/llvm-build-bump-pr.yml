@@ -225,7 +225,7 @@ jobs:
       - name: Set up dependencies
         run: |
           brew update
-          brew install python3 cmake ninja
+          brew install ninja
 
       - name: Build cmake
         run: |
