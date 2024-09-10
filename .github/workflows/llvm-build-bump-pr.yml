@@ -61,7 +61,7 @@ jobs:
   stage2-build-linux-x64:
     runs-on: ubuntu-22.04
 
-    needs: [stage1]
+    needs: stage1
 
     if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
@@ -69,7 +69,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v4
 
-      - name: Set up os platform and os arch
+      - name: Set up os platform and os arch environment variables
         run: |
           OS_PLATFORM=$(node -p "require('os').platform()")
           echo "OS_PLATFORM=$OS_PLATFORM" >> $GITHUB_ENV
@@ -97,12 +97,10 @@ jobs:
             -DCMAKE_BUILD_TYPE=MinSizeRel
 
       - name: Build clang-format
-        run: |
-          ninja -C build clang-format
+        run: ninja -C build clang-format
 
       - name: Debug clang-format version
-        run: |
-          build/bin/clang-format --version
+        run: build/bin/clang-format --version
 
       - name: Download artifact
         uses: actions/upload-artifact@v4
@@ -114,68 +112,74 @@ jobs:
   stage2-build-linux-qemu:
     runs-on: ubuntu-22.04
 
-    needs: [stage1]
+    needs: stage1
 
     if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     strategy:
       matrix:
         docker:
-          - arch: arm/v7
-            image: arm32v7
+          - platform: arm/v7
+            ubuntu-image: arm32v7
             node-name: arm
-          - arch: arm64/v8
-            image: arm64v8
+          - platform: arm64/v8
+            ubuntu-image: arm64v8
             node-name: arm64
-          - arch: ppc64le
-            image: ppc64le
+          - platform: ppc64le
+            ubuntu-image: ppc64le
             node-name: ppc64
-          - arch: s390x
-            image: s390x
+          - platform: s390x
+            ubuntu-image: s390x
             node-name: s390x
 
     steps:
       - name: Debug matrix
-        run: echo ${{ matrix.docker.arch }} ${{ matrix.docker.image }} ${{ matrix.docker.node-name }}
+        run: echo ${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }} ${{ matrix.docker.node-name }}
 
       - name: Set up QEMU
-        run: |
-          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+        run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.arch }} ${{ matrix.docker.image }}/ubuntu:22.04 /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 /bin/bash -c "
+            echo ---Set up environment variables--- &&
             export DEBIAN_FRONTEND=noninteractive &&
 
+            echo ---Debug uname -m--- &&
             uname -m &&
+
+            echo ---Debug pwd--- &&
             pwd &&
 
+            echo ---Set up dependencies--- &&
             apt update -y &&
             apt install -y git python3 g++ cmake ninja-build &&
 
+            echo ---Set up checkout--- &&
             git clone --depth 1 --branch ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} https://github.com/${{ env.LLVM_REPO }}.git &&
             cd ${{ env.LLVM_REPO_SHORT }} &&
 
+            echo ---Build cmake--- &&
             cmake -S llvm -B build -G Ninja \
               -DLLVM_ENABLE_PROJECTS="clang" \
               -DCMAKE_BUILD_TYPE=MinSizeRel &&
 
+            echo ---Build clang-format--- &&
             ninja -C build clang-format &&
 
-            echo clang-format version info &&
-
+            echo ---Debug clang-format version--- &&
             build/bin/clang-format --version &&
+
+            echo ---Debug uname -m--- &&
             uname -m
           "
 
       - name: Copy file from Docker container
-        run: |
-          docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./linux-${{ matrix.docker.node-name }}
+        run: docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./linux-${{ matrix.docker.node-name }}
 
       - name: Debug copied build folder
-        run: |
-          ls ./linux-${{ matrix.docker.node-name }}
+        run: ls ./linux-${{ matrix.docker.node-name }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -194,7 +198,7 @@ jobs:
     # Use the oldest version possible for backward compatibility.
     runs-on: ${{ matrix.type }}
 
-    needs: [stage1]
+    needs: stage1
 
     if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
@@ -202,7 +206,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v4
 
-      - name: Set up os platform and os arch
+      - name: Set up os platform and os arch environment variables
         run: |
           OS_PLATFORM=$(node -p "require('os').platform()")
           echo "OS_PLATFORM=$OS_PLATFORM" >> $GITHUB_ENV
@@ -230,12 +234,10 @@ jobs:
             -DCMAKE_BUILD_TYPE=MinSizeRel
 
       - name: Build clang-format
-        run: |
-          ninja -C build clang-format
+        run: ninja -C build clang-format
 
       - name: Debug clang-format version
-        run: |
-          build/bin/clang-format --version
+        run: build/bin/clang-format --version
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -248,7 +250,7 @@ jobs:
     # Use the oldest version possible for backward compatibility.
     runs-on: windows-2022
 
-    needs: [stage1]
+    needs: stage1
 
     if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
@@ -256,7 +258,7 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v4
 
-      - name: Set up os platform and os arch
+      - name: Set up os platform and os arch environment variables
         run: |
           $OS_PLATFORM = node -p "require('os').platform()"
           echo "OS_PLATFORM=$OS_PLATFORM" >> $env:GITHUB_ENV
@@ -273,20 +275,16 @@ jobs:
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
 
       - name: Set up dependencies
-        run: |
-          choco install -y python cmake ninja
+        run: choco install -y python cmake ninja
 
       - name: Build cmake
-        run: |
-          cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
+        run: cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
 
       - name: Build clang-format
-        run: |
-          ninja -C build clang-format
+        run: ninja -C build clang-format
 
       - name: Debug clang-format version
-        run: |
-          build\bin\clang-format --version
+        run: build\bin\clang-format --version
 
       - name: Upload a artifact
         uses: actions/upload-artifact@v4
@@ -299,13 +297,11 @@ jobs:
     runs-on: ubuntu-latest
 
     needs:
-      [
-        stage1,
-        stage2-build-linux-x64,
-        stage2-build-linux-qemu,
-        stage2-build-darwin,
-        stage2-build-win32,
-      ]
+      - stage1
+      - stage2-build-linux-x64
+      - stage2-build-linux-qemu
+      - stage2-build-darwin
+      - stage2-build-win32
 
     steps:
       - name: Set up checkout
