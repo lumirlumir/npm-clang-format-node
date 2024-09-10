@@ -3,15 +3,19 @@ name: test-cross-platform
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
 
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
 
 jobs:
   github-actions-runner-images:
     strategy:
       matrix:
-        os-version:
+        runner-image:
           # - macos-14-large # macos-latest-large or macos-14-large
           - macos-14 # macos-latest, macos-14, macos-latest-xlarge or macos-14-xlarge
           # - macos-13-xlarge # macos-13-xlarge
@@ -23,7 +27,7 @@ jobs:
           - windows-2022 # windows-latest or windows-2022
           # - windows-2019 # windows-2019
 
-    runs-on: ${{ matrix.os-version }}
+    runs-on: ${{ matrix.runner-image }}
 
     steps:
       - name: Set up checkout
@@ -51,3 +55,55 @@ jobs:
 
       - name: Test
         run: npx clang-format --version
+
+  docker-images:
+    strategy:
+      matrix:
+        docker:
+          - platform: arm/v7
+            ubuntu-image: arm32v7
+            node-name: arm
+          - platform: arm64/v8
+            ubuntu-image: arm64v8
+            node-name: arm64
+          - platform: ppc64le
+            ubuntu-image: ppc64le
+            node-name: ppc64
+          - platform: s390x
+            ubuntu-image: s390x
+            node-name: s390x
+
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+      - name: Docker run background
+        run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
+
+      - name: Copy file to Docker container
+        run: docker cp ./src/bin/linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
+
+      - name: Docker exec
+        run: |
+          docker exec ${{ matrix.docker.node-name }} /bin/bash -c "
+            echo ---Debug uname -m--- &&
+            uname -m &&
+
+            echo ---Debug pwd--- &&
+            pwd &&
+
+            echo ---Debug ls -l /clang-format--- &&
+            ls -l /clang-format &&
+
+            echo ---Chmod--- &&
+            chmod 755 /clang-format &&
+            ls -l /clang-format &&
+
+            echo ---Test--- &&
+            /clang-format --version
+          "
