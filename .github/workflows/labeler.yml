@@ -8,10 +8,6 @@ jobs:
   labeler:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      pull-requests: write
-
     steps:
       - name: Labeler
         uses: jimschubert/labeler-action@v2
