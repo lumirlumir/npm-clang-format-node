@@ -59,7 +59,7 @@ jobs:
 
   # Linux-x64
   stage2-build-linux-x64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     needs: [stage1]
 
@@ -112,7 +112,7 @@ jobs:
 
   # Linux-qemu(cross-platform)
   stage2-build-linux-qemu:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     needs: [stage1]
 
