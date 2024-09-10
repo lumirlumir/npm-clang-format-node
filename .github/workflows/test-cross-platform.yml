@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   # stage1
   setup-env:
@@ -102,7 +106,7 @@ jobs:
             export DEBIAN_FRONTEND=noninteractive &&
 
             echo ---Set up dependencies using apt--- &&
-            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&
             apt update -y &&
             apt install -y git nodejs npm &&
 
