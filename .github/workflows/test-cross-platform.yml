@@ -7,10 +7,6 @@ on:
   pull_request:
     branches: [main]
 
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   github-actions-runner-images:
     strategy:
@@ -91,13 +87,18 @@ jobs:
       - name: Docker exec
         run: |
           docker exec ${{ matrix.docker.node-name }} /bin/bash -c "
-            echo ---Debug architecture, pwd, ls--- &&
+            echo ---Debug uname -m--- &&
             uname -m &&
+
+            echo ---Debug pwd--- &&
             pwd &&
-            ls -al &&
+
+            echo ---Debug ls -l /clang-format--- &&
+            ls -l /clang-format &&
 
             echo ---Chmod--- &&
             chmod 755 /clang-format &&
+            ls -l /clang-format &&
 
             echo ---Test--- &&
             /clang-format --version
