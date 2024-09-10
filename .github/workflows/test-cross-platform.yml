@@ -103,7 +103,7 @@ jobs:
 
             echo ---Set up dependencies using apt--- &&
             apt update -y &&
-            apt install -y git nodejs &&
+            apt install -y git nodejs npm &&
 
             echo ---Set up checkout--- &&
             git clone --depth 1 https://github.com/${{ github.repository }}.git &&
