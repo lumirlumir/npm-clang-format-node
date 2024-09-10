@@ -82,7 +82,7 @@ I used the following Images to build `clang-format` excuatable binaries.
 >
 > If you want to see which software is included in **GitHub Actions runner**, click [here](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) and refer to the 'Included Software' column.
 
-Binary Folder Name | Build(Docker) Image                                                |
+Binary Folder Name | Docker(Build) Image                                                |
 ------------------ | ------------------------------------------------------------------ |
 `darwin-arm64`     | GitHub Actions runner `macos-14`                                   |
 `darwin-x64`       | GitHub Actions runner `macos-12`                                   |
