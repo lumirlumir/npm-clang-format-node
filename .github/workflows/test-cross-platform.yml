@@ -3,9 +3,13 @@ name: test-cross-platform
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
 
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
 
 jobs:
   github-actions-runner-images:
