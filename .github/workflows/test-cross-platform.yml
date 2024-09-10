@@ -12,24 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # stage1
-  setup-env:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Set up environment variables
-        run: |
-          REPOSITORY_NAME=$(echo "${{ github.repository }}" | cut -d '/' -f2)
-          echo "REPOSITORY_NAME=$REPOSITORY_NAME" >> $GITHUB_ENV
-          echo "REPOSITORY_NAME: $REPOSITORY_NAME"
-
-    outputs:
-      REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
-
-  # stage2
   github-actions-runner-images:
-    needs: [setup-env]
-
     strategy:
       matrix:
         runner-image:
@@ -73,60 +56,49 @@ jobs:
       - name: Test
         run: npx clang-format --version
 
-  # stage2
   docker-images:
-    needs: [setup-env]
-
     strategy:
       matrix:
         docker:
           - platform: arm/v7
             ubuntu-image: arm32v7
+            node-name: arm
           - platform: arm64/v8
             ubuntu-image: arm64v8
+            node-name: arm64
           - platform: ppc64le
             ubuntu-image: ppc64le
+            node-name: ppc64
           - platform: s390x
             ubuntu-image: s390x
+            node-name: s390x
 
     runs-on: ubuntu-22.04
 
     steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
       - name: Set up QEMU
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
-      - name: Docker run
+      - name: Docker run background
+        run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04
+
+      - name: Copy file to Docker container
+        run: docker cp ./src/bin/linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
+
+      - name: Docker exec
         run: |
-          docker run --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 /bin/bash -c "
-            echo ---Debug architecture and working directory--- &&
+          docker exec ${{ matrix.docker.node-name }} /bin/bash -c "
+            echo ---Debug architecture, pwd, ls--- &&
             uname -m &&
             pwd &&
-
-            echo ---Set up environment variables--- &&
-            export DEBIAN_FRONTEND=noninteractive &&
-
-            echo ---Set up dependencies using apt--- &&
-            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&
-            apt update -y &&
-            apt install -y git nodejs npm &&
-
-            echo ---Debug nodejs and npm version--- &&
-            node -v &&
-            npm -v &&
-
-            echo ---Set up checkout--- &&
-            git clone --depth 1 https://github.com/${{ github.repository }}.git &&
-            cd ${{ needs.setup-env.outputs.REPOSITORY_NAME }} &&
-
-            echo ---Set up node_modules--- &&
-            npm ci &&
-
-            echo ---Build--- &&
-            npm run build &&
+            ls -al &&
 
             echo ---Chmod--- &&
-            npm run postinstall &&
+            chmod 755 /clang-format &&
 
             echo ---Test--- &&
-            npx clang-format --version
+            /clang-format --version
           "
