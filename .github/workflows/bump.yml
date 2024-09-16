@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_PAT }}
 
     steps:
       - name: Set up checkout
@@ -44,8 +44,8 @@ jobs:
 
       - name: Bump
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name '루밀LuMir'
+          git config --global user.email 'rpfos@naver.com'
           git switch -c release-${{ inputs.type }}-${{ env.SHORT_SHA }}
           npm version ${{ inputs.type }} -m "release(${{ inputs.type }}): v%s"
 
