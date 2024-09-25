@@ -22,6 +22,8 @@ lumirlumir/lumirlumir-configs:
   - source: ./.github/workflows/test.yml
     dest: ./configs/.github/workflows/test.yml
   # ./.github
+  - source: ./.github/CODEOWNERS
+    dest: ./configs/.github/CODEOWNERS
   - source: ./.github/dependabot.yml
     dest: ./configs/.github/dependabot.yml
   - source: ./.github/FUNDING.yml
