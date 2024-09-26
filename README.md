@@ -58,14 +58,16 @@ If you want to use `clang-format-node` in continuous integration (CI), You can u
 
 Image                        | YAML Label                                                             | Included Software |
 ---------------------------- | ---------------------------------------------------------------------- | ----------------- |
-macOS 14                     | `macos-latest-large` or `macos-14-large`                               | [macOS-14]        |
-macOS 14 Arm64               | `macos-latest`, `macos-14`, `macos-latest-xlarge` or `macos-14-xlarge` | [macOS-14-arm64]  |
-macOS 13                     | `macos-13` or `macos-13-large`                                         | [macOS-13]        |
-macOS 13 Arm64               | `macos-13-xlarge`                                                      | [macOS-13-arm64]  |
-macOS 12                     | `macos-12` or `macos-12-large`                                         | [macOS-12]        |
-Ubuntu 24.04 <sup>beta</sup> | `ubuntu-24.04`                                                         | [ubuntu-24.04]    |
-Ubuntu 22.04                 | `ubuntu-latest` or `ubuntu-22.04`                                      | [ubuntu-22.04]    |
-Windows Server 2022          | `windows-latest` or `windows-2022`                                     | [windows-2022]    |
+macOS 15                     | `macos-15-large`                                                       | macOS-15          |
+macOS 15 Arm64               | `macos-15` or `macos-15-xlarge`                                        | macOS-15-arm64    |
+macOS 14                     | `macos-latest-large` or `macos-14-large`                               | macOS-14          |
+macOS 14 Arm64               | `macos-latest`, `macos-14`, `macos-latest-xlarge` or `macos-14-xlarge` | macOS-14-arm64    |
+macOS 13                     | `macos-13` or `macos-13-large`                                         | macOS-13          |
+macOS 13 Arm64               | `macos-13-xlarge`                                                      | macOS-13-arm64    |
+macOS 12                     | `macos-12` or `macos-12-large`                                         | macOS-12          |
+Ubuntu 24.04                 | `ubuntu-latest` or `ubuntu-24.04`                                      | ubuntu-24.04      |
+Ubuntu 22.04                 | `ubuntu-22.04`                                                         | ubuntu-22.04      |
+Windows Server 2022          | `windows-latest` or `windows-2022`                                     | windows-2022      |
 
 However, the following basic runner images are **NOT** compatible(available) with `clang-format-node`. It's because the ***dependencies*** for LLVM's latest release version are not compatible with the following images.
 
