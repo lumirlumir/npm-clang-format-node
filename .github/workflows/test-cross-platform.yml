@@ -24,7 +24,7 @@ jobs:
           - ubuntu-22.04
           - windows-2022
         node-version:
-          - 14
+          - 16
 
     runs-on: ${{ matrix.runner-image }}
 
