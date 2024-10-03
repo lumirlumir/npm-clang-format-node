@@ -414,7 +414,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 The BREAKING CHANGES, features and bug fixes from [LLVM](https://github.com/llvm/llvm-project/releases) will be reflected in this package.
 
-The release title includes the LLVM version, like `v1.0.0 (llvmorg-18.1.8)`. See [`.clang-format-version`](/.clang-format-version) to check the exact current LLVM version. 
+The release title includes the LLVM version, like `v1.0.0 (llvmorg-18.1.8)`. See [`.clang-format-version`](/.clang-format-version) to check the exact current LLVM version.
 
 ## Change Log
 
