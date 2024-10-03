@@ -37,6 +37,9 @@
   "bugs": {
     "url": "https://github.com/lumirlumir/npm-clang-format-node/issues"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "prepare": "husky",
     "postinstall": "find ./build/bin -type f -exec chmod 755 {} + || true",
