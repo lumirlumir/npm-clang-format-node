@@ -23,6 +23,11 @@ jobs:
           - ubuntu-24.04
           - ubuntu-22.04
           - windows-2022
+        node-version:
+          - 22
+          - 20
+          - 18
+          - 16
 
     runs-on: ${{ matrix.runner-image }}
 
@@ -32,6 +37,8 @@ jobs:
 
       - name: Set up node
         uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Set up node_modules
         run: npm ci

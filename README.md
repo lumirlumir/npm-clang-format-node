@@ -4,6 +4,7 @@
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
 [![test-cross-platform](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
+![Node Current](https://img.shields.io/node/v/clang-format-node)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
 ![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 
@@ -51,6 +52,16 @@ It supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/main/BUILDIN
 >     - `clang+llvm-18.1.7-powerpc64-ibm-aix-7.2.tar.xz`
 >     - `clang+llvm-18.1.7-x86_64-pc-windows-msvc.tar.xz`
 >     - `and more...`
+
+### Node.js
+
+![Node Current](https://img.shields.io/node/v/clang-format-node)
+
+The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](/.github/workflows/test-cross-platform.yml).
+
+> [!NOTE]
+>
+> However, this package does not utilize the latest features of Node.js and is transpiled using Babel. Therefore, it is expected to work on versions significantly lower than the officially supported ones. (ex. `"node": ">= 0.7.10"`) Consequently, **if the current package operates on a version of Node.js that is lower than the officially supported version, it should be perfectly fine to use.**
 
 ### [GitHub Actions Runner Images](https://github.com/actions/runner-images?tab=readme-ov-file#available-images)
 
