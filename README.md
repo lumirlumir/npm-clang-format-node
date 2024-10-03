@@ -59,7 +59,9 @@ It supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/main/BUILDIN
 
 The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](/.github/workflows/test-cross-platform.yml).
 
-> [!NOTE] However, this package does not utilize the latest features of Node.js and is transpiled using Babel. Therefore, it is expected to work on versions significantly lower than the officially supported ones. (ex. `"node": ">= 0.7.10"`) Consequently, **if the current package operates on a version of Node.js that is lower than the officially supported version, it should be perfectly fine to use.**
+> [!NOTE]
+>
+> However, this package does not utilize the latest features of Node.js and is transpiled using Babel. Therefore, it is expected to work on versions significantly lower than the officially supported ones. (ex. `"node": ">= 0.7.10"`) Consequently, **if the current package operates on a version of Node.js that is lower than the officially supported version, it should be perfectly fine to use.**
 
 ### [GitHub Actions Runner Images](https://github.com/actions/runner-images?tab=readme-ov-file#available-images)
 
