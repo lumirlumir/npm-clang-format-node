@@ -2,12 +2,12 @@ lumirlumir/lumirlumir-configs:
   - source: ./.github/sync-client.yml
     dest: ./clients/npm-clang-format-node.yml
   # ./.github/ISSUE_TEMPLATE
-  - source: ./.github/ISSUE_TEMPLATE/bug.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/bug.md
-  - source: ./.github/ISSUE_TEMPLATE/others.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/others.md
-  - source: ./.github/ISSUE_TEMPLATE/suggestion.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/suggestion.md
+  - source: ./.github/ISSUE_TEMPLATE/1-bug.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/1-bug.md
+  - source: ./.github/ISSUE_TEMPLATE/2-suggestion.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/2-suggestion.md
+  - source: ./.github/ISSUE_TEMPLATE/3-others.md
+    dest: ./configs/.github/ISSUE_TEMPLATE/3-others.md
   # ./.github/workflows
   - source: ./.github/workflows/bump.yml
     dest: ./configs/.github/workflows/bump.yml
