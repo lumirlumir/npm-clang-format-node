@@ -275,7 +275,7 @@ jobs:
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
 
       - name: Set up dependencies
-        run: choco install -y python cmake ninja
+        run: choco install -y ninja
 
       - name: Build cmake
         run: cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
