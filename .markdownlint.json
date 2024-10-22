@@ -23,7 +23,11 @@
       "summary",
       "image",
       "code",
-      "kbd"
+      "kbd",
+      "mark",
+      "ruby",
+      "rp",
+      "rt"
     ]
   },
   "hr-style": {
