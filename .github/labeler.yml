@@ -5,7 +5,7 @@ enable:
   prs: true
 
 comments:
-  prs: 'Labels have been automatically applied based on the [conventional commit types](https://www.conventionalcommits.org/en/v1.0.0/) and [personal commit rules](https://blog.lumir.page/docs/conventions/git/convention-of-git-commit-message).🏷️'
+  prs: 'Labels have been automatically applied based on the [conventional commit types](https://www.conventionalcommits.org/en/v1.0.0/).🏷️'
 
 labels:
   'build':
