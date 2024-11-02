@@ -29,6 +29,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.5",
+    "lerna": "^8.1.9",
     "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.42.0",
     "mocha": "^10.7.3",
