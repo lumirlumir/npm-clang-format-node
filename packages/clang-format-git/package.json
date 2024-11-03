@@ -1,0 +1,56 @@
+{
+  "name": "clang-format-git",
+  "version": "1.1.3",
+  "description": "Node repackaging of the git clang-format Python script as a standalone native binary to allow execution without Python dependencies, while also maintaining support for the native Python script.🐉",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "LICENSE",
+    "README.md"
+  ],
+  "bin": {
+    "git-clang-format": "build/index.js",
+    "clang-format-git": "build/index.js",
+    "git-clang-format-python": "build/git-clang-format",
+    "clang-format-git-python": "build/git-clang-format"
+  },
+  "keywords": [
+    "clang-format",
+    "clang",
+    "cli",
+    "format",
+    "formatter",
+    "lint",
+    "linter",
+    "cpplint",
+    "eslint",
+    "prettier",
+    "checker",
+    "c",
+    "cpp",
+    "c++",
+    "git"
+  ],
+  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "license": "MIT",
+  "homepage": "https://clang-format-node.lumir.page",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/lumirlumir/npm-clang-format-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lumirlumir/npm-clang-format-node/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "postinstall": "find ./build/bin -type f -exec chmod 755 {} + || true && chmod 755 ./build/git-clang-format || true",
+    "prepublishOnly": "npm run build",
+    "build": "npx babel src -d build --no-comments --compact true --minified && cp -r src/bin build && cp src/git-clang-format build && cp ../../LICENSE ../../README.md .",
+    "test": "npx mocha ./tests --inline-diffs true"
+  },
+  "dependencies": {
+    "clang-format-node": "^1.1.3"
+  }
+}
