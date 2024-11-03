@@ -16,6 +16,8 @@ env:
   GH_TOKEN: ${{ secrets.GH_PAT }}
   LLVM_REPO: llvm/llvm-project
   LLVM_REPO_SHORT: llvm-project
+  CLANG_FORMAT_GIT: cfg
+  CLANG_FORMAT_NODE: cfn
 
 jobs:
   # Check if my package is up-to-date
@@ -25,9 +27,6 @@ jobs:
     steps:
       - name: Set up checkout
         uses: actions/checkout@v4
-
-      - name: Set up dependencies
-        run: sudo apt-get install -y jq
 
       - name: Fetch LLVM current release tag name from local
         run: |
@@ -79,16 +78,44 @@ jobs:
           echo "OS_ARCH=$OS_ARCH" >> $GITHUB_ENV
           echo "OS_ARCH: $OS_ARCH"
 
+      - name: Set up dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y ninja-build
+          pip install pyinstaller
+
       - name: Set up checkout
         uses: actions/checkout@v4
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
 
-      - name: Set up dependencies
-        run: |
-          sudo apt update -y
-          sudo apt install -y python3 g++ cmake ninja-build
+      - name: Debug ls
+        run: ls -al
+
+      # packages:clang-format-git
+
+      - name: Build git-clang-format
+        run: pyinstaller --onefile --strip --optimize=2 clang/tools/clang-format/git-clang-format
+
+      - name: Debug git-clang-format help
+        run: dist/git-clang-format --help
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: dist/git-clang-format
+
+      # packages:clang-format-git-python
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: git-clang-format
+          path: clang/tools/clang-format/git-clang-format
+
+      # packages:clang-format-node
 
       - name: Build cmake
         run: |
@@ -102,20 +129,14 @@ jobs:
       - name: Debug clang-format version
         run: build/bin/clang-format --version
 
-      - name: Download artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
   # Linux-qemu(cross-platform)
   stage2-build-linux-qemu:
-    runs-on: ubuntu-22.04
-
-    needs: stage1
-
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
-
     strategy:
       matrix:
         docker:
@@ -131,6 +152,12 @@ jobs:
           - platform: s390x
             ubuntu-image: s390x
             node-name: s390x
+
+    runs-on: ubuntu-22.04
+
+    needs: stage1
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
       - name: Debug matrix
@@ -154,11 +181,25 @@ jobs:
 
             echo ---Set up dependencies--- &&
             apt update -y &&
-            apt install -y git python3 g++ cmake ninja-build &&
+            apt install -y git python3 python3-pip g++ cmake ninja-build &&
+            pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
             git clone --depth 1 --branch ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} https://github.com/${{ env.LLVM_REPO }}.git &&
             cd ${{ env.LLVM_REPO_SHORT }} &&
+
+            echo ---Debug ls--- &&
+            ls -al &&
+
+            echo ----------packages:clang-format-git---------- &&
+
+            echo ---Build git-clang-format--- &&
+            pyinstaller --onefile --strip --optimize=2 clang/tools/clang-format/git-clang-format &&
+
+            echo ---Debug git-clang-format help--- &&
+            dist/git-clang-format --help &&
+
+            echo ----------packages:clang-format-node---------- &&
 
             echo ---Build cmake--- &&
             cmake -S llvm -B build -G Ninja \
@@ -175,17 +216,29 @@ jobs:
             uname -m
           "
 
-      - name: Copy file from Docker container
-        run: docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./linux-${{ matrix.docker.node-name }}
+      - name: Copy git-clang-format from Docker container
+        run: docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/dist ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
 
-      - name: Debug copied build folder
-        run: ls ./linux-${{ matrix.docker.node-name }}
+      - name: Debug copied git-clang-format folder
+        run: ls ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux-${{ matrix.docker.node-name }}
-          path: ./linux-${{ matrix.docker.node-name }}/clang-format
+          name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
+          path: ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}/git-clang-format
+
+      - name: Copy clang-format from Docker container
+        run: docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
+
+      - name: Debug copied clang-format folder
+        run: ls ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
+          path: ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}/clang-format
 
   # MacOS
   stage2-build-darwin:
@@ -216,16 +269,36 @@ jobs:
           echo "OS_ARCH=$OS_ARCH" >> $GITHUB_ENV
           echo "OS_ARCH: $OS_ARCH"
 
+      - name: Set up dependencies
+        run: |
+          brew update
+          brew install ninja
+          pip install pyinstaller
+
       - name: Set up checkout
         uses: actions/checkout@v4
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
 
-      - name: Set up dependencies
-        run: |
-          brew update
-          brew install ninja
+      - name: Debug ls
+        run: ls -al
+
+      # packages:clang-format-git
+
+      - name: Build git-clang-format
+        run: pyinstaller --onefile --strip --optimize=2 clang/tools/clang-format/git-clang-format
+
+      - name: Debug git-clang-format help
+        run: dist/git-clang-format --help
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: dist/git-clang-format
+
+      # packages:clang-format-node
 
       - name: Build cmake
         run: |
@@ -242,7 +315,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
   # Windows
@@ -268,14 +341,32 @@ jobs:
           echo "OS_ARCH=$OS_ARCH" >> $env:GITHUB_ENV
           echo "OS_ARCH: $OS_ARCH"
 
+      - name: Set up dependencies
+        run: |
+          choco install -y ninja
+          pip install pyinstaller
+
       - name: Set up checkout
         uses: actions/checkout@v4
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
 
-      - name: Set up dependencies
-        run: choco install -y ninja
+      # packages:clang-format-git
+
+      - name: Build git-clang-format
+        run: pyinstaller --onefile --strip --optimize=2 clang\tools\clang-format\git-clang-format
+
+      - name: Debug git-clang-format help
+        run: dist\git-clang-format.exe --help
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          path: dist\git-clang-format.exe
+
+      # packages:clang-format-node
 
       - name: Build cmake
         run: cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
@@ -286,10 +377,10 @@ jobs:
       - name: Debug clang-format version
         run: build\bin\clang-format --version
 
-      - name: Upload a artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build\bin\clang-format.exe
 
   # Create PR using build artifacts and bump version
@@ -307,13 +398,32 @@ jobs:
       - name: Set up checkout
         uses: actions/checkout@v4
 
-      - name: Download artifacts
+      - name: Download artifacts for clang-format-git
         uses: actions/download-artifact@v4
         with:
-          path: src/bin
+          path: packages/clang-format-git/src/bin
+          pattern: cfg-*
+
+      - name: Download artifacts for clang-format-git-python
+        uses: actions/download-artifact@v4
+        with:
+          path: packages/clang-format-git-python
+          name: git-clang-format
+
+      - name: Move git-clang-format
+        run: mv packages/clang-format-git-python/git-clang-format/git-clang-format -t packages/clang-format-git-python/src
+
+      - name: Download artifacts for clang-format-node
+        uses: actions/download-artifact@v4
+        with:
+          path: packages/clang-format-node/src/bin
+          pattern: cfn-*
 
       - name: Debug structure of downloaded files
-        run: ls -R src/bin
+        run: |
+          ls -R packages/clang-format-git/src
+          ls -R packages/clang-format-git-python/src
+          ls -R packages/clang-format-node/src/bin
 
       - name: Bump version
         run: echo ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} > .clang-format-version
