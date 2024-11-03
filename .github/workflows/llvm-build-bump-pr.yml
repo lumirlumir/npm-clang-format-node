@@ -57,7 +57,7 @@ jobs:
       IS_LATEST: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME == env.LLVM_LATEST_RELEASE_TAG_NAME }}
 
   # clang-format-node-linux-x64
-  stage2-build-cfn-linux-x64:
+  stage2-build-linux-x64:
     runs-on: ubuntu-22.04
 
     needs: stage1
@@ -136,7 +136,7 @@ jobs:
           path: build/bin/clang-format
 
   # clang-format-node-linux-qemu(cross-platform)
-  stage2-build-cfn-linux-qemu:
+  stage2-build-linux-qemu:
     strategy:
       matrix:
         docker:
@@ -241,7 +241,7 @@ jobs:
           path: ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}/clang-format
 
   # clang-format-node-macos
-  stage2-build-cfn-darwin:
+  stage2-build-darwin:
     strategy:
       matrix:
         type:
@@ -319,7 +319,7 @@ jobs:
           path: build/bin/clang-format
 
   # clang-format-node-windows
-  stage2-build-cfn-win32:
+  stage2-build-win32:
     # Use the oldest version possible for backward compatibility.
     runs-on: windows-2022
 
@@ -389,10 +389,10 @@ jobs:
 
     needs:
       - stage1
-      - stage2-build-cfn-linux-x64
-      - stage2-build-cfn-linux-qemu
-      - stage2-build-cfn-darwin
-      - stage2-build-cfn-win32
+      - stage2-build-linux-x64
+      - stage2-build-linux-qemu
+      - stage2-build-darwin
+      - stage2-build-win32
 
     steps:
       - name: Set up checkout
