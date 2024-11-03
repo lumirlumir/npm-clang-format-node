@@ -13,3 +13,6 @@ build
 # tests
 .nyc_output
 coverage
+
+# packages
+packages/**/LICENSE
