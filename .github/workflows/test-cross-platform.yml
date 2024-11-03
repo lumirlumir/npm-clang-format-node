@@ -51,11 +51,11 @@ jobs:
         run: npm run build
 
       - name: Chmod
-        run: npm run postinstall
+        run: npx lerna run postinstall
 
       - name: Debug Permission
         if: runner.os != 'Windows'
-        run: ls -alR build/bin
+        run: ls -alR packages/clang-format-node/build/bin
 
       - name: Test
         run: npx clang-format --version
@@ -90,7 +90,7 @@ jobs:
         run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
 
       - name: Copy file to Docker container
-        run: docker cp ./src/bin/linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
+        run: docker cp ./packages/clang-format-node/src/bin/linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Docker exec
         run: |
