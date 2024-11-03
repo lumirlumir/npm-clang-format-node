@@ -16,6 +16,8 @@ env:
   GH_TOKEN: ${{ secrets.GH_PAT }}
   LLVM_REPO: llvm/llvm-project
   LLVM_REPO_SHORT: llvm-project
+  CLANG_FORMAT_GIT: cfg
+  CLANG_FORMAT_NODE: cfn
 
 jobs:
   # Check if my package is up-to-date
@@ -25,9 +27,6 @@ jobs:
     steps:
       - name: Set up checkout
         uses: actions/checkout@v4
-
-      - name: Set up dependencies
-        run: sudo apt-get install -y jq
 
       - name: Fetch LLVM current release tag name from local
         run: |
@@ -57,8 +56,8 @@ jobs:
       LLVM_LATEST_RELEASE_TAG_NAME: ${{ env.LLVM_LATEST_RELEASE_TAG_NAME }}
       IS_LATEST: ${{ env.LLVM_CURRENT_RELEASE_TAG_NAME == env.LLVM_LATEST_RELEASE_TAG_NAME }}
 
-  # Linux-x64
-  stage2-build-linux-x64:
+  # clang-format-node-linux-x64
+  stage2-build-cfn-linux-x64:
     runs-on: ubuntu-22.04
 
     needs: stage1
@@ -88,7 +87,7 @@ jobs:
       - name: Set up dependencies
         run: |
           sudo apt update -y
-          sudo apt install -y python3 g++ cmake ninja-build
+          sudo apt install -y ninja-build
 
       - name: Build cmake
         run: |
@@ -102,20 +101,14 @@ jobs:
       - name: Debug clang-format version
         run: build/bin/clang-format --version
 
-      - name: Download artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
-  # Linux-qemu(cross-platform)
-  stage2-build-linux-qemu:
-    runs-on: ubuntu-22.04
-
-    needs: stage1
-
-    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
-
+  # clang-format-node-linux-qemu(cross-platform)
+  stage2-build-cfn-linux-qemu:
     strategy:
       matrix:
         docker:
@@ -131,6 +124,12 @@ jobs:
           - platform: s390x
             ubuntu-image: s390x
             node-name: s390x
+
+    runs-on: ubuntu-22.04
+
+    needs: stage1
+
+    if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
       - name: Debug matrix
@@ -184,11 +183,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux-${{ matrix.docker.node-name }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
           path: ./linux-${{ matrix.docker.node-name }}/clang-format
 
-  # MacOS
-  stage2-build-darwin:
+  # clang-format-node-macos
+  stage2-build-cfn-darwin:
     strategy:
       matrix:
         type:
@@ -242,11 +241,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
-  # Windows
-  stage2-build-win32:
+  # clang-format-node-windows
+  stage2-build-cfn-win32:
     # Use the oldest version possible for backward compatibility.
     runs-on: windows-2022
 
@@ -286,10 +285,10 @@ jobs:
       - name: Debug clang-format version
         run: build\bin\clang-format --version
 
-      - name: Upload a artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build\bin\clang-format.exe
 
   # Create PR using build artifacts and bump version
@@ -298,22 +297,23 @@ jobs:
 
     needs:
       - stage1
-      - stage2-build-linux-x64
-      - stage2-build-linux-qemu
-      - stage2-build-darwin
-      - stage2-build-win32
+      - stage2-build-cfn-linux-x64
+      - stage2-build-cfn-linux-qemu
+      - stage2-build-cfn-darwin
+      - stage2-build-cfn-win32
 
     steps:
       - name: Set up checkout
         uses: actions/checkout@v4
 
-      - name: Download artifacts
+      - name: Download artifacts for clang-format-node
         uses: actions/download-artifact@v4
         with:
-          path: src/bin
+          path: packages/clang-format-node/src/bin
+          pattern: cfn-*
 
-      - name: Debug structure of downloaded files
-        run: ls -R src/bin
+      - name: Debug structure of downloaded files for clang-format-node
+        run: ls -R packages/clang-format-node/src/bin
 
       - name: Bump version
         run: echo ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} > .clang-format-version
