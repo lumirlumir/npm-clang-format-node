@@ -1,0 +1,3 @@
+{
+  "Exclude": ["git-clang-format"]
+}

@@ -11,7 +11,7 @@
     "lint": "concurrently \"npm:lint-*\"",
     "lint-eslint": "npx eslint . --ext .js",
     "lint-prettier": "npx prettier . --check",
-    "lint-editorconfig": "npx editorconfig-checker",
+    "lint-editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
     "lint-markdownlint": "npx markdownlint **/*.md",
     "fix": "concurrently \"npm:fix-*\"",
     "fix-eslint": "npx eslint . --fix --ext .js",
@@ -39,7 +39,7 @@
   "lint-staged": {
     "*": [
       "npx prettier --check",
-      "npx editorconfig-checker"
+      "npx editorconfig-checker -config .editorconfig-checker.json"
     ],
     "*.js": "npx eslint",
     "*.md": "npx markdownlint",
