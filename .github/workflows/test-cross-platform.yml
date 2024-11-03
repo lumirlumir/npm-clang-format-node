@@ -55,7 +55,7 @@ jobs:
 
       - name: Debug Permission
         if: runner.os != 'Windows'
-        run: ls -alR build/bin
+        run: ls -alR packages/clang-format-node/build/bin
 
       - name: Test
         run: npx clang-format --version
