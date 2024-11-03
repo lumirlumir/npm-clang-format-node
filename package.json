@@ -5,8 +5,8 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
+    "build": "npx lerna run build",
+    "test": "npx lerna run test",
     "coverage": "npx nyc --reporter=lcov npm run test",
     "lint": "concurrently \"npm:lint-*\"",
     "lint-eslint": "npx eslint . --ext .js",
