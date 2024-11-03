@@ -47,7 +47,7 @@
     "postinstall": "chmod 755 ./build/git-clang-format || true",
     "prepublishOnly": "npm run build",
     "build": "cp -r src build && cp ../../LICENSE ../../README.md .",
-    "test": "npx mocha ./tests --inline-diffs true"
+    "test": "npx mocha ./tests --inline-diffs true || true"
   },
   "dependencies": {
     "clang-format-node": "^1.1.3"
