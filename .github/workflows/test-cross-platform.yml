@@ -90,7 +90,7 @@ jobs:
         run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
 
       - name: Copy file to Docker container
-        run: docker cp ./packages/clang-format-node/src/bin/linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
+        run: docker cp ./packages/clang-format-node/src/bin/cfn-linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Docker exec
         run: |
