@@ -1,8 +1,10 @@
+<div align="center">
+
 # clang-format-node
 
 ⭐If you like this package, please give it a star on [GitHub](https://github.com/lumirlumir/npm-clang-format-node)! Your support helps us improve and maintain the project.⭐
 
-<image align="center" src="https://llvm.org/img/LLVMWyvernSmall.png" />
+<image src="https://llvm.org/img/LLVMWyvernSmall.png" />
 
 ![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
@@ -18,6 +20,12 @@
 
 Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
 
+</div>
+
+---
+
+## Included Packages
+
 This package's repository is maintained as a **monorepo** and includes the following three packages.
 
 1. `clang-format-node` [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node):
@@ -27,9 +35,13 @@ Node repackaging of the `clang-format` native binary. 『Docs』, [『Repository
 
 1. `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python): Node repackaging of the `git-clang-format` Python script. **This package requires Python3 as a dependency**. 『Docs』, [『Repository』](/packages/clang-format-git-python), [『npm』](https://www.npmjs.com/package/clang-format-git-python)
 
+## Releases
+
 This package intends to release a new npm package for every **latest** release of the `clang-format` and `git-clang-format`. It **checks** for the latest LLVM release every week, builds all `clang-format` related packages using its own pipeline, and makes a pull request. **All processes are run automatically**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml).
 
-For full documentation, have a look at the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
+## Documentations
+
+For full documentations, have a look at the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
 > [!IMPORTANT]
 >
