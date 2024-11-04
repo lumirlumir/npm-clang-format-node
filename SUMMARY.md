@@ -2,10 +2,10 @@
 
 ## 🖐️Introduction
 
-- [`clang-format-node`](../README.md)
+- [`clang-format-node`](README.md)
 
 ## 🎁Included Packages
 
 ## 🧰Others
 
-- [Change Log](../CHANGELOG.md)
+- [Change Log](CHANGELOG.md)
