@@ -14,7 +14,7 @@ module.exports = (osPlatform, architecture) => {
   const clangFormatPath = resolve(
     __dirname,
     `bin`,
-    `${osPlatform}-${architecture}`,
+    `cfn-${osPlatform}-${architecture}`,
     `clang-format${osPlatform === 'win32' ? '.exe' : ''}`,
   );
 
