@@ -1,7 +1,11 @@
 # Table of contents
 
-- [README](../README.md)
+## 🖐️Introduction
 
-## Others
+- [clang-format-node](../README.md)
+
+## 🎁Included Packages
+
+## 🧰Others
 
 - [CHANGELOG](../CHANGELOG.md)
