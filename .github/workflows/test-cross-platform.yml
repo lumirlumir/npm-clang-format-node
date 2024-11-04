@@ -5,13 +5,11 @@ on:
     branches: [main]
     paths-ignore:
       - '**/*.md'
-      - '.gitbook.yml'
 
   pull_request:
     branches: [main]
     paths-ignore:
       - '**/*.md'
-      - '.gitbook.yml'
 
 jobs:
   github-actions-runner-images:
