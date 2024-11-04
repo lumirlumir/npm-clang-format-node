@@ -1,16 +1,35 @@
 # clang-format-node
 
+⭐If you like this package, please give it a star on [GitHub](https://github.com/lumirlumir/npm-clang-format-node)! Your support helps us improve and maintain the project.⭐
+
+<image align="center" src="https://llvm.org/img/LLVMWyvernSmall.png" />
+
+![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
+[![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
+![NPM Downloads](https://img.shields.io/npm/dw/clang-format-node)
+![Node Current](https://img.shields.io/node/v/clang-format-node)
+
 [![lint](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml)
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
 [![test-cross-platform](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
-![Node Current](https://img.shields.io/node/v/clang-format-node)
-[![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
-![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 
-Node repackaging(wrapping) of the `clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
+[![Static Badge](https://img.shields.io/badge/Official_Documentation-skyblue?style=flat&logo=gitbook&labelColor=gray)](https://clang-format-node.lumir.page)
 
-This package intends to release a new npm package for every **latest** release of the `clang-format`. It **checks** for the latest LLVM release every week, builds `clang-format` using its own pipeline, and makes a **pull request**. All processes are run automatically. If you are interested in build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml)
+Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
+
+This package's repository is maintained as a **monorepo** and includes the following three packages.
+
+1. `clang-format-node` [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node):
+Node repackaging of the `clang-format` native binary. 『Docs』, [『Repository』](/packages/clang-format-node), [『npm』](https://www.npmjs.com/package/clang-format-node)
+
+1. `clang-format-git` [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git): Node repackaging of the `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**. 『Docs』, [『Repository』](/packages/clang-format-git), [『npm』](https://www.npmjs.com/package/clang-format-git)
+
+1. `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python): Node repackaging of the `git-clang-format` Python script. **This package requires Python3 as a dependency**. 『Docs』, [『Repository』](/packages/clang-format-git-python), [『npm』](https://www.npmjs.com/package/clang-format-git-python)
+
+This package intends to release a new npm package for every **latest** release of the `clang-format` and `git-clang-format`. It **checks** for the latest LLVM release every week, builds all `clang-format` related packages using its own pipeline, and makes a pull request. **All processes are run automatically**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml).
+
+For full documentation, have a look at the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
 > [!IMPORTANT]
 >
