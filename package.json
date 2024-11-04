@@ -42,9 +42,6 @@
       "npx editorconfig-checker -config .editorconfig-checker.json"
     ],
     "*.js": "npx eslint",
-    "*.md": "npx markdownlint",
-    "packages/**/*.js": [
-      "npm run test"
-    ]
+    "*.md": "npx markdownlint"
   }
 }

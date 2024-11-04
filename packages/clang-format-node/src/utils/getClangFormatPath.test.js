@@ -1,9 +1,16 @@
-const { doesNotThrow, throws } = require('assert');
-const getClangFormatPath = require('../src/getClangFormatPath');
+const { doesNotThrow, throws } = require('node:assert');
+const { describe, it } = require('node:test');
 
-// See possible values in https://nodejs.org/api/os.html#osplatform
+const { getClangFormatPath } = require('./getClangFormatPath');
+
+/**
+ * See possible values in {@link https://nodejs.org/api/os.html#osplatform}.
+ */
 const osPlatforms = ['aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', 'win32'];
-// See possible values in https://nodejs.org/api/os.html#osarch
+
+/**
+ * See possible values in {@link https://nodejs.org/api/os.html#osarch}.
+ */
 const architectures = [
   'arm',
   'arm64',
@@ -18,15 +25,18 @@ const architectures = [
   's390x',
   'x64',
 ];
+
+/**
+ * The possible combinations are `darwin-arm64`, `darwin-x64`, `linux-arm`, `linux-arm64`, `linux-ppc64`, `linux-s390x`, `linux-x64`, `win32-x64`.
+ *
+ * See {@link getClangFormatPath}.
+ */
 const allowed = {
   darwin: ['arm64', 'x64'],
   linux: ['arm', 'arm64', 'ppc64', 's390x', 'x64'],
   win32: ['x64'],
 };
 
-/**
- * Tests for the `getClangFormatPath`
- */
 describe('getClangFormatPath doesNotThrow and throws testing', () => {
   osPlatforms.forEach(osPlatform => {
     architectures.forEach(architecture => {
