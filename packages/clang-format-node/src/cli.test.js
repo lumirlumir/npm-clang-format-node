@@ -1,21 +1,26 @@
 const { doesNotThrow, throws } = require('node:assert');
-const { execSync } = require('child_process');
+const { execSync } = require('node:child_process');
+const { resolve } = require('node:path');
 const { describe, it } = require('node:test');
 
+const cli = resolve(__dirname, 'cli.js');
+
 describe('cli doesNotThrow and throws testing', () => {
-  it('npx clang-format --help', () => {
+  // Correct
+  it('node cli.js --help', () => {
     doesNotThrow(() => {
-      execSync('npx clang-format --help');
+      execSync(`node ${cli} --help`);
     });
   });
-  it('npx clang-format --version', () => {
+  it('node cli.js --version', () => {
     doesNotThrow(() => {
-      execSync('npx clang-format --version');
+      execSync(`node ${cli} --version`);
     });
   });
-  it('npx clang-format --abcdefg', () => {
+  // Wrong
+  it('node cli.js --abcdefg', () => {
     throws(() => {
-      execSync('npx clang-format --abcdefg');
+      execSync(`node ${cli} --abcdefg`);
     });
   });
 });
