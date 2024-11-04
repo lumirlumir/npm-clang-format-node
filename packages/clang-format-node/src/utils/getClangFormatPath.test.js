@@ -37,9 +37,6 @@ const allowed = {
   win32: ['x64'],
 };
 
-/**
- * Tests for the `getClangFormatPath`
- */
 describe('getClangFormatPath doesNotThrow and throws testing', () => {
   osPlatforms.forEach(osPlatform => {
     architectures.forEach(architecture => {
