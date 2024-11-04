@@ -1,9 +1,12 @@
 <!-- markdownlint-disable-next-line -->
+# <div align="center"> clang-format-node </div>
+
+<!-- markdownlint-disable-next-line -->
 <div align="center">
 
 ⭐If you like this package, please give it a star on [GitHub](https://github.com/lumirlumir/npm-clang-format-node)! Your support helps us improve and maintain the project.⭐
 
-<image src="https://llvm.org/img/LLVMWyvernSmall.png" />
+<image src="https://llvm.org/img/LLVMWyvernSmall.png" /><br /><br />
 
 ![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
@@ -17,12 +20,10 @@
 
 [![Static Badge](https://img.shields.io/badge/Official_Documentation-skyblue?style=flat&logo=gitbook&labelColor=gray)](https://clang-format-node.lumir.page)
 
+Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
+
 <!-- markdownlint-disable-next-line -->
 </div>
-
-# clang-format-node
-
-Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
 
 ## Included Packages
 
