@@ -16,3 +16,4 @@ coverage
 
 # packages
 packages/**/LICENSE
+packages/**/README.md
