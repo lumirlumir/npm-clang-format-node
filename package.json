@@ -44,7 +44,7 @@
     "*.js": "npx eslint",
     "*.md": "npx markdownlint",
     "packages/**/*.js": [
-      "npm run test"
+      "npm run test --workspaces --if-present"
     ]
   }
 }
