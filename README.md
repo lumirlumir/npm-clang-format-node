@@ -1,8 +1,6 @@
 <!-- markdownlint-disable-next-line -->
 <div align="center">
 
-# clang-format-node
-
 ⭐If you like this package, please give it a star on [GitHub](https://github.com/lumirlumir/npm-clang-format-node)! Your support helps us improve and maintain the project.⭐
 
 <image src="https://llvm.org/img/LLVMWyvernSmall.png" />
@@ -19,12 +17,12 @@
 
 [![Static Badge](https://img.shields.io/badge/Official_Documentation-skyblue?style=flat&logo=gitbook&labelColor=gray)](https://clang-format-node.lumir.page)
 
-Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
-
 <!-- markdownlint-disable-next-line -->
 </div>
 
----
+# clang-format-node
+
+Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
 
 ## Included Packages
 
@@ -43,7 +41,7 @@ This package intends to release a new npm package for every **latest** release o
 
 ## Documentations
 
-For full documentations, have a look at the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
+For full documentations, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
 > [!IMPORTANT]
 >
