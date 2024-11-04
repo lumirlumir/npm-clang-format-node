@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line -->
 <div align="center">
 
 # clang-format-node
@@ -20,6 +21,7 @@
 
 Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
 
+<!-- markdownlint-disable-next-line -->
 </div>
 
 ---
