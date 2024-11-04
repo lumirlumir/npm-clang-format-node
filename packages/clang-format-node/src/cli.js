@@ -3,17 +3,16 @@
 
 const { spawn } = require('child_process');
 
-const { clangFormatPath } = require('./index');
+const { clangFormatPath } = require('./utils/clangFormatPath');
 
-try {
-  const spawned = spawn(clangFormatPath, process.argv.slice(2), {
-    stdio: 'inherit',
-  });
+const spawned = spawn(clangFormatPath, process.argv.slice(2), {
+  stdio: 'inherit',
+});
 
-  // Terminate the parent process after the child process has completed.
-  spawned.on('close', process.exit);
-} catch (error) {
-  // eslint-disable-next-line no-console
-  console.error(error.message);
-  process.exit(1);
-}
+spawned.on('close', code => {
+  if (code !== 0) {
+    // eslint-disable-next-line no-console
+    console.error(`Process exited with code: ${code}`);
+    process.exit(code);
+  }
+});
