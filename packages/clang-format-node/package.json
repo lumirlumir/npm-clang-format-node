@@ -9,7 +9,7 @@
     "README.md"
   ],
   "bin": {
-    "clang-format": "build/index.js"
+    "clang-format": "build/cli.js"
   },
   "keywords": [
     "clang-format",
@@ -43,7 +43,7 @@
   "scripts": {
     "postinstall": "find ./build/bin -type f -exec chmod 755 {} + || true",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build --no-comments --compact true --minified && cp -r src/bin build && cp ../../LICENSE ../../README.md .",
-    "test": "npx mocha ./tests --inline-diffs true"
+    "build": "npx babel src -d build --ignore **/*.test.js && cp -r src/bin build && cp ../../LICENSE ../../README.md .",
+    "test": "node --test"
   }
 }
