@@ -6,7 +6,7 @@
 
 ⭐If you like this package, please give it a star on [GitHub](https://github.com/lumirlumir/npm-clang-format-node)! Your support helps us improve and maintain the project.⭐
 
-<image src="https://llvm.org/img/LLVMWyvernSmall.png" /><br /><br />
+<image src="https://llvm.org/img/LLVMWyvernSmall.png" width="350px" height="220px"/><br /><br />
 
 ![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=violet&display_name=release)
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
@@ -43,6 +43,8 @@ This package intends to release a new npm package for every **latest** release o
 ## Documentations
 
 For full documentations, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
+
+## Issues
 
 > [!IMPORTANT]
 >
