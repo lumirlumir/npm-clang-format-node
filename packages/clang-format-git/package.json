@@ -9,7 +9,6 @@
     "README.md"
   ],
   "bin": {
-    "git-clang-format": "build/index.js",
     "clang-format-git": "build/index.js"
   },
   "keywords": [
