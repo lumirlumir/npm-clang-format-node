@@ -9,8 +9,8 @@
     "README.md"
   ],
   "bin": {
-    "clang-format-git-python": "build/cli.js",
-    "git-clang-format-python": "build/cli.js"
+    "git-clang-format": "build/cli.js",
+    "clang-format-git-python": "build/cli.js"
   },
   "keywords": [
     "clang-format",
