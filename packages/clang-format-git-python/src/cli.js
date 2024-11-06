@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 
 const { clangFormatPath } = require('clang-format-node');
 
-const { clangFormatGitPath } = require('./utils/gitClangFormatPath');
+const { gitClangFormatPath } = require('./utils/gitClangFormatPath');
 
 const spawned = spawn(
   'python',
@@ -12,7 +12,7 @@ const spawned = spawn(
   //
   // If you pass a `--binary` argument like `npx git-clang-format-python --binary="path/to/the/binary"` in bash,
   // the `--binary="path/to/the/binary"` argument will override the current `--binary=${clangFormatPath}` code.
-  [clangFormatGitPath, `--binary=${clangFormatPath}`, ...process.argv.slice(2)],
+  [gitClangFormatPath, `--binary=${clangFormatPath}`, ...process.argv.slice(2)],
   {
     stdio: 'inherit',
   },

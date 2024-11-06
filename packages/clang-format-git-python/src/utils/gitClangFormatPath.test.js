@@ -2,13 +2,13 @@ const { strictEqual } = require('node:assert');
 const { resolve } = require('node:path');
 const { describe, it } = require('node:test');
 
-const { clangFormatGitPath, gitClangFormatPath } = require('./gitClangFormatPath');
+const { gitClangFormatPath, clangFormatGitPath } = require('./gitClangFormatPath');
 
 describe('gitClangFormatPath strictEqual testing', () => {
-  it('clangFormatGitPath === gitClangFormatPath', () => {
-    strictEqual(clangFormatGitPath, gitClangFormatPath);
+  it('gitClangFormatPath === clangFormatGitPath', () => {
+    strictEqual(gitClangFormatPath, clangFormatGitPath);
   });
-  it('gitClangFormatPath === resolve(__dirname, `..`, `script`, `git-clang-format`)', () => {
+  it('clangFormatGitPath === resolve(__dirname, `..`, `script`, `git-clang-format`)', () => {
     strictEqual(
       clangFormatGitPath,
       resolve(__dirname, `..`, `script`, `git-clang-format`),

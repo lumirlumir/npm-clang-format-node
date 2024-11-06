@@ -1,6 +1,6 @@
-const { clangFormatGitPath, gitClangFormatPath } = require('./utils/gitClangFormatPath');
+const { gitClangFormatPath, clangFormatGitPath } = require('./utils/gitClangFormatPath');
 
 module.exports = {
-  clangFormatGitPath,
   gitClangFormatPath,
+  clangFormatGitPath,
 };
