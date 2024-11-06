@@ -46,7 +46,7 @@
   "scripts": {
     "postinstall": "test -d src && npm run build || npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build --ignore **/*.test.js && cp -r src/script build && cp ../../LICENSE ../../README.md .",
+    "build": "npx babel src -d build && npx tsc && cp -r src/script build && cp ../../LICENSE ../../README.md .",
     "postbuild": "npm run chmod",
     "test": "node --test",
     "chmod": "find ./src/script ./build/script -type f -exec chmod 755 {} + || true"
