@@ -2,9 +2,9 @@ const { strictEqual } = require('node:assert');
 const { resolve } = require('node:path');
 const { describe, it } = require('node:test');
 
-const { clangFormatGitPath, gitClangFormatPath } = require('./clangFormatGitPath');
+const { clangFormatGitPath, gitClangFormatPath } = require('./gitClangFormatPath');
 
-describe('clangFormatGitPath strictEqual testing', () => {
+describe('gitClangFormatPath strictEqual testing', () => {
   it('clangFormatGitPath === gitClangFormatPath', () => {
     strictEqual(clangFormatGitPath, gitClangFormatPath);
   });

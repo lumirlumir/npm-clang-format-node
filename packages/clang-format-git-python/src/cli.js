@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 
 const { clangFormatPath } = require('clang-format-node');
 
-const { clangFormatGitPath } = require('./utils/clangFormatGitPath');
+const { clangFormatGitPath } = require('./utils/gitClangFormatPath');
 
 const spawned = spawn(
   'python',
