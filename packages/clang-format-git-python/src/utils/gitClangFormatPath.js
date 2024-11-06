@@ -3,7 +3,7 @@ const { resolve } = require('path');
 /**
  * The ABSOLUTE path to the [`git-clang-format`](../script/git-clang-format) Python script.
  *
- * @alias `clangFormatGitPath`({@link clangFormatGitPath})
+ * @alias `clangFormatGitPythonPath`({@link clangFormatGitPythonPath})
  */
 const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`);
 
@@ -12,9 +12,9 @@ const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`
  *
  * @alias `gitClangFormatPath`({@link gitClangFormatPath})
  */
-const clangFormatGitPath = gitClangFormatPath;
+const clangFormatGitPythonPath = gitClangFormatPath;
 
 module.exports = {
   gitClangFormatPath,
-  clangFormatGitPath,
+  clangFormatGitPythonPath,
 };
