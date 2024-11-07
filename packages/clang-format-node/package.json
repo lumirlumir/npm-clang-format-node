@@ -9,7 +9,8 @@
     "README.md"
   ],
   "bin": {
-    "clang-format": "build/cli.js"
+    "clang-format": "build/cli.js",
+    "clang-format-node": "build/cli.js"
   },
   "keywords": [
     "clang-format",
