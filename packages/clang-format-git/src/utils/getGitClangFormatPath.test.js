@@ -40,7 +40,7 @@ const allowed = {
   win32: ['x64'],
 };
 
-describe('getClangFormatPath doesNotThrow and throws testing', () => {
+describe('getGitClangFormatPath doesNotThrow and throws testing', () => {
   osPlatforms.forEach(osPlatform => {
     architectures.forEach(architecture => {
       it(`osPlatform: ${osPlatform}, architecture: ${architecture}`, () => {
