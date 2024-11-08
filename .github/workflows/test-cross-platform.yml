@@ -160,6 +160,7 @@ jobs:
             apt update -y &&
             apt install -y curl &&
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash &&
+            source ~/.nvm/nvm.sh &&
 
             echo ---Set up node--- &&
             nvm install ${{ matrix.node-version }} &&
@@ -172,6 +173,7 @@ jobs:
             ls -alR &&
 
             echo ---Install packages--- &&
+            find . -name "*.tgz" -exec chmod 755 {} \; &&
             npm install $(find . -name "*.tgz") &&
 
             echo ---Test clang-format-git--- &&
