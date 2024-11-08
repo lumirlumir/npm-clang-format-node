@@ -80,6 +80,7 @@ jobs:
         run: npm init -y
 
       - name: Debug directory structure
+        if: runner.os != 'Windows'
         run: ls -alR
 
       - name: Debug GLIBC version
@@ -87,7 +88,12 @@ jobs:
         run: ldd --version
 
       - name: Install packages
+        if: runner.os != 'Windows'
         run: npm install $(find . -name "*.tgz")
+
+      - name: Install packages
+        if: runner.os == 'Windows'
+        run: Get-ChildItem -Recurse -Filter *.tgz | ForEach-Object { npm install "file:$($_.FullName)" }
 
       - name: Test clang-format-git
         run: npx clang-format-git --help
