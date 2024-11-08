@@ -122,21 +122,12 @@ jobs:
           - platform: s390x
             ubuntu-image: s390x
             node-name: s390x
-        node-version:
-          - 22
-          - 20
-          - 18
-          - 16
 
     runs-on: ubuntu-22.04
 
-    needs: build-packages
-
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          path: .
+      - name: Set up checkout
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -144,8 +135,11 @@ jobs:
       - name: Docker run background
         run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
 
-      - name: Copy file to Docker container
-        run: docker cp ./packs ${{ matrix.docker.node-name }}:/
+      - name: Copy git-clang-format file to Docker container
+        run: docker cp ./packages/clang-format-git/src/bin/cfg-linux-${{ matrix.docker.node-name }}/git-clang-format ${{ matrix.docker.node-name }}:/
+
+      - name: Copy clang-format file to Docker container
+        run: docker cp ./packages/clang-format-node/src/bin/cfn-linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Docker exec
         run: |
@@ -156,33 +150,17 @@ jobs:
             echo ---Debug pwd--- &&
             pwd &&
 
-            echo ---Set up dependencies--- &&
-            apt update -y &&
-            apt install -y curl &&
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash &&
-            source ~/.nvm/nvm.sh &&
+            echo ---Debug ls -l--- &&
+            ls -l /git-clang-format /clang-format &&
 
-            echo ---Set up node--- &&
-            nvm install ${{ matrix.node-version }} &&
-            nvm use ${{ matrix.node-version}} &&
+            echo ---Chmod--- &&
+            chmod 755 /git-clang-format /clang-format &&
+            ls -l /git-clang-format /clang-format &&
 
-            echo ---Initialize npm--- &&
-            npm init -y &&
+            echo ---Test git-clang-format--- &&
+            /git-clang-format --help &&
 
-            echo ---Debug ls -alR--- &&
-            ls -alR &&
-
-            echo ---Install packages--- &&
-            find . -name "*.tgz" -exec chmod 755 {} \; &&
-            npm install $(find . -name "*.tgz") &&
-
-            echo ---Test clang-format-git--- &&
-            npx clang-format-git --help &&
-
-            echo ---Test clang-format-git-python--- &&
-            npx clang-format-git-python --help &&
-
-            ehco ---Test clang-format-node--- &&
-            npx clang-format-node --help &&
-            npx clang-format-node --version
+            echo ---Test clang-format--- &&
+            /clang-format --help &&
+            /clang-format --version
           "
