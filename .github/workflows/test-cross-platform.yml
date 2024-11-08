@@ -89,11 +89,15 @@ jobs:
 
       - name: Install packages
         if: runner.os != 'Windows'
-        run: npm install $(find . -name "*.tgz")
+        run: |
+          npm install $(find . -name "clang-format-node-*.tgz")
+          npm install $(find . -name "clang-format-git-*.tgz")
 
       - name: Install packages
         if: runner.os == 'Windows'
-        run: Get-ChildItem -Recurse -Filter *.tgz | ForEach-Object { npm install "file:$($_.FullName)" }
+        run: |
+          Get-ChildItem -Recurse -Filter "clang-format-node-*.tgz" | ForEach-Object { npm install $_.FullName }
+          Get-ChildItem -Recurse -Filter "clang-format-git-*.tgz" | ForEach-Object { npm install $_.FullName }
 
       - name: Test clang-format-git
         run: npx clang-format-git --help

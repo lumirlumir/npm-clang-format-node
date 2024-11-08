@@ -10,7 +10,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.github/ISSUE_TEMPLATE/3-others.md
   # ./.github/workflows
   - source: ./.github/workflows/bump.yml
-    dest: ./configs/.github/workflows/bump.yml
+    dest: ./configs/.github/workflows/monorepo-bump.yml
   - source: ./.github/workflows/labeler.yml
     dest: ./configs/.github/workflows/labeler.yml
   - source: ./.github/workflows/lint.yml
