@@ -87,7 +87,7 @@ jobs:
         run: ldd --version
 
       - name: Install packages
-        run: npm install $(find *.tgz)
+        run: npm install $(find . -name "*.tgz")
 
       - name: Test clang-format-git
         run: npx clang-format-git --help
