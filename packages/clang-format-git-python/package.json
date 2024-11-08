@@ -1,6 +1,6 @@
 {
   "name": "clang-format-git-python",
-  "version": "1.1.3",
+  "version": "1.2.0-canary.0",
   "description": "Node repackaging of the git-clang-format Python script. This package requires Python3 as a dependency.🐉",
   "main": "build/index.js",
   "files": [
@@ -52,6 +52,6 @@
     "chmod": "find ./src/script ./build/script -type f -exec chmod 755 {} + || true"
   },
   "dependencies": {
-    "clang-format-node": "^1.1.3"
+    "clang-format-node": "^1.2.0-canary.0"
   }
 }
