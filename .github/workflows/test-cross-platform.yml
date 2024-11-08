@@ -59,37 +59,46 @@ jobs:
           - 22
           - 20
           - 18
-          # - 16 : [TODO] Temporarily commented this line for error skipping. I'll update it soon.
+          - 16
 
     runs-on: ${{ matrix.runner-image }}
 
     needs: build-packages
 
     steps:
-      - name: Set up checkout
-        uses: actions/checkout@v4
-
       - name: Set up node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Set up node_modules
-        run: npm ci
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: .
+
+      - name: Initialize npm
+        run: npm init -y
+
+      - name: Debug directory structure
+        run: ls -alR
 
       - name: Debug GLIBC version
         if: runner.os == 'Linux'
         run: ldd --version
 
-      - name: Build
-        run: npm run build
+      - name: Install packages
+        run: npm install $(find *.tgz)
 
-      - name: Debug Permission
-        if: runner.os != 'Windows'
-        run: ls -alR packages/clang-format-node/build/bin
+      - name: Test clang-format-git
+        run: npx clang-format-git --help
 
-      - name: Test
-        run: npx clang-format --version
+      - name: Test clang-format-git-python
+        run: npx clang-format-git-python --help
+
+      - name: Test clang-format-node
+        run: |
+          npx clang-format-node --help
+          npx clang-format-node --version
 
   docker-images:
     strategy:
