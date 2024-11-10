@@ -5,6 +5,7 @@
   ],
   "scripts": {
     "prepare": "husky",
+    "publish": "npx lerna publish from-package --pre-dist-tag canary --yes",
     "build": "npx lerna run build",
     "test": "npx lerna run test",
     "coverage": "npx nyc --reporter=lcov npm run test",
@@ -33,7 +34,8 @@
     "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.42.0",
     "nyc": "^17.0.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
   },
   "lint-staged": {
     "*": [

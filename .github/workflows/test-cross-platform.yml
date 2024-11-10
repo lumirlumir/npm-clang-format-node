@@ -12,6 +12,39 @@ on:
       - '**/*.md'
 
 jobs:
+  build-packages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Set up cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Set up node_modules
+        run: npm ci
+
+      - name: Build packages
+        run: |
+          mkdir packs
+          npm pack --workspaces --pack-destination packs
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packs
+          path: ./packs
+
   github-actions-runner-images:
     strategy:
       matrix:
@@ -30,31 +63,52 @@ jobs:
 
     runs-on: ${{ matrix.runner-image }}
 
-    steps:
-      - name: Set up checkout
-        uses: actions/checkout@v4
+    needs: build-packages
 
+    steps:
       - name: Set up node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Set up node_modules
-        run: npm ci
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: .
+
+      - name: Initialize npm
+        run: npm init -y
+
+      - name: Debug directory structure
+        if: runner.os != 'Windows'
+        run: ls -alR
 
       - name: Debug GLIBC version
         if: runner.os == 'Linux'
         run: ldd --version
 
-      - name: Build
-        run: npm run build
-
-      - name: Debug Permission
+      - name: Install packages
         if: runner.os != 'Windows'
-        run: ls -alR packages/clang-format-node/build/bin
+        run: |
+          npm install $(find . -name "clang-format-node-*.tgz")
+          npm install $(find . -name "clang-format-git-*.tgz")
 
-      - name: Test
-        run: npx clang-format --version
+      - name: Install packages
+        if: runner.os == 'Windows'
+        run: |
+          Get-ChildItem -Recurse -Filter "clang-format-node-*.tgz" | ForEach-Object { npm install $_.FullName }
+          Get-ChildItem -Recurse -Filter "clang-format-git-*.tgz" | ForEach-Object { npm install $_.FullName }
+
+      - name: Test clang-format-git
+        run: npx clang-format-git --help
+
+      - name: Test clang-format-git-python
+        run: npx clang-format-git-python --help
+
+      - name: Test clang-format-node
+        run: |
+          npx clang-format-node --help
+          npx clang-format-node --version
 
   docker-images:
     strategy:
@@ -85,25 +139,36 @@ jobs:
       - name: Docker run background
         run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
 
-      - name: Copy file to Docker container
+      - name: Copy git-clang-format file to Docker container
+        run: docker cp ./packages/clang-format-git/src/bin/cfg-linux-${{ matrix.docker.node-name }}/git-clang-format ${{ matrix.docker.node-name }}:/
+
+      - name: Copy clang-format file to Docker container
         run: docker cp ./packages/clang-format-node/src/bin/cfn-linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Docker exec
         run: |
           docker exec ${{ matrix.docker.node-name }} /bin/bash -c "
+            echo ---Set up dependencies--- &&
+            apt update -y &&
+            apt install -y git &&
+
             echo ---Debug uname -m--- &&
             uname -m &&
 
             echo ---Debug pwd--- &&
             pwd &&
 
-            echo ---Debug ls -l /clang-format--- &&
-            ls -l /clang-format &&
+            echo ---Debug ls -l--- &&
+            ls -l /git-clang-format /clang-format &&
 
             echo ---Chmod--- &&
-            chmod 755 /clang-format &&
-            ls -l /clang-format &&
+            chmod 755 /git-clang-format /clang-format &&
+            ls -l /git-clang-format /clang-format &&
 
-            echo ---Test--- &&
+            echo ---Test git-clang-format--- &&
+            /git-clang-format --help &&
+
+            echo ---Test clang-format--- &&
+            /clang-format --help &&
             /clang-format --version
           "

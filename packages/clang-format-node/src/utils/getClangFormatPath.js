@@ -12,6 +12,8 @@ const { resolve } = require('path');
  * @param {string} architecture The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
  * @returns {string} The ABSOLUTE path to the `clang-format` executable binary.
  * @throws `Error` Throws an error if the executable binary is not found for the specified OS platform and architecture.
+ * @alias `getClangFormatNodePath`. See {@link getClangFormatNodePath}.
+ * @version `v1.2.0` Initial release.
  */
 function getClangFormatPath(osPlatform, architecture) {
   const clangFormatPath = resolve(
@@ -30,6 +32,15 @@ function getClangFormatPath(osPlatform, architecture) {
   return clangFormatPath;
 }
 
+/**
+ * Alias for `getClangFormatPath`.
+ *
+ * @alias `getClangFormatPath`. See {@link getClangFormatPath}.
+ * @version `v1.2.0` Initial release.
+ */
+const getClangFormatNodePath = getClangFormatPath;
+
 module.exports = {
   getClangFormatPath,
+  getClangFormatNodePath,
 };

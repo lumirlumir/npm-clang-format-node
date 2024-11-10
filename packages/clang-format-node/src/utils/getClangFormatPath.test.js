@@ -1,7 +1,7 @@
 const { doesNotThrow, throws } = require('node:assert');
 const { describe, it } = require('node:test');
 
-const { getClangFormatPath } = require('./getClangFormatPath');
+const { getClangFormatPath, getClangFormatNodePath } = require('./getClangFormatPath');
 
 /**
  * See possible values in {@link https://nodejs.org/api/os.html#osplatform}.
@@ -44,10 +44,12 @@ describe('getClangFormatPath doesNotThrow and throws testing', () => {
         if (allowed[osPlatform] && allowed[osPlatform].includes(architecture)) {
           doesNotThrow(() => {
             getClangFormatPath(osPlatform, architecture);
+            getClangFormatNodePath(osPlatform, architecture);
           });
         } else {
           throws(() => {
             getClangFormatPath(osPlatform, architecture);
+            getClangFormatNodePath(osPlatform, architecture);
           });
         }
       });
