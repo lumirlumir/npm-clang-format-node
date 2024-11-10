@@ -60,4 +60,4 @@ For full documentation, see the [official documentation of the `clang-format-nod
 
 ## License
 
-[MIT](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
+[MIT](/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
