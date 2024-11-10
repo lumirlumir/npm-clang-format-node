@@ -1,11 +1,13 @@
 # Table of contents
 
-## 🖐️Introduction
+## Introduction
 
-- [`clang-format-node`](README.md)
+- [About `clang-format-node`](README.md)
 
-## 🎁Included Packages
+## Packages
 
-## 🧰Others
+## Others
+
+## Community
 
 - [Change Log](CHANGELOG.md)
