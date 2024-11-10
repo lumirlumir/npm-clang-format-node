@@ -34,11 +34,11 @@ Node repackaging(wrapping) of the **LLVM clang's** `clang-format` and `git-clang
 This repository is maintained as a **monorepo** and includes the following packages.
 
 1. `clang-format-node` [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node):
-Node repackaging of the `clang-format` native binary. (The **CORE** package.) [『Docs』](/docs/02-packages/01-clang-format-node.md), [『Repository』](/packages/clang-format-node), [『npm』](https://www.npmjs.com/package/clang-format-node)
+Node repackaging of the `clang-format` native binary. (The **CORE** package.) [『Docs』](/docs/02-packages/01-clang-format-node.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node), [『npm』](https://www.npmjs.com/package/clang-format-node)
 
-1. `clang-format-git` [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git): Node repackaging of the `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**. [『Docs』](/docs/02-packages/02-clang-format-git.md), [『Repository』](/packages/clang-format-git), [『npm』](https://www.npmjs.com/package/clang-format-git)
+1. `clang-format-git` [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git): Node repackaging of the `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**. [『Docs』](/docs/02-packages/02-clang-format-git.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git), [『npm』](https://www.npmjs.com/package/clang-format-git)
 
-1. `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python): Node repackaging of the `git-clang-format` Python script. **This package requires Python3 as a dependency**. [『Docs』](/docs/02-packages/03-clang-format-git-python.md), [『Repository』](/packages/clang-format-git-python), [『npm』](https://www.npmjs.com/package/clang-format-git-python)
+1. `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python): Node repackaging of the `git-clang-format` Python script. **This package requires Python3 as a dependency**. [『Docs』](/docs/02-packages/03-clang-format-git-python.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python), [『npm』](https://www.npmjs.com/package/clang-format-git-python)
 
 ## Supported
 
