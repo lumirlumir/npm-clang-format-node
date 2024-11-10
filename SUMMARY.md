@@ -2,7 +2,7 @@
 
 ## Introduction
 
-- [About `clang-format-node`](README.md)
+- [About `clang-format-node`](/README.md)
 
 ## Packages
 
@@ -10,4 +10,6 @@
 
 ## Community
 
-- [Change Log](CHANGELOG.md)
+- [Change Log](/CHANGELOG.md)
+- [Code of Conduct](/CODE_OF_CONDUCT.md)
+- [License](/LICENSE.md)
