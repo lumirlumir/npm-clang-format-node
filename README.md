@@ -56,7 +56,19 @@ Please read our [`code of conduct`](./CODE_OF_CONDUCT.md) and [`contributing gui
 
 ## Documentation
 
-For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
+For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page) or [`docs` directory of `clang-format-node` repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/docs).
+
+## Versioning
+
+See [`02-versioning.md`](/docs/04-community/02-versioning.md).
+
+## Change Log
+
+See [`CHANGELOG.md`](/CHANGELOG.md).
+
+## Code of Conduct
+
+See [`CODE_OF_CONDUCT.md`](/CODE_OF_CONDUCT.md).
 
 ## License
 
