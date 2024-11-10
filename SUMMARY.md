@@ -1,10 +1,9 @@
 # Table of contents
 
-- [Table of contents](/SUMMARY.md)
-
 ## Introduction
 
-- [About `clang-format-node`](/README.md)
+- [`clang-format-node`](/README.md)
+- [Table of contents](/SUMMARY.md)
 
 ## Packages
 
