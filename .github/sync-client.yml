@@ -63,7 +63,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierrc.js
   - source: ./babel.config.js
     dest: ./configs/babel.config.js
-  - source: ./LICENSE
-    dest: ./configs/LICENSE
+  - source: ./LICENSE.md
+    dest: ./configs/LICENSE.md
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
