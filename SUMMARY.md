@@ -3,7 +3,8 @@
 ## Introduction
 
 - [`clang-format-node`](/README.md)
-- [Table of contents](/SUMMARY.md)
+- [Table of Contents](/SUMMARY.md)
+- [Why We Started This Project](/docs/01-introduction/03-why-we-started-this-project.md)
 
 ## Packages
 
