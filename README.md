@@ -60,15 +60,15 @@ For full documentation, see the [official documentation of the `clang-format-nod
 
 ## Versioning
 
-See [`02-versioning.md`](/docs/04-community/02-versioning.md).
+See [Versioning](/docs/04-community/02-versioning.md).
 
 ## Change Log
 
-See [`CHANGELOG.md`](/CHANGELOG.md).
+See [Change Log](/CHANGELOG.md).
 
 ## Code of Conduct
 
-See [`CODE_OF_CONDUCT.md`](/CODE_OF_CONDUCT.md).
+See [Code of Conduct](/CODE_OF_CONDUCT.md).
 
 ## License
 
