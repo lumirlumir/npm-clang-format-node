@@ -11,6 +11,8 @@
 
 ## Others
 
+- [About `os.platform()` and `os.arch()` in Node.js](/docs/03-others/02-about-os-platform-and-os-arch-in-nodejs.md)
+
 ## Community
 
 - [Versioning](/docs/04-community/02-versioning.md)
