@@ -5,6 +5,7 @@
 - [`clang-format-node`](/README.md)
 - [Table of Contents](/SUMMARY.md)
 - [Why We Started This Project](/docs/01-introduction/03-why-we-started-this-project.md)
+- [Supported](/docs/01-introduction/05-supported.md)
 
 ## Packages
 
