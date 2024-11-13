@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "files": [
     "build",
-    "LICENSE",
+    "LICENSE.md",
     "README.md"
   ],
   "bin": {
@@ -45,7 +45,7 @@
   "scripts": {
     "postinstall": "test -d src && npm run build || npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && cp -r src/bin build && cp ../../LICENSE ../../README.md .",
+    "build": "npx babel src -d build && npx tsc && cp -r src/bin build && cp ../../LICENSE.md ../../README.md .",
     "postbuild": "npm run chmod",
     "test": "node --test",
     "chmod": "find ./src/bin ./build/bin -type f -exec chmod 755 {} + || true"
