@@ -32,6 +32,6 @@ jobs:
         run: npm run test
 
       - name: Publish
-        run: npm run publish
+        run: npm run publish-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
