@@ -42,7 +42,7 @@ Node repackaging of the `clang-format` native binary. (The **CORE** package.) [ã
 
 ## Supported
 
-See the [supported](/docs/01-introduction/04-supported.md) documentation, which lists the supported 'OS Platforms and Architectures', 'Node.js Versions', 'GitHub Actions Runner Images', and 'Docker(Build) Images'.
+See the [supported](/docs/01-introduction/05-supported.md) documentation, which lists the supported 'OS Platforms and Architectures', 'Node.js Versions', 'GitHub Actions Runner Images', and 'Docker(Build) Images'.
 
 ## Releases
 
