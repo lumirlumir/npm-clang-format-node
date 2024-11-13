@@ -71,7 +71,7 @@ const {
 
 ### `clangFormatPath`
 
-The **absolute path** to the `clang-format` executable binary based on the OS platform and architecture.
+The ABSOLUTE path to the `clang-format` executable binary based on the OS platform and architecture.
 
 #### Alias and Version
 
@@ -89,18 +89,9 @@ Alias for `clangFormatPath`.
 
 ### `getClangFormatPath`
 
-Returns the **absolute path** to the `clang-format` executable binary based on the OS platform and architecture.
+Returns the ABSOLUTE path to the `clang-format` executable binary based on the OS platform and architecture.
 
-The possible combinations are:
-
-- `darwin-arm64`
-- `darwin-x64`
-- `linux-arm`
-- `linux-arm64`
-- `linux-ppc64`
-- `linux-s390x`
-- `linux-x64`
-- `win32-x64`
+The possible combinations are `darwin-arm64`, `darwin-x64`, `linux-arm`, `linux-arm64`, `linux-ppc64`, `linux-s390x`, `linux-x64`, `win32-x64`.
 
 Throws an error if the executable is not found.
 
