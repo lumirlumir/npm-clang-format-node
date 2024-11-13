@@ -9,6 +9,8 @@
 
 ## Packages
 
+- [`clang-format-node`](/docs/02-packages/01-clang-format-node.md)
+
 ## Others
 
 - [Migration from 'angular/clang-format'](/docs/03-others/01-migration-from-angular-clang-format.md)
