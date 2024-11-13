@@ -12,6 +12,7 @@
 ## Others
 
 - [About `os.platform()` and `os.arch()` in Node.js](/docs/03-others/02-about-os-platform-and-os-arch-in-nodejs.md)
+- [Build Process](/docs/03-others/03-build-process.md)
 - [Guides on LLVM and `clang-format`](/docs/03-others/04-guides-on-llvm-and-clang-format.md)
 
 ## Community
