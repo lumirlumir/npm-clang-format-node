@@ -10,6 +10,7 @@
 ## Packages
 
 - [`clang-format-node`](/docs/02-packages/01-clang-format-node.md)
+- [`clang-format-git`](/docs/02-packages/02-clang-format-git.md)
 
 ## Others
 
