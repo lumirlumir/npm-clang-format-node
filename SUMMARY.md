@@ -24,7 +24,7 @@
 
 ## Community
 
-- [Contributing](/docs/04-community/01-contributing.md)
+- [Contributing](/CONTRIBUTING.md)
 - [Versioning](/docs/04-community/02-versioning.md)
 - [Change Log](/CHANGELOG.md)
 - [Code of Conduct](/CODE_OF_CONDUCT.md)
