@@ -33,7 +33,8 @@
   "homepage": "https://clang-format-node.lumir.page",
   "repository": {
     "type": "github",
-    "url": "git+https://github.com/lumirlumir/npm-clang-format-node.git"
+    "url": "git+https://github.com/lumirlumir/npm-clang-format-node.git",
+    "directory": "packages/clang-format-node"
   },
   "bugs": {
     "url": "https://github.com/lumirlumir/npm-clang-format-node/issues"
