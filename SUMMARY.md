@@ -20,7 +20,6 @@
 - [About `os.platform()` and `os.arch()` in Node.js](/docs/03-others/02-about-os-platform-and-os-arch-in-nodejs.md)
 - [Build Process](/docs/03-others/03-build-process.md)
 - [Guides on LLVM and `clang-format`](/docs/03-others/04-guides-on-llvm-and-clang-format.md)
-- [Security](/docs/03-others/05-security.md)
 
 ## Community
 
@@ -28,4 +27,5 @@
 - [Versioning](/docs/04-community/02-versioning.md)
 - [Change Log](/CHANGELOG.md)
 - [Code of Conduct](/CODE_OF_CONDUCT.md)
+- [Security](/SECURITY.md)
 - [License](/LICENSE.md)

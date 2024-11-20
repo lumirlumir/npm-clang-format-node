@@ -71,6 +71,10 @@ See [Change Log](/CHANGELOG.md).
 
 See [Code of Conduct](/CODE_OF_CONDUCT.md).
 
+## Security
+
+See [Security](/SECURITY.md).
+
 ## License
 
 [MIT](/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
