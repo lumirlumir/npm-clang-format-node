@@ -36,13 +36,5 @@
     "nyc": "^17.0.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
-  },
-  "lint-staged": {
-    "*": [
-      "npx prettier --check",
-      "npx editorconfig-checker -config .editorconfig-checker.json"
-    ],
-    "*.js": "npx eslint",
-    "*.md": "npx markdownlint"
   }
 }
