@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "clang-format-git": "^1.2.1",
+    "clang-format-git-python": "^1.2.1",
+    "clang-format-node": "^1.2.1"
+  }
+}
