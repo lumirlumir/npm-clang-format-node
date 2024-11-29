@@ -21,7 +21,7 @@ Your support helps us improve and maintain the project.
 
 [![Static Badge](https://img.shields.io/badge/Official_Documentation-skyblue?style=flat&logo=gitbook&labelColor=gray)](https://clang-format-node.lumir.page)
 
-Node repackaging(wrapping) of the **LLVM Clang's** `clang-format` and `git-clang-format` native binary inspired by ['angular/clang-format'](https://github.com/angular/clang-format).🐉
+Node wrapper for LLVM Clang's `clang-format` and `git-clang-format` native binaries inspired by [angular/clang-format](https://github.com/angular/clang-format).🐉
 
 <!-- markdownlint-disable-next-line -->
 </div>
@@ -32,44 +32,60 @@ Node repackaging(wrapping) of the **LLVM Clang's** `clang-format` and `git-clang
 
 ## Included Packages
 
-This repository is maintained as a **monorepo** and includes the following packages.
+This repository is maintained as a **monorepo** and includes the following **three** packages.
 
-1. `clang-format-node` [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node):
-Node repackaging of the `clang-format` native binary. (The **CORE** package.) [『Docs』](/docs/02-packages/01-clang-format-node.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node), [『npm』](https://www.npmjs.com/package/clang-format-node)
+### `clang-format-node` [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
 
-1. `clang-format-git` [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git): Node repackaging of the `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**. [『Docs』](/docs/02-packages/02-clang-format-git.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git), [『npm』](https://www.npmjs.com/package/clang-format-git)
+> [Docs](/docs/02-packages/01-clang-format-node.md) | [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)
 
-1. `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python): Node repackaging of the `git-clang-format` Python script. **This package requires Python3 as a dependency**. [『Docs』](/docs/02-packages/03-clang-format-git-python.md), [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python), [『npm』](https://www.npmjs.com/package/clang-format-git-python)
+Node wrapper for `clang-format` native binary inspired by angular/clang-format. (The **CORE** package.)
+
+### `clang-format-git` [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)
+
+> [Docs](/docs/02-packages/02-clang-format-git.md) | [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)
+
+Node wrapper for `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**.
+
+### `clang-format-git-python` [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python)
+
+> [Docs](/docs/02-packages/03-clang-format-git-python.md) | [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)
+
+Node wrapper for `git-clang-format` Python script. **This package requires Python3 as a dependency**.
 
 ## Supported
 
-See the [supported](/docs/01-introduction/05-supported.md) documentation, which lists the supported 'OS Platforms and Architectures', 'Node.js Versions', 'GitHub Actions Runner Images', and 'Docker(Build) Images'.
+See the [supported](/docs/01-introduction/05-supported.md) section of the documentation, which lists the following:
+
+- OS Platforms and Architectures
+- Node.js Version
+- GitHub Actions Runner Images
+- Docker Build Images
 
 ## Releases
 
-Each package intends to release a new npm package for every **latest** release of the `clang-format` and `git-clang-format`. It **checks** for the latest LLVM release every week, builds all packages using its own pipeline, and makes a pull request. **All processes are run automatically**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml).
-
-## Contributing (Issues & Pull Requests)
-
-Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
-
-Please read our [Code of Conduct](/CODE_OF_CONDUCT.md) and [Contributing Guides](/CONTRIBUTING.md) before you work on these things. We also recommend you to read the [Guides on LLVM and `clang-format`](docs/03-others/04-guides-on-llvm-and-clang-format.md) mentioned in the documentation before contributing.
+Each package intends to release a new npm package for every **latest** release of `clang-format` and `git-clang-format`. Automated GitHub Actions check for the latest LLVM release every week, builds all packages using their own pipeline, and makes a pull request. **All processes are automated**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml).
 
 ## Documentation
 
 For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page) or [`docs` directory of `clang-format-node` repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/docs).
 
-## Versioning
+## Contributing (Issues & Pull Requests)
 
-See [Versioning](/docs/04-community/02-versioning.md).
+Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
+
+Please read our [Contributing](/CONTRIBUTING.md) Guides and [Code of Conduct](/CODE_OF_CONDUCT.md) before you work on these things. We also recommend you to read the [Guides on LLVM and `clang-format`](docs/03-others/04-guides-on-llvm-and-clang-format.md) mentioned in the documentation before contributing.
+
+## Code of Conduct
+
+See [Code of Conduct](/CODE_OF_CONDUCT.md).
 
 ## Change Log
 
 See [Change Log](/CHANGELOG.md).
 
-## Code of Conduct
+## Versioning
 
-See [Code of Conduct](/CODE_OF_CONDUCT.md).
+See [Versioning](/docs/04-community/02-versioning.md).
 
 ## Security
 
