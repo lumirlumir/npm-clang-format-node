@@ -1,12 +1,15 @@
 # `clang-format-node`
 
-[![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node) [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node), [『npm』](https://www.npmjs.com/package/clang-format-node)
+[![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)
+![Node Current](https://img.shields.io/node/v/clang-format-node)
 
-Node repackaging of the `clang-format` native binary. (The **CORE** package.)
+> [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)
+
+Node wrapper for `clang-format` native binary inspired by angular/clang-format. (The **CORE** package.)
 
 ## Installation
 
-If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](./02-clang-format-git.md) or [`clang-format-git-python`](./03-clang-format-git-python.md).
+If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](02-clang-format-git.md) or [`clang-format-git-python`](03-clang-format-git-python.md).
 
 ### global
 
@@ -58,16 +61,31 @@ npx clang-format
 npx clang-format-node
 ```
 
-## APIs
+## Node.js APIs
 
-```javascript
-const {
-  clangFormatPath,
-  clangFormatNodePath,
-  getClangFormatPath,
-  getClangFormatNodePath
-} = require('clang-format-node');
-```
+These APIs depends on the Node.js `fs` and `path` module and the file system, so you cannot use it in browsers.
+
+- CommonJS
+
+    ```javascript
+    const {
+      clangFormatPath,
+      clangFormatNodePath,
+      getClangFormatPath,
+      getClangFormatNodePath
+    } = require('clang-format-node');
+    ```
+
+- ES Modules
+
+    ```javascript
+    import {
+      clangFormatPath,
+      clangFormatNodePath,
+      getClangFormatPath,
+      getClangFormatNodePath
+    } from 'clang-format-node';
+    ```
 
 ### `clangFormatPath`
 
@@ -75,8 +93,8 @@ The ABSOLUTE path to the `clang-format` executable binary based on the OS platfo
 
 #### Alias and Version
 
-- **Alias**: `clangFormatNodePath`. See [`clangFormatNodePath`](#clangformatnodepath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `clangFormatNodePath`. See [`clangFormatNodePath`](#clangformatnodepath).
+- Version: `v1.2.0` Initial release.
 
 ### `clangFormatNodePath`
 
@@ -84,8 +102,8 @@ Alias for `clangFormatPath`.
 
 #### Alias and Version
 
-- **Alias**: `clangFormatPath`. See [`clangFormatPath`](#clangformatpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `clangFormatPath`. See [`clangFormatPath`](#clangformatpath).
+- Version: `v1.2.0` Initial release.
 
 ### `getClangFormatPath`
 
@@ -97,21 +115,21 @@ Throws an error if the executable is not found.
 
 #### Parameters
 
-- **osPlatform** (`string`): The current operating system platform. (e.g., `darwin`, `linux`, `win32`)
-- **architecture** (`string`): The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
+- osPlatform (`string`): The current operating system platform. (e.g., `darwin`, `linux`, `win32`)
+- architecture (`string`): The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
 
 #### Returns
 
-- **`string`**: The absolute path to the `clang-format` executable binary.
+- `string`: The absolute path to the `clang-format` executable binary.
 
 #### Throws
 
-- **`Error`**: Throws an error if the executable binary is not found for the specified OS platform and architecture.
+- `Error`: Throws an error if the executable binary is not found for the specified OS platform and architecture.
 
 #### Alias and Version
 
-- **Alias**: `getClangFormatNodePath`. See [`getClangFormatNodePath`](#getclangformatnodepath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `getClangFormatNodePath`. See [`getClangFormatNodePath`](#getclangformatnodepath).
+- Version: `v1.2.0` Initial release.
 
 ### `getClangFormatNodePath`
 
@@ -119,5 +137,5 @@ Alias for `getClangFormatPath`.
 
 #### Alias and Version
 
-- **Alias**: `getClangFormatPath`. See [`getClangFormatPath`](#getclangformatpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `getClangFormatPath`. See [`getClangFormatPath`](#getclangformatpath).
+- Version: `v1.2.0` Initial release.

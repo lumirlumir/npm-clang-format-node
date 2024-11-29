@@ -1,8 +1,11 @@
 # `clang-format-git`
 
-[![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git) [『Repository』](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git), [『npm』](https://www.npmjs.com/package/clang-format-git)
+[![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)
+![Node Current](https://img.shields.io/node/v/clang-format-git)
 
-Node repackaging of the `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**.
+> [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)
+
+Node wrapper for `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**.
 
 ## Installation
 
@@ -58,16 +61,31 @@ npx git-clang-format
 npx clang-format-git
 ```
 
-## APIs
+## Node.js APIs
 
-```javascript
-const {
-  gitClangFormatPath,
-  clangFormatGitPath,
-  getGitClangFormatPath,
-  getClangFormatGitPath,
-} = require('clang-format-git');
-```
+These APIs depends on the Node.js `fs` and `path` module and the file system, so you cannot use it in browsers.
+
+- CommonJS
+
+    ```javascript
+    const {
+      gitClangFormatPath,
+      clangFormatGitPath,
+      getGitClangFormatPath,
+      getClangFormatGitPath,
+    } = require('clang-format-git');
+    ```
+
+- ES Modules
+
+    ```javascript
+    import {
+      gitClangFormatPath,
+      clangFormatGitPath,
+      getGitClangFormatPath,
+      getClangFormatGitPath,
+    } from 'clang-format-git';
+    ```
 
 ### `gitClangFormatPath`
 
@@ -75,8 +93,8 @@ The ABSOLUTE path to the `git-clang-format` executable binary based on the OS pl
 
 #### Alias and Version
 
-- **Alias**: `clangFormatGitPath`. See [`clangFormatGitPath`](#clangformatgitpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `clangFormatGitPath`. See [`clangFormatGitPath`](#clangformatgitpath).
+- Version: `v1.2.0` Initial release.
 
 ### `clangFormatGitPath`
 
@@ -84,8 +102,8 @@ Alias for `gitClangFormatPath`.
 
 #### Alias and Version
 
-- **Alias**: `gitClangFormatPath`. See [`gitClangFormatPath`](#gitclangformatpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `gitClangFormatPath`. See [`gitClangFormatPath`](#gitclangformatpath).
+- Version: `v1.2.0` Initial release.
 
 ### `getGitClangFormatPath`
 
@@ -97,21 +115,21 @@ Throws an error if the executable is not found.
 
 #### Parameters
 
-- **osPlatform** (`string`): The current operating system platform. (e.g., `darwin`, `linux`, `win32`)
-- **architecture** (`string`): The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
+- osPlatform (`string`): The current operating system platform. (e.g., `darwin`, `linux`, `win32`)
+- architecture (`string`): The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
 
 #### Returns
 
-- **`string`**: The absolute path to the `git-clang-format` executable binary.
+- `string`: The absolute path to the `git-clang-format` executable binary.
 
 #### Throws
 
-- **`Error`**: Throws an error if the executable binary is not found for the specified OS platform and architecture.
+- `Error`: Throws an error if the executable binary is not found for the specified OS platform and architecture.
 
 #### Alias and Version
 
-- **Alias**: `getClangFormatGitPath`. See [`getClangFormatGitPath`](#getclangformatgitpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `getClangFormatGitPath`. See [`getClangFormatGitPath`](#getclangformatgitpath).
+- Version: `v1.2.0` Initial release.
 
 ### `getClangFormatGitPath`
 
@@ -119,5 +137,5 @@ Alias for `getGitClangFormatPath`.
 
 #### Alias and Version
 
-- **Alias**: `getGitClangFormatPath`. See [`getGitClangFormatPath`](#getgitclangformatpath).
-- **Version**: `v1.2.0` Initial release.
+- Alias: `getGitClangFormatPath`. See [`getGitClangFormatPath`](#getgitclangformatpath).
+- Version: `v1.2.0` Initial release.

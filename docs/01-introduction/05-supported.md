@@ -1,6 +1,6 @@
 # Supported
 
-The following content applies to all packages within the [`clang-format-node`](https://github.com/lumirlumir/npm-clang-format-node) repository.
+The following content applies to all packages within [`clang-format-node`](https://github.com/lumirlumir/npm-clang-format-node) repository.
 
 ## OS Platforms and Architectures
 
@@ -31,7 +31,7 @@ Each package supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/ma
 >     - `clang+llvm-18.1.8-x86_64-pc-windows-msvc.tar.xz`
 >     - and more...
 
-## Node.js
+## Node.js Version
 
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
 
@@ -63,7 +63,7 @@ Image                   | YAML Label     | Included Software |
 ~~Ubuntu 20.04~~        | `ubuntu-20.04` | [ubuntu-20.04]    |
 ~~Windows Server 2019~~ | `windows-2019` | [windows-2019]    |
 
-## Docker(Build) Images
+## Docker Build Images
 
 We used the following Images to build `clang-format` excuatable binaries.
 
