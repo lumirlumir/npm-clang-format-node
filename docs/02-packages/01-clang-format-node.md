@@ -9,7 +9,7 @@ Node wrapper for `clang-format` native binary inspired by angular/clang-format. 
 
 ## Installation
 
-If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](/02-clang-format-git.md) or [`clang-format-git-python`](/03-clang-format-git-python.md).
+If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](02-clang-format-git.md) or [`clang-format-git-python`](03-clang-format-git-python.md).
 
 ### global
 
