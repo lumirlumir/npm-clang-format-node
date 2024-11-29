@@ -191,21 +191,21 @@ See the [Usage section of `clang-format-git-python`](../02-packages/03-clang-for
     npx git-clang-format --help
     ```
 
-## APIs
+## Node.js APIs
 
 Each package also supports JSDoc type hints with the following APIs, so you’ll see more detailed information directly in your code editor.
 
 ### `clang-format-node`
 
-See the [APIs section of `clang-format-node`](../02-packages/01-clang-format-node.md#apis).
+See the [APIs section of `clang-format-node`](../02-packages/01-clang-format-node.md#nodejs-apis).
 
 ### `clang-format-git`
 
-See the [APIs section of `clang-format-git`](../02-packages/02-clang-format-git.md#apis).
+See the [APIs section of `clang-format-git`](../02-packages/02-clang-format-git.md#nodejs-apis).
 
 ### `clang-format-git-python`
 
-See the [APIs section of `clang-format-git-python`](../02-packages/03-clang-format-git-python.md#apis).
+See the [APIs section of `clang-format-git-python`](../02-packages/03-clang-format-git-python.md#nodejs-apis).
 
 ## [`.clang-format-ignore`](https://clang.llvm.org/docs/ClangFormat.html#clang-format-ignore)
 
