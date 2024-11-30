@@ -15,7 +15,7 @@
     "lint-prettier": "npx prettier . --check",
     "lint-editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
     "lint-markdownlint": "npx markdownlint **/*.md",
-    "lint-textlint": "npx textlint -f pretty-error *.md",
+    "lint-textlint": "npx textlint -f pretty-error **/*.md",
     "fix": "concurrently \"npm:fix-*\"",
     "fix-eslint": "npx eslint . --fix --ext .js",
     "fix-prettier": "npx prettier . --write"
