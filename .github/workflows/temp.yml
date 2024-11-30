@@ -1,0 +1,30 @@
+name: temp
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  temp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up checkout
+        uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Set up node_modules
+        run: npm ci
+
+      - name: test
+        run: |
+          ls -alR packages/clang-format-node/src/bin/
+          ls -alR packages/clang-format-git/src/bin/
+          ls -alR packages/clang-format-git-python/src/script/
