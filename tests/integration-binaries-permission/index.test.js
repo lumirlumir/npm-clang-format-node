@@ -46,7 +46,9 @@ const binaries = [
 ];
 
 describe('integration-binaries-permission ok testing', () => {
-  // skip test on Windows.
+  // Skip test on Windows.
+  // On Windows, using `chmod` to change permissions doesn't work correctly,
+  // which can lead to unwanted results, as some binary permissions are not changed.
   if (platform() === 'win32') {
     // eslint-disable-next-line no-console
     console.log('This test was skipped on Windows.');
