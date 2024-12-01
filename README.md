@@ -19,6 +19,7 @@ Your support helps us improve and maintain the project.
 [![test-cross-platform](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/4bcedf673457b80b9b18/maintainability)](https://codeclimate.com/github/lumirlumir/npm-clang-format-node/maintainability)
 [![Static Badge](https://img.shields.io/badge/Official_Documentation-skyblue?style=flat&logo=gitbook&labelColor=gray)](https://clang-format-node.lumir.page)
 
 Node wrapper for LLVM Clang's `clang-format` and `git-clang-format` native binaries inspired by [angular/clang-format](https://github.com/angular/clang-format).🐉
