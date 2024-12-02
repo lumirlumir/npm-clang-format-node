@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "formatted:c": "npx clang-format src/formatted.c",
+    "formatted:c:dry-run": "npx clang-format -Werror -n src/formatted.c",
+    "formatted:cpp": "npx clang-format src/formatted.cpp",
+    "formatted:cpp:dry-run": "npx clang-format -Werror -n src/formatted.cpp",
+    "unformatted:c": "npx clang-format src/unformatted.c",
+    "unformatted:c:dry-run": "npx clang-format -Werror -n src/unformatted.c",
+    "unformatted:cpp": "npx clang-format src/unformatted.cpp",
+    "unformatted:cpp:dry-run": "npx clang-format -Werror -n src/unformatted.cpp"
+  },
+  "dependencies": {
+    "clang-format-node": "^1.2.1"
+  }
+}
