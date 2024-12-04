@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "git-clang-format": "cat src/unformatted.base.txt > src/unformatted.c && git add src/unformatted.c && npx git-clang-format"
+  },
+  "dependencies": {
+    "clang-format-git": "^1.2.1",
+    "clang-format-git-python": "^1.2.1"
+  }
+}
