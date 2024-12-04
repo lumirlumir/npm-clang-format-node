@@ -1,5 +1,6 @@
 {
   "private": true,
+  "version": "1.2.1",
   "type": "commonjs",
   "scripts": {
     "test": "node --test"
