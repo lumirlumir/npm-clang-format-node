@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "tests-integration-api-cjs",
   "version": "1.2.2",
   "type": "commonjs",
   "scripts": {
