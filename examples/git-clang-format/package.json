@@ -1,5 +1,6 @@
 {
   "private": true,
+  "version": "1.2.1",
   "scripts": {
     "git-clang-format": "cat src/unformatted.base.txt > src/unformatted.c && git add src/unformatted.c && npx git-clang-format"
   },
