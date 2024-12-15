@@ -1,9 +1,21 @@
+/**
+ * @fileoverview Test for `clangFormatPath.js`.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { strictEqual } = require('node:assert');
 const { platform, arch } = require('node:os');
 const { describe, it } = require('node:test');
 
 const { clangFormatPath, clangFormatNodePath } = require('./clangFormatPath');
 const { getClangFormatPath } = require('./getClangFormatPath');
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('clangFormatPath strictEqual testing', () => {
   it('clangFormatPath === getClangFormatPath(platform(), arch())', () => {

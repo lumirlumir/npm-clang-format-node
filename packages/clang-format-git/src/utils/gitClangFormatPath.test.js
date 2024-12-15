@@ -1,9 +1,21 @@
+/**
+ * @fileoverview Test for `gitClangFormatPath.js`.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { strictEqual } = require('node:assert');
 const { platform, arch } = require('node:os');
 const { describe, it } = require('node:test');
 
 const { gitClangFormatPath, clangFormatGitPath } = require('./gitClangFormatPath');
 const { getGitClangFormatPath } = require('./getGitClangFormatPath');
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('gitClangFormatPath strictEqual testing', () => {
   it('gitClangFormatPath === getGitClangFormatPath(platform(), arch())', () => {
