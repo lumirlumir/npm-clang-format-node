@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Integration tests to verify that the binaries or script for `clang-format-node`, `clang-format-git`, and `clang-format-git-python` have the correct permissions (755) on POSIX.
+ *
+ * The tests are skipped on Windows due to issues with changing permissions using `chmod`.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { ok } = require('node:assert');
 const { execSync } = require('node:child_process');
 const { describe, it } = require('node:test');
@@ -6,6 +16,10 @@ const { platform } = require('node:os');
 const { getClangFormatNodePath } = require('clang-format-node');
 const { getClangFormatGitPath } = require('clang-format-git');
 const { clangFormatGitPythonPath } = require('clang-format-git-python');
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
 
 const isPermission755 = path =>
   execSync(`stat -c '%a' ${path}`).toString().trim() === '755';
@@ -44,6 +58,10 @@ const binaries = [
     architecture: 'x64',
   },
 ];
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('integration-binaries-permission ok testing', () => {
   // Skip test on Windows.

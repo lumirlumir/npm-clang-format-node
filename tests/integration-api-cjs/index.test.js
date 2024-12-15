@@ -1,4 +1,15 @@
-// This file should have the same format as '/tests/integration-api-esm/index.test.cjs'.
+/**
+ * @fileoverview Integration tests for `"type": "commonjs"`.
+ *
+ * It tests the correct import and functionality of various paths from
+ * `clang-format-node`, `clang-format-git`, and `clang-format-git-python` modules.
+ *
+ * This file should have the same format as '/tests/integration-api-esm/index.test.cjs'.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
 
 const { ok } = require('node:assert');
 const { describe, it } = require('node:test');
@@ -21,6 +32,10 @@ const {
   gitClangFormatPath: gitClangFormatPathPython,
   clangFormatGitPythonPath,
 } = require('clang-format-git-python');
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('integration-api-cjs CJS ok testing', () => {
   describe('clang-format-node', () => {
