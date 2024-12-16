@@ -1,10 +1,22 @@
 #!/usr/bin/env node
 
+/**
+ * @fileoverview Entry file for the `npx git-clang-format` or `npx clang-format-git-python` command. See the `bin` property in `package.json`.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { spawn } = require('child_process');
 
 const { clangFormatPath } = require('clang-format-node');
 
 const { gitClangFormatPath } = require('./utils/gitClangFormatPath');
+
+// --------------------------------------------------------------------------------
+// Execution
+// --------------------------------------------------------------------------------
 
 const spawned = spawn(
   'python',
