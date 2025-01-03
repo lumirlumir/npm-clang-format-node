@@ -4,8 +4,8 @@
   "version": "1.2.3",
   "scripts": {
     "add-a-space-to-line-9-of-main-c-file": "cat src/main_overwrite.txt > src/main.c",
-    "run-git-add": "git add src/main.c",
-    "run-git-clang-format": "npx git-clang-format"
+    "git-add": "git add src/main.c",
+    "git-clang-format": "npx git-clang-format"
   },
   "dependencies": {
     "clang-format-git": "^1.2.3",
