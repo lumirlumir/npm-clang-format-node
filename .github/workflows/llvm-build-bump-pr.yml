@@ -246,7 +246,7 @@ jobs:
       matrix:
         type:
           - macos-14 # arm64 (macos-latest: arm64)
-          - macos-12 # x64 (macos-13: x64)
+          - macos-13 # x64 (macos-12(deprecated): x64)
 
     # Use the oldest version possible for backward compatibility.
     runs-on: ${{ matrix.type }}

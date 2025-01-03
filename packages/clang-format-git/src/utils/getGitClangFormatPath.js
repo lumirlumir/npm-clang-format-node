@@ -1,5 +1,17 @@
+/**
+ * @fileoverview `getGitClangFormatPath` and `getClangFormatGitPath` APIs.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { existsSync } = require('fs');
 const { resolve } = require('path');
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
 
 /**
  * Returns the ABSOLUTE path to the `git-clang-format` executable binary based on the OS platform and architecture.
@@ -39,6 +51,10 @@ function getGitClangFormatPath(osPlatform, architecture) {
  * @version `v1.2.0` Initial release.
  */
 const getClangFormatGitPath = getGitClangFormatPath;
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
 
 module.exports = {
   getGitClangFormatPath,

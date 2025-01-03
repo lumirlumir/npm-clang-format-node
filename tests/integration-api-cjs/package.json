@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "tests-integration-api-cjs",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "commonjs",
   "scripts": {
     "test": "node --test"
   },
   "dependencies": {
-    "clang-format-git": "^1.2.2",
-    "clang-format-git-python": "^1.2.2",
-    "clang-format-node": "^1.2.2"
+    "clang-format-git": "^1.2.3",
+    "clang-format-git-python": "^1.2.3",
+    "clang-format-node": "^1.2.3"
   }
 }

@@ -45,3 +45,25 @@ All packages are located in the `packages` directory, and the documentation can 
 1. Push them to your remote branch.
 
 1. Submit a pull request.🙇‍♂️
+
+## Others
+
+### `node:` namespace
+
+The `node:` namespace prefix for built-in modules was introduced in Node.js `14.18.0` and `16.0.0`. While using it is recommended for new projects, we use different approaches in this project:
+
+- For regular application code, use standard imports without the `node:` prefix for broader compatibility:
+
+  ```js
+  // Standard import (works in all Node.js versions)
+  const fs = require('fs');
+  ```
+
+- For test files (`.test.js`) that use the `node:test` runner, you may use the `node:` prefix:
+
+  ```js
+  // node: prefix allowed in test files
+  const fs = require('node:fs');
+  ```
+
+This approach helps maintain compatibility across Node.js versions while allowing modern syntax in test environments where version constraints are less critical.

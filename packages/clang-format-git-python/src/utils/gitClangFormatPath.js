@@ -1,4 +1,16 @@
+/**
+ * @fileoverview `gitClangFormatPath` and `clangFormatGitPythonPath` APIs.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { resolve } = require('path');
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
 
 /**
  * The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/packages/clang-format-git-python/src/script/git-clang-format) Python script.
@@ -16,6 +28,10 @@ const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`
  * @version `v1.2.0` Initial release.
  */
 const clangFormatGitPythonPath = gitClangFormatPath;
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
 
 module.exports = {
   gitClangFormatPath,

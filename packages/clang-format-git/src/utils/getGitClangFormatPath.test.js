@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Test for `getGitClangFormatPath.js`.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { doesNotThrow, throws } = require('node:assert');
 const { describe, it } = require('node:test');
 
@@ -5,6 +13,10 @@ const {
   getGitClangFormatPath,
   getClangFormatGitPath,
 } = require('./getGitClangFormatPath');
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
 
 /**
  * See possible values in {@link https://nodejs.org/api/os.html#osplatform}.
@@ -39,6 +51,10 @@ const allowed = {
   linux: ['arm', 'arm64', 'ppc64', 's390x', 'x64'],
   win32: ['x64'],
 };
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('getGitClangFormatPath doesNotThrow and throws testing', () => {
   osPlatforms.forEach(osPlatform => {

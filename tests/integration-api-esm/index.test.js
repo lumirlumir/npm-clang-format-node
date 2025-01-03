@@ -1,4 +1,15 @@
-// This file should have the same format as '/tests/integration-api-cjs/index.test.mjs'.
+/**
+ * @fileoverview Integration tests for `"type": "module"`.
+ *
+ * It tests the correct import and functionality of various paths from
+ * `clang-format-node`, `clang-format-git`, and `clang-format-git-python` modules.
+ *
+ * This file should have the same format as '/tests/integration-api-cjs/index.test.mjs'.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
 
 import { ok } from 'node:assert';
 import { describe, it } from 'node:test';
@@ -21,6 +32,10 @@ import {
   gitClangFormatPath as gitClangFormatPathPython,
   clangFormatGitPythonPath,
 } from 'clang-format-git-python';
+
+// --------------------------------------------------------------------------------
+// Test
+// --------------------------------------------------------------------------------
 
 describe('integration-api-cjs ESM ok testing', () => {
   describe('clang-format-node', () => {

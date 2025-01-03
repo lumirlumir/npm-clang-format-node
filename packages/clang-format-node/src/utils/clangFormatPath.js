@@ -1,6 +1,18 @@
+/**
+ * @fileoverview `clangFormatPath` and `clangFormatNodePath` APIs.
+ */
+
+// --------------------------------------------------------------------------------
+// Require
+// --------------------------------------------------------------------------------
+
 const { platform, arch } = require('os');
 
 const { getClangFormatPath } = require('./getClangFormatPath');
+
+// --------------------------------------------------------------------------------
+// Declaration
+// --------------------------------------------------------------------------------
 
 /**
  * The ABSOLUTE path to the `clang-format` executable binary based on the OS platform and architecture.
@@ -17,6 +29,10 @@ const clangFormatPath = getClangFormatPath(platform(), arch());
  * @version `v1.2.0` Initial release.
  */
 const clangFormatNodePath = clangFormatPath;
+
+// --------------------------------------------------------------------------------
+// Exports
+// --------------------------------------------------------------------------------
 
 module.exports = {
   clangFormatPath,
