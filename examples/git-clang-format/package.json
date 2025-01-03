@@ -8,7 +8,6 @@
     "git-clang-format": "npx git-clang-format"
   },
   "dependencies": {
-    "clang-format-git": "^1.2.3",
-    "clang-format-git-python": "^1.2.3"
+    "clang-format-git": "^1.2.3"
   }
 }
