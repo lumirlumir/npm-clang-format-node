@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "tests-integration-api-esm",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "type": "module",
   "scripts": {
     "test": "node --test"
   },
   "dependencies": {
-    "clang-format-git": "^1.2.3",
-    "clang-format-git-python": "^1.2.3",
-    "clang-format-node": "^1.2.3"
+    "clang-format-git": "^1.2.4",
+    "clang-format-git-python": "^1.2.4",
+    "clang-format-node": "^1.2.4"
   }
 }
