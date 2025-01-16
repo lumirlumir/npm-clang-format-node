@@ -45,10 +45,6 @@ lumirlumir/lumirlumir-configs:
   # ./
   - source: ./.editorconfig
     dest: ./configs/.editorconfig
-  - source: ./.eslintignore
-    dest: ./configs/.eslintignore
-  - source: ./.eslintrc.js
-    dest: ./configs/.eslintrc.js
   - source: ./.gitattributes
     dest: ./configs/.gitattributes
   - source: ./.gitignore
@@ -65,13 +61,15 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierrc.js
   - source: ./.textlintrc.js
     dest: ./configs/.textlintrc.js
-  - source: ./babel.config.js
-    dest: ./configs/babel.config.js
   - source: ./CODE_OF_CONDUCT.md
     dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
-  - source: ./lint-staged.config.js
-    dest: ./configs/lint-staged.config.js
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
+  - source: ./babel.config.js
+    dest: ./configs/babel.config.js
+  - source: ./eslint.config.js
+    dest: ./configs/eslint.config.js
+  - source: ./lint-staged.config.js
+    dest: ./configs/lint-staged.config.js
