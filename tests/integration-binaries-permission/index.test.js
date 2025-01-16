@@ -68,7 +68,6 @@ describe('integration-binaries-permission ok testing', () => {
   // On Windows, using `chmod` to change permissions doesn't work correctly,
   // which can lead to unwanted results, as some binary permissions are not changed.
   if (platform() === 'win32') {
-    // eslint-disable-next-line no-console
     console.log('This test was skipped on Windows.');
     return;
   }

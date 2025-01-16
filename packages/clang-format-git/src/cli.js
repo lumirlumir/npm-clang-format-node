@@ -4,6 +4,8 @@
  * @fileoverview Entry file for the `npx git-clang-format` or `npx clang-format-git` command. See the `bin` property in `package.json`.
  */
 
+/* eslint-disable n/prefer-node-protocol */
+
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------
@@ -28,7 +30,6 @@ const spawned = spawn(
 
 spawned.on('close', code => {
   if (code !== 0) {
-    // eslint-disable-next-line no-console
     console.error(`Process exited with code: ${code}`);
     process.exit(code);
   }

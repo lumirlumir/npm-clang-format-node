@@ -2,6 +2,8 @@
  * @fileoverview `getClangFormatPath` and `getClangFormatNodePath` APIs.
  */
 
+/* eslint-disable n/prefer-node-protocol */
+
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------

@@ -2,6 +2,8 @@
  * @fileoverview `getGitClangFormatPath` and `getClangFormatGitPath` APIs.
  */
 
+/* eslint-disable n/prefer-node-protocol */
+
 // --------------------------------------------------------------------------------
 // Require
 // --------------------------------------------------------------------------------
