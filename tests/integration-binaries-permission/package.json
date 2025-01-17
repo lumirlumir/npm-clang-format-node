@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "tests-integration-binaries-permission",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "scripts": {
     "test": "node --test"
   },
   "dependencies": {
-    "clang-format-git": "^1.2.4",
-    "clang-format-git-python": "^1.2.4",
-    "clang-format-node": "^1.2.4"
+    "clang-format-git": "^1.2.5",
+    "clang-format-git-python": "^1.2.5",
+    "clang-format-node": "^1.2.5"
   }
 }
