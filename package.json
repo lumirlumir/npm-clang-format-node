@@ -13,18 +13,21 @@
   "scripts": {
     "prepare": "husky",
     "publish-package": "npx lerna publish from-package --pre-dist-tag canary --yes",
-    "build": "npx lerna run build",
+    "dev": "npm run dev -w website",
+    "start": "npm run start -w website",
     "test": "npx lerna run test --concurrency 1",
     "coverage": "npx c8 --reporter=lcov npm run test",
+    "build": "npx lerna run build",
+    "build:website": "npm run build -w website",
+    "fix": "concurrently \"npm:fix:*\"",
+    "fix:eslint": "npx eslint --fix",
+    "fix:prettier": "npx prettier . --write",
     "lint": "concurrently \"npm:lint:*\"",
     "lint:eslint": "npx eslint",
     "lint:prettier": "npx prettier . --check",
     "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
     "lint:markdownlint": "npx markdownlint **/*.md",
-    "lint:textlint": "npx textlint -f pretty-error **/*.md",
-    "fix": "concurrently \"npm:fix:*\"",
-    "fix:eslint": "npx eslint --fix",
-    "fix:prettier": "npx prettier . --write"
+    "lint:textlint": "npx textlint -f pretty-error **/*.md"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
