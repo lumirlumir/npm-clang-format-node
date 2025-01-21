@@ -40,6 +40,7 @@ export default defineConfig({
   /* Theming */
   lastUpdated: true,
 
+  /* Thme Configuration */
   themeConfig: {
     logo: {
       light: '/logo-black.svg',
