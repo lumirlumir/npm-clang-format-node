@@ -24,9 +24,17 @@ const REPO_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 // --------------------------------------------------------------------------------
 
 export default defineConfig({
+  /* Site Metadata */
   title: 'clang-format-node',
   description:
     "The official documentation site for the clang-format-node npm package. clang-format-node is a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries, inspired by angular/clang-format.🐉",
+  head: [['link', { rel: 'icon', href: '/logo-lightgray.svg' }]],
+
+  /* Routing */
+  cleanUrls: true,
+
+  /* Theming */
+  lastUpdated: true,
 
   themeConfig: {
     logo: {
@@ -46,7 +54,7 @@ export default defineConfig({
       },
       {
         text: 'Blog',
-        link: '/',
+        link: '/docs/blog/',
       },
       {
         text: 'Examples',
@@ -75,12 +83,19 @@ export default defineConfig({
       },
     ],
 
-    sidebar: [
-      {
-        text: 'Getting Started',
-        items: [{ text: 'Contributing', link: '/community/contributing' }],
-      },
-    ],
+    sidebar: {
+      '/docs/blog/': [
+        {
+          text: 'Releases',
+          items: [
+            {
+              text: 'v1.2.0',
+              link: '/docs/blog/releases/v1.2.0',
+            },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       {
