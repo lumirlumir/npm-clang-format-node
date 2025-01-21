@@ -52,7 +52,7 @@
   --vp-c-brand-1: #83ba63; /* Node.js Brand Color */
   --vp-c-brand-2: #417f38; /* Node.js Brand Color */
   --vp-c-brand-3: #215127; /* Node.js Brand Color */
-  --vp-c-brand-soft: #2d3338; /* Node.js Brand Color */
+  --vp-c-brand-soft: #83ba6340;
 
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);

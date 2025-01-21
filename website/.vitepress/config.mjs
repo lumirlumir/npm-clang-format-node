@@ -82,6 +82,15 @@ export default defineConfig({
     sidebar: {
       '/docs/blog/': [
         {
+          text: 'Articles',
+          items: [
+            {
+              text: '<code>|| exit 0</code> and <code>|| true</code>',
+              link: '/docs/blog/articles/difference-between-exit-0-and-true',
+            },
+          ],
+        },
+        {
           text: 'Releases',
           items: [
             {

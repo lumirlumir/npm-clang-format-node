@@ -10,6 +10,8 @@ head:
 
 ## Articles {#articles}
 
+- [Difference Between `myscript || exit 0` and `myscript || true`](articles/difference-between-exit-0-and-true.md)
+
 ## Releases {#releases}
 
-[v1.2.0](releases/v1.2.0.md)
+- [v1.2.0](releases/v1.2.0.md)
