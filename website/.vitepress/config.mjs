@@ -18,6 +18,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 // --------------------------------------------------------------------------------
 
 const REPO_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
+const NPM_URL = 'https://www.npmjs.com/package';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -28,7 +29,10 @@ export default defineConfig({
   title: 'clang-format-node',
   description:
     "The official documentation site for the clang-format-node npm package. clang-format-node is a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries, inspired by angular/clang-format.🐉",
-  head: [['link', { rel: 'icon', href: '/logo-lightgray.svg' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/logo-lightgray.svg' }],
+    // TODO: Add more meta tags like keywords, author, etc.
+  ],
 
   /* Routing */
   cleanUrls: true,
@@ -46,15 +50,27 @@ export default defineConfig({
     nav: [
       {
         text: 'Getting Started',
-        link: '/',
+        link: '/docs/1-getting-started/1-installation',
+        activeMatch: '/docs/1-getting-started/',
       },
       {
         text: 'APIs',
-        link: '/',
+        link: '/docs/2-apis/1-clang-format-node',
+        activeMatch: '/docs/2-apis/',
+      },
+      {
+        text: 'Further Reading',
+        link: '/docs/3-further-reading/1-migration-from-angular-clang-format',
+        activeMatch: '/docs/3-further-reading/',
       },
       {
         text: 'Blog',
-        link: '/docs/blog/',
+        link: '/docs/4-blog/v1.2.0',
+        activeMatch: '/docs/4-blog/',
+      },
+      {
+        text: 'Community',
+        link: '/', // TODO
       },
       {
         text: 'Examples',
@@ -65,37 +81,67 @@ export default defineConfig({
         items: [
           {
             text: 'clang-format-node',
-            link: 'https://www.npmjs.com/package/clang-format-node',
+            link: `${NPM_URL}/clang-format-node`,
           },
           {
             text: 'clang-format-git',
-            link: 'https://www.npmjs.com/package/clang-format-git',
+            link: `${NPM_URL}/clang-format-git`,
           },
           {
             text: 'clang-format-git-python',
-            link: 'https://www.npmjs.com/package/clang-format-git-python',
+            link: `${NPM_URL}/clang-format-git-python`,
           },
         ],
       },
     ],
 
     sidebar: {
-      '/docs/blog/': [
+      '/docs/': [
         {
-          text: 'Articles',
+          base: '/docs/1-getting-started/',
+          text: 'Getting Started',
           items: [
             {
-              text: '<code>|| exit 0</code> and <code>|| true</code>',
-              link: '/docs/blog/articles/difference-between-exit-0-and-true',
+              text: 'Installation',
+              link: '1-installation',
             },
           ],
         },
+
         {
-          text: 'Releases',
+          base: '/docs/2-apis/',
+          text: 'APIs',
+          items: [
+            {
+              text: 'clang-format-node',
+              link: '1-clang-format-node',
+            },
+          ],
+        },
+
+        {
+          base: '/docs/3-further-reading/',
+          text: 'Further Reading',
+          items: [
+            {
+              text: "Migration from 'angular/clang-format'",
+              link: '1-migration-from-angular-clang-format',
+            },
+            {
+              text: '<code>|| exit 0</code> and <code>|| true</code>',
+              link: '5-difference-between-exit-0-and-true',
+            },
+          ],
+        },
+
+        {
+          base: '/docs/4-blog/',
+          text: 'Blog',
+          collapsed: true,
           items: [
             {
               text: 'v1.2.0',
-              link: '/docs/blog/releases/v1.2.0',
+              link: 'v1.2.0',
             },
           ],
         },
