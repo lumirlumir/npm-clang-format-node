@@ -114,6 +114,10 @@ export default defineConfig({
       pattern: `${REPO_URL}/edit/main/website/:path`,
       text: 'Edit this page on GitHub',
     },
+
+    search: {
+      provider: 'local',
+    },
   },
 
   markdown: {
