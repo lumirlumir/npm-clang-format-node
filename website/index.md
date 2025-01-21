@@ -18,8 +18,11 @@ hero:
       text: APIs
       link: /
     - theme: alt
-      text: Examples
+      text: Blog
       link: /
+    - theme: alt
+      text: Examples
+      link: https://github.com/lumirlumir/npm-clang-format-node/tree/main/examples
     - theme: alt
       text: Playground
       link: /
