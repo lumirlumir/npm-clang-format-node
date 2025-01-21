@@ -4,8 +4,8 @@ title: clang-format-node
 
 hero:
   name: clang-format-node
-  text: Node wrapper for LLVM Clang Format's <code>clang-format</code> and <code>git-clang-format</code> native binaries.
-  tagline: LLVM Clang Format has landed in Node.js!🐉
+  text: Node wrapper for LLVM Clang Project's <code>clang-format</code> and <code>git-clang-format</code> native binaries.
+  tagline: C, C++, Java, JavaScript, JSON, Objective-C, Protobuf, and C# formatter based on Clang for the Node.js environment.🐉
   image:
     light: /logo-white.svg
     dark: /logo-black.svg
