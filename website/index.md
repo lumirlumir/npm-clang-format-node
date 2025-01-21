@@ -19,7 +19,7 @@ hero:
       link: /
     - theme: alt
       text: Blog
-      link: /
+      link: /docs/blog/
     - theme: alt
       text: Examples
       link: https://github.com/lumirlumir/npm-clang-format-node/tree/main/examples
