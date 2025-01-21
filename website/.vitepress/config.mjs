@@ -50,9 +50,9 @@ export default defineConfig({
 
     nav: [
       {
-        text: 'Getting Started',
-        link: '/docs/1-getting-started/1-installation',
-        activeMatch: '/docs/1-getting-started/',
+        text: 'Get Started',
+        link: '/docs/1-get-started/1-installation',
+        activeMatch: '/docs/1-get-started/',
       },
       {
         text: 'APIs',
@@ -60,18 +60,23 @@ export default defineConfig({
         activeMatch: '/docs/2-apis/',
       },
       {
-        text: 'Further Reading',
-        link: '/docs/3-further-reading/1-migration-from-angular-clang-format',
-        activeMatch: '/docs/3-further-reading/',
-      },
-      {
-        text: 'Blog',
-        link: '/docs/4-blog/v1.2.0',
-        activeMatch: '/docs/4-blog/',
-      },
-      {
-        text: 'Community',
-        link: '/', // TODO
+        text: 'Others',
+        items: [
+          {
+            text: 'Further Reading',
+            link: '/docs/3-further-reading/1-migration-from-angular-clang-format',
+            activeMatch: '/docs/3-further-reading/',
+          },
+          {
+            text: 'Blog',
+            link: '/docs/4-blog/v1.2.0',
+            activeMatch: '/docs/4-blog/',
+          },
+          {
+            text: 'Community',
+            link: '/', // TODO
+          },
+        ],
       },
       {
         text: 'Examples',
@@ -99,8 +104,8 @@ export default defineConfig({
     sidebar: {
       '/docs/': [
         {
-          base: '/docs/1-getting-started/',
-          text: 'Getting Started',
+          base: '/docs/1-get-started/',
+          text: 'Get Started',
           items: [
             {
               text: 'Installation',
