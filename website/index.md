@@ -23,9 +23,6 @@ hero:
     - theme: alt
       text: Examples
       link: https://github.com/lumirlumir/npm-clang-format-node/tree/main/examples
-    - theme: alt
-      text: Playground
-      link: /
     - theme: brand
       text: Give It a Star on GitHub⭐
       link: https://github.com/lumirlumir/npm-clang-format-node

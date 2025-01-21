@@ -61,10 +61,6 @@ export default defineConfig({
         link: `${REPO_URL}/tree/main/examples`,
       },
       {
-        text: 'Playground',
-        link: '/',
-      },
-      {
         text: 'Packages',
         items: [
           {
