@@ -1,3 +1,11 @@
+---
+description: This article breaks down the differences between `myscript || exit 0` and `myscript || true`, highlighting how they handle failures, affect script flow, and work on different platforms like POSIX and Windows.
+head:
+  - - meta
+    - name: keywords
+      content: [Shell Scripting, POSIX Compatibility, Cross-Platform Behavior, '|| true', '|| exit 0']
+---
+
 # Difference Between `myscript || exit 0` and `myscript || true` {#difference-between-myscript-exit-0-and-myscript-true}
 
 > [!NOTE]
