@@ -48,6 +48,10 @@ export default defineConfig({
       alt: 'clang-format-node Logo',
     },
 
+    outline: {
+      level: 'deep',
+    },
+
     nav: [
       {
         text: 'Get Started',
@@ -174,6 +178,10 @@ export default defineConfig({
             {
               text: 'Versioning',
               link: '4-versioning',
+            },
+            {
+              text: 'Security',
+              link: '5-security',
             },
           ],
         },
