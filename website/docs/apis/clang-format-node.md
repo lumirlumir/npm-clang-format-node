@@ -7,6 +7,10 @@
 
 Node wrapper for `clang-format` native binary inspired by [angular/clang-format](https://github.com/angular/clang-format). (The **CORE** package.)
 
+> [!TIP]
+>
+> This package also supports JSDoc type hints with the following APIs, so you’ll see more detailed information directly in your code editor.
+
 ## Installation
 
 If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](2-clang-format-git.md) or [`clang-format-git-python`](3-clang-format-git-python.md).

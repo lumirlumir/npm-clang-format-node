@@ -7,6 +7,10 @@
 
 Node wrapper for `git-clang-format` Python script as a standalone native binary to <u>**allow execution without a Python dependency**</u>.
 
+> [!TIP]
+>
+> This package also supports JSDoc type hints with the following APIs, so you’ll see more detailed information directly in your code editor.
+
 ## Installation
 
 This package already includes `clang-format-node` as a dependency, so there’s no need to install it separately.
