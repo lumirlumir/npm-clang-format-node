@@ -171,6 +171,10 @@ export default defineConfig({
               text: 'Change Log',
               link: '3-change-log',
             },
+            {
+              text: 'Versioning',
+              link: '4-versioning',
+            },
           ],
         },
       ],
