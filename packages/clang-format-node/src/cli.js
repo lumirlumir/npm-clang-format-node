@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // The shebang line `#!/usr/bin/env node` ensures the script runs with the correct Node.js interpreter across different environments.
 
-/* eslint-disable n/prefer-node-protocol */
-
 /**
  * @fileoverview Entry file for the `npx clang-format` and `npx clang-format-node` command. See the `bin` property in `package.json`.
  */
+
+/* eslint-disable n/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
 
 // --------------------------------------------------------------------------------
 // Require
