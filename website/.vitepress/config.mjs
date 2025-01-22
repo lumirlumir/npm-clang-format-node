@@ -143,6 +143,10 @@ export default defineConfig({
               text: 'Migration Guide',
               link: 'migration-from-angular-clang-format',
             },
+            {
+              text: 'Use with <code>husky</code>, <code>lint-staged</code>',
+              link: 'use-with-husky-and-lint-staged',
+            },
           ],
         },
 
