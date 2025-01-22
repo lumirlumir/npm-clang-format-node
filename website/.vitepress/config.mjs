@@ -10,6 +10,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
+import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
@@ -256,6 +257,7 @@ export default defineConfig({
 
   markdown: {
     config(md) {
+      md.use(footnote);
       md.use(groupIconMdPlugin);
     },
   },
