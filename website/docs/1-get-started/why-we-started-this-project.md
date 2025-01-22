@@ -6,4 +6,4 @@ And also, `git-clang-format` relies on **Python3**, so if you haven't installed 
 
 To add a bit more explanation, one package is [`clang-format-git`](https://www.npmjs.com/package/clang-format-git), which works without a Python3 dependency, while the other is [`clang-format-git-python`](https://www.npmjs.com/package/clang-format-git-python), which requires Python3. The only difference between them is the size. `clang-format-git` package is larger.
 
-Note that certain feautures from 'angular/clang-format' are not included in this package. Specifically `check-clang-format` is not used. For alternative methods to `check-clang-format`, See the [Migration Guide](../03-others/01-migration-from-angular-clang-format.md).
+Note that certain feautures from 'angular/clang-format' are not included in this package. Specifically `check-clang-format` is not used. For alternative methods to `check-clang-format`, See the [Migration Guide](migration-from-angular-clang-format.md).

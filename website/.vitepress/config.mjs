@@ -112,10 +112,19 @@ export default defineConfig({
           base: '/docs/1-get-started/',
           text: 'Get Started',
           link: '/',
+          collapsed: true,
           items: [
+            {
+              text: 'Why we started this project',
+              link: 'why-we-started-this-project',
+            },
             {
               text: 'Installation',
               link: '1-installation',
+            },
+            {
+              text: 'Migration Guide',
+              link: 'migration-from-angular-clang-format',
             },
           ],
         },
@@ -123,6 +132,7 @@ export default defineConfig({
         {
           base: '/docs/2-apis/',
           text: 'APIs',
+          collapsed: true,
           items: [
             {
               text: 'clang-format-node',
