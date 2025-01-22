@@ -171,6 +171,14 @@ export default defineConfig({
               link: 'guides-on-llvm-and-clang-format',
             },
             {
+              text: 'Build Process',
+              link: 'build-process',
+            },
+            {
+              text: 'About <code>os.platform()</code> and <code>os.arch()</code>',
+              link: 'about-os-platform-and-os-arch-in-nodejs',
+            },
+            {
               text: '<code>|| exit 0</code> and <code>|| true</code>',
               link: 'difference-between-exit-0-and-true',
             },
