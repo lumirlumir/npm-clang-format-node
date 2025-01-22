@@ -1,4 +1,4 @@
-# Ignore Files
+# Ignore files
 
 > [!IMPORTANT]
 >
