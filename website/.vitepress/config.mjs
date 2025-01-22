@@ -183,6 +183,10 @@ export default defineConfig({
               text: 'Security',
               link: '5-security',
             },
+            {
+              text: 'License',
+              link: '6-license',
+            },
           ],
         },
       ],
