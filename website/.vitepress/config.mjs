@@ -162,6 +162,10 @@ export default defineConfig({
               text: 'Code of Conduct',
               link: '1-code-of-conduct',
             },
+            {
+              text: 'Contributing',
+              link: '2-contributing',
+            },
           ],
         },
       ],

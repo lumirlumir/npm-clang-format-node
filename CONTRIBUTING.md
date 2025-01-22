@@ -4,7 +4,7 @@ This repository uses [`npm workspaces`](https://docs.npmjs.com/cli/using-npm/wor
 
 ## Directory Structure
 
-All packages are located in the `packages` directory, and the documentation can be found in the `docs` directory.
+All packages are located in the `packages` directory, and the documentation can be found in the `website` directory.
 
 ## Installation
 
@@ -39,7 +39,7 @@ All packages are located in the `packages` directory, and the documentation can 
 1. Commit your changes. (`husky` and `lint-staged` will lint your changed files!)
 
     ```bash
-    git commit -am "commit type: title"
+    git commit -am "<type>[optional scope]: <description>"
     ```
 
 1. Push them to your remote branch.
