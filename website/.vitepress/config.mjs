@@ -115,12 +115,24 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              text: 'Why we started this project',
+              text: 'Why We Started This Project',
               link: 'why-we-started-this-project',
             },
             {
               text: 'Installation',
               link: '1-installation',
+            },
+            {
+              text: 'Configuration',
+              link: 'configuration',
+            },
+            {
+              text: 'Ignore Files',
+              link: 'ignore-files',
+            },
+            {
+              text: 'CLI',
+              link: 'cli',
             },
             {
               text: 'Migration Guide',
@@ -154,10 +166,6 @@ export default defineConfig({
           text: 'Further Reading',
           collapsed: true,
           items: [
-            {
-              text: "Migration from 'angular/clang-format'",
-              link: '1-migration-from-angular-clang-format',
-            },
             {
               text: '<code>|| exit 0</code> and <code>|| true</code>',
               link: '5-difference-between-exit-0-and-true',
