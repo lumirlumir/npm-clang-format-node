@@ -47,6 +47,8 @@ $ bun add -d clang-format-node
 
 You can use the commands below to run `clang-format`.
 
+> [!NOTE]
+>
 > `clang-format-node` is an alias for `clang-format` and works in exactly the same way.
 
 ```sh
@@ -85,6 +87,8 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 ### `clangFormatPath`
 
+> Type: `string`
+
 The ABSOLUTE path to the `clang-format` executable binary based on the OS platform and architecture.
 
 #### Alias and Version
@@ -94,6 +98,8 @@ The ABSOLUTE path to the `clang-format` executable binary based on the OS platfo
 
 ### `clangFormatNodePath`
 
+> Type: `string`
+
 Alias for `clangFormatPath`.
 
 #### Alias and Version
@@ -102,6 +108,8 @@ Alias for `clangFormatPath`.
 - Version: `v1.2.0` Initial release.
 
 ### `getClangFormatPath`
+
+> Type: `function`
 
 Returns the ABSOLUTE path to the `clang-format` executable binary based on the OS platform and architecture.
 
@@ -128,6 +136,8 @@ Throws an error if the executable is not found.
 - Version: `v1.2.0` Initial release.
 
 ### `getClangFormatNodePath`
+
+> Type: `function`
 
 Alias for `getClangFormatPath`.
 

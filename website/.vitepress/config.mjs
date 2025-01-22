@@ -128,6 +128,14 @@ export default defineConfig({
               text: 'clang-format-node',
               link: '1-clang-format-node',
             },
+            {
+              text: 'clang-format-git',
+              link: '2-clang-format-git',
+            },
+            {
+              text: 'clang-format-git-python',
+              link: '3-clang-format-git-python',
+            },
           ],
         },
 

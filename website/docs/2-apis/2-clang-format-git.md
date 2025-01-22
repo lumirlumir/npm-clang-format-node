@@ -1,63 +1,61 @@
 # `clang-format-git`
 
-[![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)
+[![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git)
 
 > [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)
 
-Node wrapper for `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**.
+Node wrapper for `git-clang-format` Python script as a standalone native binary to <u>**allow execution without a Python dependency**</u>.
 
 ## Installation
 
-This package already includes `clang-format-node`, so there’s no need to install it separately.
+This package already includes `clang-format-node` as a dependency, so there’s no need to install it separately.
 
-### global
+::: code-group
 
-```bash
-npm install -g clang-format-git
+```sh [npm]
+# Global
+$ npm install -g clang-format-git
+# Local
+$ npm install -D clang-format-git
 ```
 
-```bash
-yarn global add clang-format-git
+```sh [pnpm]
+# Global
+$ pnpm add -g clang-format-git
+# Local
+$ pnpm add -D clang-format-git
 ```
 
-```bash
-pnpm add -g clang-format-git
+```sh [yarn]
+# Global
+$ yarn global add clang-format-git
+# Local
+$ yarn add --dev clang-format-git
 ```
 
-```bash
-bun add -g clang-format-git
+```sh [bun]
+# Global
+$ bun add -g clang-format-git
+# Local
+$ bun add -d clang-format-git
 ```
 
-### local(devDependencies)
+:::
 
-```bash
-npm install --save-dev clang-format-git
-```
-
-```bash
-yarn add --dev clang-format-git
-```
-
-```bash
-pnpm add -D clang-format-git
-```
-
-```bash
-bun add -d clang-format-git
-```
-
-## Usage
+## CLI Commands
 
 You can use the commands below to run `git-clang-format`.
 
+> [!NOTE]
+>
 > `clang-format-git` is an alias for `git-clang-format` and works in exactly the same way.
 
-```bash
+```sh
 npx git-clang-format
 ```
 
-```bash
+```sh
 npx clang-format-git
 ```
 
@@ -67,7 +65,7 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 - CommonJS
 
-    ```javascript
+    ```js
     const {
       gitClangFormatPath,
       clangFormatGitPath,
@@ -78,7 +76,7 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 - ES Modules
 
-    ```javascript
+    ```js
     import {
       gitClangFormatPath,
       clangFormatGitPath,
@@ -89,6 +87,8 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 ### `gitClangFormatPath`
 
+> Type: `string`
+
 The ABSOLUTE path to the `git-clang-format` executable binary based on the OS platform and architecture.
 
 #### Alias and Version
@@ -98,6 +98,8 @@ The ABSOLUTE path to the `git-clang-format` executable binary based on the OS pl
 
 ### `clangFormatGitPath`
 
+> Type: `string`
+
 Alias for `gitClangFormatPath`.
 
 #### Alias and Version
@@ -106,6 +108,8 @@ Alias for `gitClangFormatPath`.
 - Version: `v1.2.0` Initial release.
 
 ### `getGitClangFormatPath`
+
+> Type: `function`
 
 Returns the ABSOLUTE path to the `git-clang-format` executable binary based on the OS platform and architecture.
 
@@ -132,6 +136,8 @@ Throws an error if the executable is not found.
 - Version: `v1.2.0` Initial release.
 
 ### `getClangFormatGitPath`
+
+> Type: `function`
 
 Alias for `getGitClangFormatPath`.
 
