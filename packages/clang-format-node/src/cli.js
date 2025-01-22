@@ -5,7 +5,7 @@
  * @fileoverview Entry file for the `npx clang-format` and `npx clang-format-node` command. See the `bin` property in `package.json`.
  */
 
-/* eslint-disable n/prefer-node-protocol */
+/* eslint-disable n/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
 
 // --------------------------------------------------------------------------------
 // Require
