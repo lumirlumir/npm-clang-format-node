@@ -2,7 +2,7 @@
  * @fileoverview `gitClangFormatPath` and `clangFormatGitPythonPath` APIs.
  */
 
-/* eslint-disable n/prefer-node-protocol */
+/* eslint-disable n/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
 
 // --------------------------------------------------------------------------------
 // Require
