@@ -1,9 +1,11 @@
 # Installation {#installation}
 
-## `clang-format-node` {#clang-format-node}
+## `clang-format-node` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)</small> {#clang-format-node}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
+
+Node wrapper for `clang-format` native binary inspired by angular/clang-format. (The **CORE** package.)
 
 ::: code-group
 
@@ -37,10 +39,12 @@ $ bun add -d clang-format-node
 
 :::
 
-## `clang-format-git` {#clang-format-git}
+## `clang-format-git` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)</small> {#clang-format-git}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git)
+
+Node wrapper for `git-clang-format` Python script as a standalone native binary to **allow execution without a Python dependency**.
 
 ::: code-group
 
@@ -74,10 +78,12 @@ $ bun add -d clang-format-git
 
 :::
 
-## `clang-format-git-python` {#clang-format-git-python}
+## `clang-format-git-python` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)</small> {#clang-format-git-python}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git-python)
+
+Node wrapper for `git-clang-format` Python script. **This package requires Python3 as a dependency**.
 
 ::: code-group
 
