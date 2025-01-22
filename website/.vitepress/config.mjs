@@ -74,7 +74,8 @@ export default defineConfig({
           },
           {
             text: 'Community',
-            link: '/', // TODO
+            link: '/docs/5-community/1-code-of-conduct',
+            activeMatch: '/docs/5-community/',
           },
         ],
       },
@@ -148,6 +149,18 @@ export default defineConfig({
             {
               text: 'v1.2.0',
               link: 'v1.2.0',
+            },
+          ],
+        },
+
+        {
+          base: '/docs/5-community/',
+          text: 'Community',
+          collapsed: true,
+          items: [
+            {
+              text: 'Code of Conduct',
+              link: '1-code-of-conduct',
             },
           ],
         },
