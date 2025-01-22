@@ -136,6 +136,10 @@ export default defineConfig({
               link: 'cli',
             },
             {
+              text: 'Supported',
+              link: 'supported',
+            },
+            {
               text: 'Migration Guide',
               link: 'migration-from-angular-clang-format',
             },
