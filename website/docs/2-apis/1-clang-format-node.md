@@ -85,6 +85,8 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
     } from 'clang-format-node';
     ```
 
+---
+
 ### `clangFormatPath`
 
 > Type: `string`
@@ -96,6 +98,8 @@ The ABSOLUTE path to the `clang-format` executable binary based on the OS platfo
 - Alias: `clangFormatNodePath`. See [`clangFormatNodePath`](#clangformatnodepath).
 - Version: `v1.2.0` Initial release.
 
+---
+
 ### `clangFormatNodePath`
 
 > Type: `string`
@@ -106,6 +110,8 @@ Alias for `clangFormatPath`.
 
 - Alias: `clangFormatPath`. See [`clangFormatPath`](#clangformatpath).
 - Version: `v1.2.0` Initial release.
+
+---
 
 ### `getClangFormatPath`
 
@@ -134,6 +140,8 @@ Throws an error if the executable is not found.
 
 - Alias: `getClangFormatNodePath`. See [`getClangFormatNodePath`](#getclangformatnodepath).
 - Version: `v1.2.0` Initial release.
+
+---
 
 ### `getClangFormatNodePath`
 

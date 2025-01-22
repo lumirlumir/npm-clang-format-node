@@ -81,6 +81,8 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
     } from 'clang-format-git-python';
     ```
 
+---
+
 ### `gitClangFormatPath`
 
 > Type: `string`
@@ -90,6 +92,8 @@ The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumirlumir/npm-
 - Type: `string`
 - Alias: `clangFormatGitPythonPath`. See [`clangFormatGitPythonPath`](#clangformatgitpythonpath).
 - Version: `v1.2.0` Initial release.
+
+---
 
 ### `clangFormatGitPythonPath`
 

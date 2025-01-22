@@ -85,6 +85,8 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
     } from 'clang-format-git';
     ```
 
+---
+
 ### `gitClangFormatPath`
 
 > Type: `string`
@@ -96,6 +98,8 @@ The ABSOLUTE path to the `git-clang-format` executable binary based on the OS pl
 - Alias: `clangFormatGitPath`. See [`clangFormatGitPath`](#clangformatgitpath).
 - Version: `v1.2.0` Initial release.
 
+---
+
 ### `clangFormatGitPath`
 
 > Type: `string`
@@ -106,6 +110,8 @@ Alias for `gitClangFormatPath`.
 
 - Alias: `gitClangFormatPath`. See [`gitClangFormatPath`](#gitclangformatpath).
 - Version: `v1.2.0` Initial release.
+
+---
 
 ### `getGitClangFormatPath`
 
@@ -134,6 +140,8 @@ Throws an error if the executable is not found.
 
 - Alias: `getClangFormatGitPath`. See [`getClangFormatGitPath`](#getclangformatgitpath).
 - Version: `v1.2.0` Initial release.
+
+---
 
 ### `getClangFormatGitPath`
 
