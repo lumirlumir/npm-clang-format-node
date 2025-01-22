@@ -55,7 +55,7 @@ export default defineConfig({
     nav: [
       {
         text: 'Get Started',
-        link: '/docs/1-get-started/1-installation',
+        link: '/docs/1-get-started',
         activeMatch: '/docs/1-get-started/',
       },
       {
@@ -111,6 +111,7 @@ export default defineConfig({
         {
           base: '/docs/1-get-started/',
           text: 'Get Started',
+          link: '/',
           items: [
             {
               text: 'Installation',

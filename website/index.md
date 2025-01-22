@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/1-get-started/1-installation
+      link: /docs/1-get-started/
     - theme: alt
       text: APIs
       link: /docs/2-apis/1-clang-format-node
