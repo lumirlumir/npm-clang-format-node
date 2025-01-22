@@ -129,6 +129,7 @@ export default defineConfig({
         {
           base: '/docs/3-further-reading/',
           text: 'Further Reading',
+          collapsed: true,
           items: [
             {
               text: "Migration from 'angular/clang-format'",
@@ -165,6 +166,10 @@ export default defineConfig({
             {
               text: 'Contributing',
               link: '2-contributing',
+            },
+            {
+              text: 'Change Log',
+              link: '3-change-log',
             },
           ],
         },
