@@ -55,31 +55,31 @@ export default defineConfig({
     nav: [
       {
         text: 'Get Started',
-        link: '/docs/1-get-started',
-        activeMatch: '/docs/1-get-started/',
+        link: '/docs/get-started',
+        activeMatch: '/docs/get-started/',
       },
       {
         text: 'APIs',
-        link: '/docs/2-apis/1-clang-format-node',
-        activeMatch: '/docs/2-apis/',
+        link: '/docs/apis/clang-format-node',
+        activeMatch: '/docs/apis/',
       },
       {
         text: 'Others',
         items: [
           {
             text: 'Further Reading',
-            link: '/docs/3-further-reading/1-migration-from-angular-clang-format',
-            activeMatch: '/docs/3-further-reading/',
+            link: '/docs/further-reading/guides-on-llvm-and-clang-format',
+            activeMatch: '/docs/further-reading/',
           },
           {
             text: 'Blog',
-            link: '/docs/4-blog/v1.2.0',
-            activeMatch: '/docs/4-blog/',
+            link: '/docs/blog/v1.2.0',
+            activeMatch: '/docs/blog/',
           },
           {
             text: 'Community',
-            link: '/docs/5-community/1-code-of-conduct',
-            activeMatch: '/docs/5-community/',
+            link: '/docs/community/code-of-conduct',
+            activeMatch: '/docs/community/',
           },
         ],
       },
@@ -109,7 +109,7 @@ export default defineConfig({
     sidebar: {
       '/docs/': [
         {
-          base: '/docs/1-get-started/',
+          base: '/docs/get-started/',
           text: 'Get Started',
           link: '/',
           collapsed: true,
@@ -120,7 +120,7 @@ export default defineConfig({
             },
             {
               text: 'Installation',
-              link: '1-installation',
+              link: 'installation',
             },
             {
               text: 'Configuration',
@@ -142,39 +142,43 @@ export default defineConfig({
         },
 
         {
-          base: '/docs/2-apis/',
+          base: '/docs/apis/',
           text: 'APIs',
           collapsed: true,
           items: [
             {
               text: 'clang-format-node',
-              link: '1-clang-format-node',
+              link: 'clang-format-node',
             },
             {
               text: 'clang-format-git',
-              link: '2-clang-format-git',
+              link: 'clang-format-git',
             },
             {
               text: 'clang-format-git-python',
-              link: '3-clang-format-git-python',
+              link: 'clang-format-git-python',
             },
           ],
         },
 
         {
-          base: '/docs/3-further-reading/',
+          base: '/docs/further-reading/',
           text: 'Further Reading',
           collapsed: true,
           items: [
             {
+              text: 'Guides on LLVM and Clang-Format',
+              link: 'guides-on-llvm-and-clang-format',
+            },
+            {
               text: '<code>|| exit 0</code> and <code>|| true</code>',
-              link: '5-difference-between-exit-0-and-true',
+              link: 'difference-between-exit-0-and-true',
             },
           ],
         },
 
         {
-          base: '/docs/4-blog/',
+          base: '/docs/blog/',
           text: 'Blog',
           collapsed: true,
           items: [
@@ -186,33 +190,33 @@ export default defineConfig({
         },
 
         {
-          base: '/docs/5-community/',
+          base: '/docs/community/',
           text: 'Community',
           collapsed: true,
           items: [
             {
               text: 'Code of Conduct',
-              link: '1-code-of-conduct',
+              link: 'code-of-conduct',
             },
             {
               text: 'Contributing',
-              link: '2-contributing',
+              link: 'contributing',
             },
             {
               text: 'Change Log',
-              link: '3-change-log',
+              link: 'change-log',
             },
             {
               text: 'Versioning',
-              link: '4-versioning',
+              link: 'versioning',
             },
             {
               text: 'Security',
-              link: '5-security',
+              link: 'security',
             },
             {
               text: 'License',
-              link: '6-license',
+              link: 'license',
             },
           ],
         },
