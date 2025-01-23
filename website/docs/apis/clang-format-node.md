@@ -13,7 +13,7 @@ Node wrapper for `clang-format` native binary inspired by [angular/clang-format]
 
 ## Installation
 
-If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](2-clang-format-git.md) or [`clang-format-git-python`](3-clang-format-git-python.md).
+If you want to use `clang-format` without `git-clang-format`, simply follow the installation guide below. If you need `git-clang-format`, refer to the [`clang-format-git`](clang-format-git.md) or [`clang-format-git-python`](clang-format-git-python.md).
 
 ::: code-group
 
@@ -69,7 +69,7 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 - CommonJS
 
-    ```javascript
+    ```js
     const {
       clangFormatPath,
       clangFormatNodePath,
@@ -80,7 +80,7 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 - ES Modules
 
-    ```javascript
+    ```js
     import {
       clangFormatPath,
       clangFormatNodePath,
