@@ -13,7 +13,7 @@ my-project/
 │   ├── file2.js
 │   └── ...
 ├── .clang-format # [!code focus]
-├── .clang-format-ignore # [!code focus]
+├── .clang-format-ignore # [!code focus] Optional
 ├── package.json
 └── ...
 ```
@@ -31,7 +31,7 @@ my-monorepo/
 │   │   │   ├── file2.js
 │   │   │   └── ...
 │   │   ├── .clang-format # [!code focus]
-│   │   ├── .clang-format-ignore # [!code focus]
+│   │   ├── .clang-format-ignore # [!code focus] Optional
 │   │   ├── package.json
 │   │   └── ...
 │   ├── package2/
