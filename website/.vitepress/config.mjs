@@ -19,7 +19,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 // --------------------------------------------------------------------------------
 
 const REPO_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
-const NPM_URL = 'https://www.npmjs.com/package';
+const NPM_URL = 'https://www.npmjs.com';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -94,15 +94,15 @@ export default defineConfig({
         items: [
           {
             text: 'clang-format-node',
-            link: `${NPM_URL}/clang-format-node`,
+            link: `${NPM_URL}/package/clang-format-node`,
           },
           {
             text: 'clang-format-git',
-            link: `${NPM_URL}/clang-format-git`,
+            link: `${NPM_URL}/package/clang-format-git`,
           },
           {
             text: 'clang-format-git-python',
-            link: `${NPM_URL}/clang-format-git-python`,
+            link: `${NPM_URL}/package/clang-format-git-python`,
           },
         ],
       },
@@ -244,12 +244,12 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'npm',
-        link: 'https://www.npmjs.com/~lumir',
+        link: `${NPM_URL}/~lumir`,
         ariaLabel: 'npm profile link for LuMir',
       },
       {
         icon: 'github',
-        link: 'https://github.com/lumirlumir/npm-clang-format-node',
+        link: REPO_URL,
         ariaLabel: 'GitHub repository link for clang-format-node',
       },
     ],
