@@ -113,7 +113,7 @@ export default defineConfig({
           base: '/docs/get-started/',
           text: 'Get Started',
           link: '/',
-          collapsed: true,
+          collapsed: false, // Set it `false` to show `>` icon.
           items: [
             {
               text: 'Why We Started This Project',
