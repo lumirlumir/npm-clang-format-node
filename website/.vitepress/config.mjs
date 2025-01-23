@@ -33,7 +33,11 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/logo-lightgray.svg' }],
     // TODO: Add more meta tags like keywords, author, etc.
+    // TODO: Add @vercel/analytics
   ],
+
+  // TODO: Add sitemap
+  // TODO: stylint?
 
   /* Routing */
   cleanUrls: true,
