@@ -262,6 +262,12 @@ export default defineConfig({
     search: {
       provider: 'local',
     },
+
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright:
+        'Copyright © 2024-present <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>',
+    },
   },
 
   markdown: {
