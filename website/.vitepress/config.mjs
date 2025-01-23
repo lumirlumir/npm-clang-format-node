@@ -66,6 +66,7 @@ export default defineConfig({
       },
       {
         text: 'Others',
+        activeMatch: '/docs/(?:further-reading|blog|community)/',
         items: [
           {
             text: 'Further Reading',
