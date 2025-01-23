@@ -49,7 +49,7 @@ Node wrapper for `git-clang-format` Python script. **This package requires Pytho
 
 ## Supported
 
-See the [supported](/docs/01-introduction/05-supported.md) section of the documentation, which lists the following: <!--TODO: fix link-->
+See the [supported](https://clang-format-node.lumir.page/docs/get-started/supported) section of the documentation, which lists the following:
 
 - OS Platforms and Architectures
 - Node.js Version
@@ -58,30 +58,30 @@ See the [supported](/docs/01-introduction/05-supported.md) section of the docume
 
 ## Releases
 
-Each package intends to release a new npm package for every **latest** release of `clang-format` and `git-clang-format`. Automated GitHub Actions check for the latest LLVM release every week, builds all packages using their own pipeline, and makes a pull request. **All processes are automated**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml).
+Each package intends to release a new npm package for every **latest** release of `clang-format` and `git-clang-format`. Automated GitHub Actions check for the latest LLVM release every week, builds all packages using their own pipeline, and makes a pull request. **All processes are automated**. If you are interested in the build process, take a look at [`.github/workflows/llvm-build-bump-pr.yml`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
 
 ## Contributing (Issues & Pull Requests)
 
 Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
 
-Please read our [Code of Conduct](/CODE_OF_CONDUCT.md) and [Contributing](/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM and `clang-format`](docs/03-others/04-guides-on-llvm-clang-format.md) mentioned in the documentation before contributing. <!-- TODO: fix link -->
+Please read our [Code of Conduct](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM `clang-format`](http://clang-format-node.lumir.page/docs/further-reading/guides-on-llvm-clang-format) mentioned in the documentation before contributing.
 
 ## Code of Conduct
 
-See [Code of Conduct](/CODE_OF_CONDUCT.md).
+See [Code of Conduct](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CODE_OF_CONDUCT.md).
 
 ## Change Log
 
-See [Change Log](/CHANGELOG.md).
+See [Change Log](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CHANGELOG.md).
 
 ## Versioning
 
-See [Versioning](/docs/04-community/02-versioning.md). <!-- TODO: fix link -->
+See [Versioning](http://clang-format-node.lumir.page/docs/community/versioning).
 
 ## Security
 
-See [Security](/SECURITY.md).
+See [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SECURITY.md).
 
 ## License
 
-[MIT](/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
+[MIT](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
