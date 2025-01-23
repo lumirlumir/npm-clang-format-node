@@ -4,15 +4,16 @@
 
 ### Basic
 
-Place your `.clang-format` configuration file in the root of your project. The `clang-format` and `git-clang-format` command will automatically find it and apply the rules.
+Place your `.clang-format` (or [`.clang-format-ignore`](ignore-files.md) if necessary) configuration file in the root of your project. The `clang-format` and `git-clang-format` command will automatically find it and apply the rules.
 
-```sh {6}
+```sh {6,7}
 my-project/
 ├── src/
 │   ├── file1.cpp
 │   ├── file2.js
 │   └── ...
 ├── .clang-format # [!code focus]
+├── .clang-format-ignore # [!code focus]
 ├── package.json
 └── ...
 ```
@@ -21,7 +22,7 @@ my-project/
 
 If you are using monorepo, you can place the configuration file in the root of the monorepo.
 
-```sh {8}
+```sh {8,9}
 my-monorepo/
 ├── packages/
 │   ├── package1/
@@ -30,6 +31,7 @@ my-monorepo/
 │   │   │   ├── file2.js
 │   │   │   └── ...
 │   │   ├── .clang-format # [!code focus]
+│   │   ├── .clang-format-ignore # [!code focus]
 │   │   ├── package.json
 │   │   └── ...
 │   ├── package2/

@@ -21,7 +21,7 @@ Each package supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/ma
 
 > [!TIP]
 >
-> 1. If your platform isn't yet supported, you can build the `clang-format` native binary from the latest upstream Clang sources. Refer to [Build Process](../03-others/03-build-process.md) and [`.github/workflows/llvm-build-bump-pr.yml`](/.github/workflows/llvm-build-bump-pr.yml) for the build scripts for **Linux Shell** and **GitHub Actions**, respectively.
+> 1. If your platform isn't yet supported, you can build the `clang-format` native binary from the latest upstream Clang sources. Refer to [Build Process](../further-reading/build-process.md) and [`.github/workflows/llvm-build-bump-pr.yml`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml) for the build scripts for **Linux Shell** and **GitHub Actions**, respectively.
 >
 > 1. Or you can download `clang-format` native binary from [LLVM release assets](https://github.com/llvm/llvm-project/releases) that match your operating system platform and architecture like the lists below.
 >
@@ -35,13 +35,13 @@ Each package supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/ma
 
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
 
-The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](/.github/workflows/test-cross-platform.yml).
+The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/test-cross-platform.yml).
 
 However, this package does not utilize the latest features of Node.js and is transpiled using Babel. Therefore, it is expected to work on versions significantly lower than the officially supported ones. (ex. `"node": ">= 0.7.10"`) Consequently, **if the current package operates on a version of Node.js that is lower than the officially supported version, it should be perfectly fine to use.**
 
 ## [GitHub Actions Runner Images](https://github.com/actions/runner-images?tab=readme-ov-file#available-images)
 
-If you want to use `clang-format-node` in continuous integration (CI), You can use **GitHub Actions**. The following basic runner images are compatible(available) with `clang-format-node`.
+If you want to use `clang-format-node` or `clang-format-git` in continuous integration (CI), You can use **GitHub Actions**. The following basic runner images are compatible(available) with `clang-format-node`.
 
 Image                        | YAML Label                                                             | Included Software |
 ---------------------------- | ---------------------------------------------------------------------- | ----------------- |
@@ -59,8 +59,8 @@ However, the following basic runner images are **NOT** compatible(available) wit
 
 Image                   | YAML Label     | Included Software |
 ----------------------- | -------------- | ----------------- |
-~~Ubuntu 20.04~~        | `ubuntu-20.04` | [ubuntu-20.04]    |
-~~Windows Server 2019~~ | `windows-2019` | [windows-2019]    |
+~~Ubuntu 20.04~~        | `ubuntu-20.04` | ubuntu-20.04      |
+~~Windows Server 2019~~ | `windows-2019` | windows-2019      |
 
 ## Docker Build Images
 
