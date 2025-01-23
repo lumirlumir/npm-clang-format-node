@@ -69,7 +69,7 @@ export default defineConfig({
         items: [
           {
             text: 'Further Reading',
-            link: '/docs/further-reading/guides-on-llvm-and-clang-format',
+            link: '/docs/further-reading/guides-on-llvm-clang-format',
             activeMatch: '/docs/further-reading/',
           },
           {
@@ -176,8 +176,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
-              text: 'Guides on LLVM and Clang-Format',
-              link: 'guides-on-llvm-and-clang-format',
+              text: 'Guides on LLVM Clang Format',
+              link: 'guides-on-llvm-clang-format',
             },
             {
               text: 'Build Process',

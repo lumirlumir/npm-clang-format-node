@@ -1,6 +1,6 @@
-# Guides on LLVM and `clang-format`
+# Guides on LLVM `clang-format`
 
-If you want to learn more about LLVM and `clang-format`, check out the links below.
+If you want to learn more about LLVM `clang-format`, check out the links below.
 
 - [LLVM GitHub Repository](https://github.com/llvm/llvm-project)
 - [LLVM Download Page](https://releases.llvm.org/download.html)

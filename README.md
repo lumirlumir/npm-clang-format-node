@@ -64,7 +64,7 @@ Each package intends to release a new npm package for every **latest** release o
 
 Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
 
-Please read our [Code of Conduct](/CODE_OF_CONDUCT.md) and [Contributing](/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM and `clang-format`](docs/03-others/04-guides-on-llvm-and-clang-format.md) mentioned in the documentation before contributing. <!-- TODO: fix link -->
+Please read our [Code of Conduct](/CODE_OF_CONDUCT.md) and [Contributing](/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM and `clang-format`](docs/03-others/04-guides-on-llvm-clang-format.md) mentioned in the documentation before contributing. <!-- TODO: fix link -->
 
 ## Code of Conduct
 
