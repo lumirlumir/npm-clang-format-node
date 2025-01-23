@@ -3,7 +3,7 @@ description: This article breaks down the differences between `myscript || exit 
 head:
   - - meta
     - name: keywords
-      content: [Shell Scripting, POSIX Compatibility, Cross-Platform Behavior, '|| true', '|| exit 0']
+      content: 'Shell Scripting, POSIX Compatibility, Cross-Platform Behavior, || true, || exit 0'
 ---
 
 # Difference Between `myscript || exit 0` and `myscript || true` {#difference-between-myscript-exit-0-and-myscript-true}
