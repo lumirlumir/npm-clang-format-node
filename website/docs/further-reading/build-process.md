@@ -26,4 +26,4 @@ build/bin/clang-format --version
 
 Some packages for **cross-compilation** have been deprecated, making it difficult to make build processes directly, so **cross-compilation** is not used. Instead, I utilize **QEMU** and **Docker** to build cross-compiled binaries.
 
-If you want to learn more about the images I used, see [Docker Build Images](../01-introduction/05-supported.md/#docker-build-images).
+If you want to learn more about the images I used, see [Docker Build Images](../get-started/supported.md#docker-build-images).

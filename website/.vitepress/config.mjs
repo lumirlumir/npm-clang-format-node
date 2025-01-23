@@ -184,7 +184,7 @@ export default defineConfig({
               link: 'build-process',
             },
             {
-              text: 'About <code>os.platform()</code> and <code>os.arch()</code>',
+              text: '<code>os.platform()</code>, <code>os.arch()</code>',
               link: 'about-os-platform-and-os-arch-in-nodejs',
             },
             {
