@@ -1,3 +1,7 @@
+---
+description: "Guide for building the `clang-format` native binary on Linux and cross-platform build using QEMU and Docker."
+---
+
 # Build process
 
 ## How to build `clang-format` native binary on Linux

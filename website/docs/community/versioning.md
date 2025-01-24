@@ -1,3 +1,7 @@
+---
+description: "This project follows Semantic Versioning, with version updates based on LLVM version upgrades, breaking changes, feature additions, or bug fixes."
+---
+
 # Versioning
 
 This project adheres to [Semantic Versioning](https://semver.org/).

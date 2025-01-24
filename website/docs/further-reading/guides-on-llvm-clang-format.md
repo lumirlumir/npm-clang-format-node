@@ -1,3 +1,7 @@
+---
+description: "A collection of useful documentation and guide links related to LLVM `clang-format`."
+---
+
 # Guides on LLVM `clang-format`
 
 If you want to learn more about LLVM `clang-format`, check out the links below.

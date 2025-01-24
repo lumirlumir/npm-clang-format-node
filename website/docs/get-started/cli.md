@@ -1,3 +1,7 @@
+---
+description: "Instructions for using `clang-format` and `git-clang-format` CLI tools, including common commands and options."
+---
+
 # CLI
 
 > [!IMPORTANT]

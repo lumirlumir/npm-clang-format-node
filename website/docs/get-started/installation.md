@@ -1,3 +1,7 @@
+---
+description: "Installation instructions for `clang-format-node`, `clang-format-git`, and `clang-format-git-python` with support for global and local installs using npm, pnpm, yarn, and bun."
+---
+
 # Installation {#installation}
 
 ## `clang-format-node` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)</small> {#clang-format-node}

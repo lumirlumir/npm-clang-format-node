@@ -1,3 +1,7 @@
+---
+description: "Explanation of `os.platform()` and `os.arch()` in Node.js with return values based on OS and architecture."
+---
+
 # About `os.platform()` and `os.arch()` in Node.js
 
 ## [`os.platform()`](https://nodejs.org/docs/v20.17.0/api/os.html#osplatform)

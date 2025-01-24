@@ -1,3 +1,7 @@
+---
+description: "Instructions for setting up and configuring `.clang-format` files in different project structures."
+---
+
 # Configuration
 
 ## File Location

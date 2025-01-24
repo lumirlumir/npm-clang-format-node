@@ -1,3 +1,7 @@
+---
+description: "Guide to migrating from 'angular/clang-format,' including alternatives for `check-clang-format` and `git-clang-format` with Node.js support and integration with tools like Husky and lint-staged."
+---
+
 # Migration from 'angular/clang-format'
 
 ## `check-clang-format`

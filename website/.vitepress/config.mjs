@@ -73,8 +73,6 @@ export default defineConfig({
   lang: 'en-US',
 
   // TODO: stylelint?
-  // TODO: Add robots.txt
-  // TODO: Add description for each markdown page
 
   /* Routing */
   cleanUrls: true,

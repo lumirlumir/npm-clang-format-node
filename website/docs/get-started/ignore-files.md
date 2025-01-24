@@ -1,3 +1,7 @@
+---
+description: "Instructions for creating and using `.clang-format-ignore` files to specify which files should be ignored by `clang-format`."
+---
+
 # Ignore files
 
 > [!IMPORTANT]

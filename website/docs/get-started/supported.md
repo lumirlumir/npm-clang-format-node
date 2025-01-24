@@ -1,3 +1,7 @@
+---
+description: "Comprehensive support for platforms, architectures, and Node.js versions, with CI integration options for `clang-format-node` across GitHub Actions and Docker images."
+---
+
 # Supported
 
 The following content applies to all packages within [`clang-format-node`](https://github.com/lumirlumir/npm-clang-format-node) repository.

@@ -1,3 +1,7 @@
+---
+description: "Learn why this project was created as a maintained alternative to 'angular/clang-format,' offering Node.js support without Python dependencies, while providing options for Python3 compatibility and migration guidance."
+---
+
 # Why we started this project
 
 ['angular/clang-format'](https://github.com/angular/clang-format) is no longer maintained (See [#79](https://github.com/angular/clang-format/issues/79) [#82](https://github.com/angular/clang-format/issues/82) [#83](https://github.com/angular/clang-format/pull/83)). Nevertheless, new versions of `clang-format` continue to be released. Bugs are fixed, and new features are added. However, using `clang-format` directly in a Node.js environment without any support can be somewhat cumbersome. So we decided to make a new, maintained version of it.

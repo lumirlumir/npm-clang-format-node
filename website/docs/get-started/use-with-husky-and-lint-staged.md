@@ -1,3 +1,7 @@
+---
+description: "Guide to integrating `clang-format` with `husky` and `lint-staged` for code formatting in continuous integration workflows."
+---
+
 # Use with `husky` and `lint-staged`
 
 Ensuring that changes to your code are properly formatted is an important part of your development workflow. Use [`husky`](https://typicode.github.io/husky/) and [`lint-staged`](https://github.com/lint-staged/lint-staged) for your continuous integration process.
