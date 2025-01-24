@@ -1,0 +1,15 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "${{ github.workflow }}-${{ github.ref }}"
