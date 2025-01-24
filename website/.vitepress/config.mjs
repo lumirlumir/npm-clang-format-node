@@ -18,7 +18,12 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 // Constants
 // --------------------------------------------------------------------------------
 
-const REPO_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
+const TITLE = 'clang-format-node';
+const DESCRIPTION =
+  "The official documentation website for clang-format-node, a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries inspired by angular/clang-format.🐉";
+const AUTHOR = '루밀LuMir';
+const SITE_URL = 'https://clang-format-node.lumir.page';
+const GITHUB_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 const NPM_URL = 'https://www.npmjs.com';
 
 // --------------------------------------------------------------------------------
@@ -27,12 +32,41 @@ const NPM_URL = 'https://www.npmjs.com';
 
 export default defineConfig({
   /* Site Metadata */
-  title: 'clang-format-node',
-  description:
-    "The official documentation site for the clang-format-node npm package. clang-format-node is a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries, inspired by angular/clang-format.🐉",
+  title: TITLE,
+  description: DESCRIPTION,
   head: [
-    ['link', { rel: 'icon', href: '/logo-lightgray.svg' }],
-    // TODO: Add more meta tags like keywords, author, etc.
+    // Basic
+    ['link', { rel: 'icon', href: '/logo-lightgray.svg', type: 'image/svg+xml' }],
+    ['meta', { name: 'title', content: TITLE }],
+    ['meta', { name: 'theme-color', content: '#83ba63' }],
+    ['meta', { name: 'author', content: AUTHOR }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content: 'LLVM, clang-format, clang-format-node, git-clang-format',
+      },
+    ],
+
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: SITE_URL }],
+    ['meta', { property: 'og:title', content: TITLE }],
+    ['meta', { property: 'og:description', content: DESCRIPTION }],
+    ['meta', { property: 'og:image', content: `${SITE_URL}/logo-og.png` }],
+    ['meta', { property: 'og:image:width', content: '1280' }],
+    ['meta', { property: 'og:image:height', content: '640' }],
+    ['meta', { property: 'og:site_name', content: TITLE }],
+    ['meta', { property: 'og:article:author', content: AUTHOR }],
+
+    // Twitter
+    ['meta', { name: 'twitter:url', content: SITE_URL }],
+    ['meta', { name: 'twitter:title', content: TITLE }],
+    ['meta', { name: 'twitter:description', content: DESCRIPTION }],
+    ['meta', { name: 'twitter:image', content: `${SITE_URL}/logo-og.png` }],
+    ['meta', { name: 'twitter:creator', content: AUTHOR }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+
     // TODO: Add @vercel/speed-insight
     // TODO: Add @vercel/analytics
   ],
@@ -54,7 +88,7 @@ export default defineConfig({
 
   /* Sitemap */
   sitemap: {
-    hostname: 'https://clang-format-node.lumir.page',
+    hostname: SITE_URL,
   },
 
   /* Thme Configuration */
@@ -103,7 +137,7 @@ export default defineConfig({
       },
       {
         text: 'Examples',
-        link: `${REPO_URL}/tree/main/examples`,
+        link: `${GITHUB_URL}/tree/main/examples`,
       },
       {
         text: 'Packages',
@@ -265,13 +299,13 @@ export default defineConfig({
       },
       {
         icon: 'github',
-        link: REPO_URL,
+        link: GITHUB_URL,
         ariaLabel: 'GitHub repository link for clang-format-node',
       },
     ],
 
     editLink: {
-      pattern: `${REPO_URL}/edit/main/website/:path`,
+      pattern: `${GITHUB_URL}/edit/main/website/:path`,
       text: 'Edit this page on GitHub',
     },
 
@@ -281,8 +315,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright:
-        'Copyright © 2024-present <a href="https://github.com/lumirlumir">루밀LuMir(lumirlumir)</a>',
+      copyright: `Copyright © 2024-present <a href="https://github.com/lumirlumir">${AUTHOR}(lumirlumir)</a>`,
     },
   },
 
