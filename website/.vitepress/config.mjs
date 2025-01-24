@@ -206,6 +206,10 @@ export default defineConfig({
               text: 'Use with <code>husky</code>, <code>lint-staged</code>',
               link: 'use-with-husky-and-lint-staged',
             },
+            {
+              text: 'Q & A',
+              link: 'q-and-a',
+            },
           ],
         },
 
