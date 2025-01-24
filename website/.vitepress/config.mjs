@@ -33,17 +33,24 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/logo-lightgray.svg' }],
     // TODO: Add more meta tags like keywords, author, etc.
+    // TODO: Add @vercel/speed-insight
     // TODO: Add @vercel/analytics
   ],
 
-  // TODO: Add sitemap
-  // TODO: stylint?
+  // TODO: stylelint?
+  // TODO: Add robots.txt
+  // TODO: Add description for each markdown page
 
   /* Routing */
   cleanUrls: true,
 
   /* Theming */
   lastUpdated: true,
+
+  /* Sitemap */
+  sitemap: {
+    hostname: 'https://clang-format-node.lumir.page',
+  },
 
   /* Thme Configuration */
   themeConfig: {
