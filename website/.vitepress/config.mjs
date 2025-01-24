@@ -36,6 +36,7 @@ export default defineConfig({
     // TODO: Add @vercel/speed-insight
     // TODO: Add @vercel/analytics
   ],
+  lang: 'en-US',
 
   // TODO: stylelint?
   // TODO: Add robots.txt
@@ -43,6 +44,10 @@ export default defineConfig({
 
   /* Routing */
   cleanUrls: true,
+
+  /* Build */
+  outDir: 'build',
+  metaChunk: true,
 
   /* Theming */
   lastUpdated: true,
