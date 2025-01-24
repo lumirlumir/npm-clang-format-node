@@ -15,6 +15,7 @@
   },
   "no-inline-html": {
     "allowed_elements": [
+      "small",
       "sub",
       "sup",
       "u",
@@ -27,7 +28,8 @@
       "mark",
       "ruby",
       "rp",
-      "rt"
+      "rt",
+      "Badge"
     ]
   },
   "hr-style": {
