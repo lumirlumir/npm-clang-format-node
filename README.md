@@ -1,9 +1,9 @@
 # clang-format-node
 
-![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=417f38&display_name=release)
-[![NPM Version](https://img.shields.io/npm/v/clang-format-node?color=417f38)](https://www.npmjs.com/package/clang-format-node)
-![NPM Downloads](https://img.shields.io/npm/dm/clang-format-node?color=417f38)
-![Node Current](https://img.shields.io/node/v/clang-format-node?color=417f38)
+![GitHub Release](https://img.shields.io/github/v/release/lumirlumir/npm-clang-format-node?label=release%20(LLVM%20version)&color=83ba63&display_name=release)
+[![NPM Version](https://img.shields.io/npm/v/clang-format-node?color=83ba63)](https://www.npmjs.com/package/clang-format-node)
+![NPM Downloads](https://img.shields.io/npm/dm/clang-format-node?color=83ba63)
+![Node Current](https://img.shields.io/node/v/clang-format-node?color=83ba63)
 
 [![lint](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml)
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
