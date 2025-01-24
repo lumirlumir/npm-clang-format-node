@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://clang-format-node.lumir.page/sitemap.xml
