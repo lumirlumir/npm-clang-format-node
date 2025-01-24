@@ -25,6 +25,7 @@ const AUTHOR = '루밀LuMir';
 const SITE_URL = 'https://clang-format-node.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 const NPM_URL = 'https://www.npmjs.com';
+const GOOGLE_GA_ID = 'G-SVZGJNXDB2';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -67,12 +68,21 @@ export default defineConfig({
     ['meta', { name: 'twitter:creator', content: AUTHOR }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
 
-    // TODO: Add @vercel/speed-insight
-    // TODO: Add @vercel/analytics
+    // Google Analytics
+    [
+      'script',
+      { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_GA_ID}` },
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GOOGLE_GA_ID}');`,
+    ],
   ],
   lang: 'en-US',
-
-  // TODO: stylelint?
 
   /* Routing */
   cleanUrls: true,

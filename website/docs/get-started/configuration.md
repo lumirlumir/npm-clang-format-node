@@ -56,7 +56,7 @@ my-monorepo/
 >
 > To see the full list of options, check the [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html) page.
 
-You can use the `.clang-format` file to configure the style of your code. Here is an brief example of a `.clang-format` file:
+You can use the `.clang-format` file to configure the style of your code. Here is a brief example of a `.clang-format` file:
 
 - Simple:
 
