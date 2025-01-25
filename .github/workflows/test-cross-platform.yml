@@ -103,16 +103,26 @@ jobs:
           Get-ChildItem -Recurse -Filter "clang-format-node-*.tgz" | ForEach-Object { npm install $_.FullName }
           Get-ChildItem -Recurse -Filter "clang-format-git-*.tgz" | ForEach-Object { npm install $_.FullName }
 
-      - name: Test clang-format-git
-        run: npx clang-format-git --help
-
-      - name: Test clang-format-git-python
-        run: npx clang-format-git-python --help
-
-      - name: Test clang-format-node
+      - name: Basic test (Git Bash)
         run: |
           npx clang-format-node --help
           npx clang-format-node --version
+          npx clang-format-git --help
+          npx clang-format-git-python --help
+
+      - name: Windows PowerShell test
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          npx clang-format-node --help
+          npx clang-format-node --version
+          npx clang-format-git --help
+          npx clang-format-git-python --help
+
+      - name: Windows CMD test
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: npx clang-format-node --help && npx clang-format-node --version && npx clang-format-git --help && npx clang-format-git-python --help
 
   docker-images:
     strategy:
