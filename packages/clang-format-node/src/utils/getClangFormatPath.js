@@ -28,6 +28,7 @@ const { resolve } = require('path');
  * @throws `Error` Throws an error if the executable binary is not found for the specified OS platform and architecture.
  * @alias `getClangFormatNodePath`. See {@link getClangFormatNodePath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-node
  */
 function getClangFormatPath(osPlatform, architecture) {
   const clangFormatPath = resolve(
@@ -51,6 +52,7 @@ function getClangFormatPath(osPlatform, architecture) {
  *
  * @alias `getClangFormatPath`. See {@link getClangFormatPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-node
  */
 const getClangFormatNodePath = getClangFormatPath;
 

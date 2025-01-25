@@ -20,6 +20,7 @@ const { resolve } = require('path');
  * @type string
  * @alias `clangFormatGitPythonPath`. See {@link clangFormatGitPythonPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git-python
  */
 const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`);
 
@@ -28,6 +29,7 @@ const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`
  *
  * @alias `gitClangFormatPath`. See {@link gitClangFormatPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git-python
  */
 const clangFormatGitPythonPath = gitClangFormatPath;
 
