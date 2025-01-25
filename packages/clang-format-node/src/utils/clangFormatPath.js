@@ -21,6 +21,7 @@ const { getClangFormatPath } = require('./getClangFormatPath');
  *
  * @alias `clangFormatNodePath`. See {@link clangFormatNodePath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-node
  */
 const clangFormatPath = getClangFormatPath(platform(), arch());
 
@@ -29,6 +30,7 @@ const clangFormatPath = getClangFormatPath(platform(), arch());
  *
  * @alias `clangFormatPath`. See {@link clangFormatPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-node
  */
 const clangFormatNodePath = clangFormatPath;
 

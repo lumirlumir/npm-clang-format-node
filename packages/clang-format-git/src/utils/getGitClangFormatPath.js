@@ -28,6 +28,7 @@ const { resolve } = require('path');
  * @throws `Error` Throws an error if the executable binary is not found for the specified OS platform and architecture.
  * @alias `getClangFormatGitPath`. See {@link getClangFormatGitPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git
  */
 function getGitClangFormatPath(osPlatform, architecture) {
   const gitClangFormatPath = resolve(
@@ -51,6 +52,7 @@ function getGitClangFormatPath(osPlatform, architecture) {
  *
  * @alias `getGitClangFormatPath`. See {@link getGitClangFormatPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git
  */
 const getClangFormatGitPath = getGitClangFormatPath;
 

@@ -21,6 +21,7 @@ const { getGitClangFormatPath } = require('./getGitClangFormatPath');
  *
  * @alias `clangFormatGitPath`. See {@link clangFormatGitPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git
  */
 const gitClangFormatPath = getGitClangFormatPath(platform(), arch());
 
@@ -29,6 +30,7 @@ const gitClangFormatPath = getGitClangFormatPath(platform(), arch());
  *
  * @alias `gitClangFormatPath`. See {@link gitClangFormatPath}.
  * @version `v1.2.0` Initial release.
+ * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git
  */
 const clangFormatGitPath = gitClangFormatPath;
 
