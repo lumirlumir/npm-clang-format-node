@@ -426,10 +426,10 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GH_PAT }}
-          commit-message: 'build(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
+          commit-message: 'chore(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
           branch: 'bump-llvm-from-${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }}-to-${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
           base: 'main'
-          title: 'build(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
+          title: 'chore(deps): bump LLVM from ${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }} to ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}'
           body: |
             This PR bumps the LLVM version from `${{ needs.stage1.outputs.LLVM_CURRENT_RELEASE_TAG_NAME }}` to `${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}` using LLVM binary that was built automatically. :tada:
 
