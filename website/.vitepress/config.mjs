@@ -179,6 +179,10 @@ export default defineConfig({
               link: 'why-we-started-this-project',
             },
             {
+              text: 'Introduction',
+              link: 'introduction',
+            },
+            {
               text: 'Installation',
               link: 'installation',
             },
@@ -253,10 +257,6 @@ export default defineConfig({
             {
               text: '<code>|| exit 0</code> and <code>|| true</code>',
               link: 'difference-between-exit-0-and-true',
-            },
-            {
-              text: 'Surgical Formatting',
-              link: 'surgical-formatting-with-git-clang-format',
             },
           ],
         },
