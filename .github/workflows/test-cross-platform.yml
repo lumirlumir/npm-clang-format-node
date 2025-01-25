@@ -122,11 +122,7 @@ jobs:
       - name: Windows CMD test
         if: runner.os == 'Windows'
         shell: cmd
-        run: |
-          npx clang-format-node --help
-          npx clang-format-node --version
-          npx clang-format-git --help
-          npx clang-format-git-python --help
+        run: npx clang-format-node --help && npx clang-format-node --version && npx clang-format-git --help && npx clang-format-git-python --help
 
   docker-images:
     strategy:
