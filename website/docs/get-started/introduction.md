@@ -140,7 +140,7 @@ Here’s an example:
         modified:   x.cpp
     ```
 
-1. `git diff` will show the unstaged changes – the changes created by `clang-format`.
+1. `git diff` will show the unstaged changes – the changes created by `clang-format`:
 
     ```sh
     $ git diff
