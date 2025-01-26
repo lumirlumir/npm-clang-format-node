@@ -17,7 +17,7 @@ description: 'This page introduces the concepts and provides guidance on how to 
 
 :::
 
-> [!NOTE] Reference
+> [!NOTE] References
 >
 > - [Format your code - all the time](https://ortogonal.github.io/cpp/git-clang-format/)
 > - [Surgical formatting with `git-clang-format`](https://offlinemark.com/surgical-formatting-with-git-clang-format/)
