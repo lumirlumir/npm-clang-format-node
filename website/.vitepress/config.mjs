@@ -38,6 +38,8 @@ export default defineConfig({
   head: [
     // Basic
     ['link', { rel: 'icon', href: '/logo-lightgray.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/logo-lightgray-small.png', type: 'image/png' }],
+    ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
     ['meta', { name: 'title', content: TITLE }],
     ['meta', { name: 'theme-color', content: '#83ba63' }],
     ['meta', { name: 'author', content: AUTHOR }],
