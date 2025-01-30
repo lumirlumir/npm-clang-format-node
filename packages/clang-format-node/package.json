@@ -45,10 +45,10 @@
   "scripts": {
     "postinstall": "test -d src && npm run build || npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && cp -r src/bin build && cp ../../LICENSE.md ../../README.md .",
+    "build": "npx babel src -d build && npx tsc && shx cp -r src/bin build && shx cp ../../LICENSE.md ../../README.md .",
     "postbuild": "npm run chmod",
     "test": "node --test",
-    "chmod": "find ./src/bin ./build/bin -type f -exec chmod 755 {} + || exit 0",
+    "chmod": "shx chmod 755 ./src/bin/**/* ./build/bin/**/* || exit 0",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"
   }
