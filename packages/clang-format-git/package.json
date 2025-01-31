@@ -44,9 +44,9 @@
     "node": ">=16"
   },
   "scripts": {
-    "postinstall": "test -d src && npm run build || npm run chmod",
+    "postinstall": "shx test -d src && npm run build || npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && shx shx cp -r src/bin build && shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx babel src -d build && npx tsc && shx cp -r src/bin build && shx cp ../../LICENSE.md ../../README.md .",
     "postbuild": "npm run chmod",
     "test": "node --test",
     "chmod": "shx chmod 755 ./src/bin/**/* ./build/bin/**/* || exit 0",
