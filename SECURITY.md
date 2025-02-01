@@ -9,7 +9,7 @@ Some may have concerns about the security of binary files, but the following poi
 1. Second, our build processes are fully transparent. You can review exactly how these binaries are built and track the pull requests showing their origins.
 
     - See [`llvm-build-bump-pr.yml`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
-    - See the [Pull Request list on GitHub](https://github.com/lumirlumir/npm-clang-format-node/pulls?q=is%3Apr+%28deps%29%3A+bump+LLVM+from).
+    - See the [Pull Request list on GitHub](https://github.com/lumirlumir/npm-clang-format-node/pulls?q=is%3Apr+%28deps%29%3A+bump+LLVM+from+label%3Adependencies).
 
 1. Third, when you run the command `clang-format --version`, you can verify the current **LLVM version**, **repository URL**, and **commit SHA**, as shown below:
 
