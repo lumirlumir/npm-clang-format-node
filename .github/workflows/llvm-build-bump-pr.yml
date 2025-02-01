@@ -369,7 +369,7 @@ jobs:
       # packages:clang-format-node
 
       - name: Build cmake
-        run: cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel
+        run: cmake -S llvm -B build -G Ninja -DLLVM_ENABLE_PROJECTS="clang" -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++"
 
       - name: Build clang-format
         run: ninja -C build clang-format
