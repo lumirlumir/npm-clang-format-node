@@ -1,6 +1,6 @@
 {
   "name": "clang-format-git",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Node wrapper for git-clang-format Python script as a standalone native binary to allow execution without a Python dependency.🐉",
   "main": "build/index.js",
   "files": [
@@ -54,7 +54,7 @@
     "start": "node build/cli.js"
   },
   "dependencies": {
-    "clang-format-node": "^1.3.0",
+    "clang-format-node": "^1.3.1",
     "shx": "^0.3.4"
   }
 }
