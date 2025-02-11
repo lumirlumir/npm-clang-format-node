@@ -89,7 +89,7 @@ export default defineConfig({
     hostname: SITE_URL,
   },
 
-  /* Thme Configuration */
+  /* Theme Configuration */
   themeConfig: {
     logo: {
       light: '/logo-black.svg',
