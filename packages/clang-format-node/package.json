@@ -42,6 +42,9 @@
   "engines": {
     "node": ">=16"
   },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "postinstall": "shx test -d src && npm run build || npm run chmod",
     "prepublishOnly": "npm run build",
