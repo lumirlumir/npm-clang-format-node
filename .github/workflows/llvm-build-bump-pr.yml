@@ -12,6 +12,9 @@ on:
   schedule:
     - cron: '0 1 * * 1'
 
+permissions:
+  contents: read
+
 env:
   GH_TOKEN: ${{ secrets.GH_PAT }}
   LLVM_REPO: llvm/llvm-project
@@ -138,6 +141,7 @@ jobs:
   # Linux-qemu(cross-platform)
   stage2-build-linux-qemu:
     strategy:
+      fail-fast: false
       matrix:
         docker:
           - platform: arm/v7
@@ -243,6 +247,7 @@ jobs:
   # MacOS
   stage2-build-darwin:
     strategy:
+      fail-fast: false
       matrix:
         type:
           - macos-14 # arm64 (macos-latest: arm64)
