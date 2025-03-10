@@ -13,7 +13,8 @@ on:
     - cron: '0 1 * * 1'
 
 permissions:
-  contents: read
+  id-token: write
+  attestations: write
 
 env:
   GH_TOKEN: ${{ secrets.GH_PAT }}
@@ -105,18 +106,30 @@ jobs:
         run: dist/git-clang-format --help
 
       - name: Upload artifact
+        id: upload-clang-format-git
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
 
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
+
       # packages:clang-format-git-python
 
       - name: Upload artifact
+        id: upload-clang-format-git-python
         uses: actions/upload-artifact@v4
         with:
           name: git-clang-format
           path: clang/tools/clang-format/git-clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: git-clang-format
+          subject-digest: sha256:${{ steps.upload-clang-format-git-python.outputs.artifact-digest }}
 
       # packages:clang-format-node
 
@@ -133,10 +146,16 @@ jobs:
         run: build/bin/clang-format --version
 
       - name: Upload artifact
+        id: upload-clang-format-node
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
 
   # Linux-qemu(cross-platform)
   stage2-build-linux-qemu:
@@ -227,10 +246,16 @@ jobs:
         run: ls ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
 
       - name: Upload artifact
+        id: upload-clang-format-git
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}/git-clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
+          subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
 
       - name: Copy clang-format from Docker container
         run: docker cp ${{ matrix.docker.node-name }}:/${{ env.LLVM_REPO_SHORT }}/build/bin ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
@@ -239,10 +264,16 @@ jobs:
         run: ls ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
 
       - name: Upload artifact
+        id: upload-clang-format-node
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}/clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
+          subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
 
   # MacOS
   stage2-build-darwin:
@@ -298,10 +329,16 @@ jobs:
         run: dist/git-clang-format --help
 
       - name: Upload artifact
+        id: upload-clang-format-git
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
 
       # packages:clang-format-node
 
@@ -318,10 +355,16 @@ jobs:
         run: build/bin/clang-format --version
 
       - name: Upload artifact
+        id: upload-clang-format-node
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
 
   # Windows
   stage2-build-win32:
@@ -366,10 +409,16 @@ jobs:
         run: dist\git-clang-format.exe --help
 
       - name: Upload artifact
+        id: upload-clang-format-git
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist\git-clang-format.exe
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
 
       # packages:clang-format-node
 
@@ -383,10 +432,16 @@ jobs:
         run: build\bin\clang-format --version
 
       - name: Upload artifact
+        id: upload-clang-format-node
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build\bin\clang-format.exe
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
+          subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
 
   # Create PR using build artifacts and bump version
   stage3:
