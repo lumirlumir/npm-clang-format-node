@@ -12,6 +12,7 @@ import { generateGoogleAnalyticsScript } from 'bananass-utils-vitepress/head';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
+import { codecovVitePlugin } from '@codecov/vite-plugin';
 
 // --------------------------------------------------------------------------------
 // Constants
@@ -333,6 +334,15 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [groupIconVitePlugin()],
+    plugins: [
+      groupIconVitePlugin(),
+      codecovVitePlugin({
+        // Put the Codecov vite plugin after all other plugins
+        enableBundleAnalysis: true,
+        bundleName: 'website',
+        uploadToken: process.env.CODECOV_TOKEN,
+        gitService: 'github',
+      }),
+    ],
   },
 });
