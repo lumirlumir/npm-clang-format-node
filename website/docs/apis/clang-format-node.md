@@ -9,7 +9,7 @@ Node wrapper for `clang-format` native binary inspired by [angular/clang-format]
 
 > [!TIP]
 >
-> This package also supports JSDoc type hints with the following APIs, so you’ll see more detailed information directly in your code editor.
+> This package also supports JSDoc type hints with the following APIs, so you'll see more detailed information directly in your code editor.
 
 ## Installation
 

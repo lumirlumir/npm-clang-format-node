@@ -6,7 +6,7 @@ description: 'This page introduces the concepts and provides guidance on how to 
 
 ::: danger Target Audience
 
-**This page introduces the concepts and provides guidance on how to format your code with `clang-format` and `git-clang-format`.** It's designed for newcomers, so If you’re already a senior engineer with experience in Clang, this page might not be for you. You can skip this page and go directly to the [Installation](installation.md) page.
+**This page introduces the concepts and provides guidance on how to format your code with `clang-format` and `git-clang-format`.** It's designed for newcomers, so If you're already a senior engineer with experience in Clang, this page might not be for you. You can skip this page and go directly to the [Installation](installation.md) page.
 
 :::
 
@@ -28,7 +28,7 @@ This page is not about debates like whether the `{` should be on the same line a
 
 ## `clang-format`
 
-You’ve probably heard of `clang-format`, a tool that automatically formats source files for languages like C and C++. It was created as part of the LLVM Clang open-source project. The concept behind `clang-format` is simple. [You setup a configuration file](/docs/get-started/configuration) that defines the formatting style you want for your code, and then you run `clang-format`. It will automatically reformat your code to follow the rules specified in the configuration file.
+You've probably heard of `clang-format`, a tool that automatically formats source files for languages like C and C++. It was created as part of the LLVM Clang open-source project. The concept behind `clang-format` is simple. [You setup a configuration file](/docs/get-started/configuration) that defines the formatting style you want for your code, and then you run `clang-format`. It will automatically reformat your code to follow the rules specified in the configuration file.
 
 `clang-format` offers options for customizing almost everything. Typically, your settings are stored in a file called [`.clang-format`](/docs/get-started/configuration), which `clang-format` will then use. It can handle code written in C, C++, Java, JavaScript, Objective-C, Protobuf, and C#. You can apply it to an entire file with a simple command like [`clang-format -i my_source.cpp`](/docs/get-started/cli#frequently-used-commands).
 
@@ -69,19 +69,19 @@ void test(QString &data, bool extraString)
 }
 ```
 
-The code above is entirely trivial, but it illustrates what `clang-format` can do for your code. Whether you like this formatting or not isn’t the point here, because you can set up any rules that suit you and your team!
+The code above is entirely trivial, but it illustrates what `clang-format` can do for your code. Whether you like this formatting or not isn't the point here, because you can set up any rules that suit you and your team!
 
 ## Problems with `clang-format`
 
-`clang-format` is a great tool to use but it has one major issue - **legacy code** and your **commit history**. The problem is simple. When you reformat a source file, you end up with tons of changes that mess up the commit history, making branch merging more difficult. It also complicates code reviews and code archaeology, because you have to figure out if the changes are actual code modifications or just formatting changes that don’t affect functionality. Another issue is maintaining the code format when adding new code to already formatted section.
+`clang-format` is a great tool to use but it has one major issue - **legacy code** and your **commit history**. The problem is simple. When you reformat a source file, you end up with tons of changes that mess up the commit history, making branch merging more difficult. It also complicates code reviews and code archaeology, because you have to figure out if the changes are actual code modifications or just formatting changes that don't affect functionality. Another issue is maintaining the code format when adding new code to already formatted section.
 
-If you’re working on a project that’s already fully (100%) `clang-format` compliant, using `clang-format` alone for the workflow works perfectly. However, some projects like [LLVM](https://github.com/llvm/llvm-project), [osquery](https://github.com/osquery/osquery), or [Electron](https://github.com/electron/electron) aren’t fully formatted. In these cases, formatting the entire file isn’t practical because it inadvertently affects parts of the code unrelated to your changes. This adds unnecessary noise to your diffs, making code reviews more difficult.
+If you're working on a project that's already fully (100%) `clang-format` compliant, using `clang-format` alone for the workflow works perfectly. However, some projects like [LLVM](https://github.com/llvm/llvm-project), [osquery](https://github.com/osquery/osquery), or [Electron](https://github.com/electron/electron) aren't fully formatted. In these cases, formatting the entire file isn't practical because it inadvertently affects parts of the code unrelated to your changes. This adds unnecessary noise to your diffs, making code reviews more difficult.
 
 In such cases, you need a way to surgically format only the lines changed in your contribution. To do this, you can use the `clang-format` Git extension called `git-clang-format`.
 
 ## `git-clang-format`
 
-`git-clang-format` is a simple Python script that's often included with the `clang-format` package on Ubuntu. If it’s not available on your system, you can manually download the [`git-clang-format`](https://github.com/llvm/llvm-project/blob/main/clang/tools/clang-format/git-clang-format) Python script from the LLVM source tree and add it to your `PATH`. Just ensure the script is executable, and you’ll be able to run `git-clang-format` from your shell.
+`git-clang-format` is a simple Python script that's often included with the `clang-format` package on Ubuntu. If it's not available on your system, you can manually download the [`git-clang-format`](https://github.com/llvm/llvm-project/blob/main/clang/tools/clang-format/git-clang-format) Python script from the LLVM source tree and add it to your `PATH`. Just ensure the script is executable, and you'll be able to run `git-clang-format` from your shell.
 
 What `git-clang-format` solves is that it runs `clang-format` only on the changes you've made. This helps address the problems I mentioned earlier. It formats only the changes in your pull requests, meaning every time we modify code, it can be formatted with `clang-format`. As a result, our legacy code base will gradually become better formatted without loosing the readability during code reviews.
 
@@ -96,13 +96,13 @@ This ensures that the changes you've made are properly formatted!
 
 `git-clang-format` operates on staged changes. The workflow is simple:
 
-1. Write and edit your files however you like (it’s okay to be messy).
+1. Write and edit your files however you like (it's okay to be messy).
 1. Stage your changes using `git add`.
 1. Format your staged changes with `git-clang-format`.
 
-Here’s an example:
+Here's an example:
 
-1. I’ve added a new file, `x.cpp`, and staged it:
+1. I've added a new file, `x.cpp`, and staged it:
 
     ```sh
     $ git diff --staged
@@ -155,7 +155,7 @@ Here’s an example:
     +int main() {} # [!code ++]
     ```
 
-This workflow allows you to review `clang-format`’s changes independently of your development changes. If you don’t like them, you can discard them by purging your working tree using `git checkout`. If you’re satisfied, simply stage the formatting changes with `git add`.
+This workflow allows you to review `clang-format`'s changes independently of your development changes. If you don't like them, you can discard them by purging your working tree using `git checkout`. If you're satisfied, simply stage the formatting changes with `git add`.
 
 ### Specifying a Formatting Style
 
@@ -174,4 +174,4 @@ You can use `git-clang-format` with a `pre-commit` hook to format your code befo
 
 `clang-format` is a powerful tool, but its real-world application often requires more than just running `clang-format -i`. For most developers, the practical approach is to use `git-clang-format` to format only the specific changes in your pull request.
 
-Since `git-clang-format` works on the staging tree, it’s easy to review formatting changes separately from development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you’re tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.
+Since `git-clang-format` works on the staging tree, it's easy to review formatting changes separately from development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you're tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.

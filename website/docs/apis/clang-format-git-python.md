@@ -9,11 +9,11 @@ Node wrapper for `git-clang-format` Python script. <u>**This package requires Py
 
 > [!TIP]
 >
-> This package also supports JSDoc type hints with the following APIs, so you’ll see more detailed information directly in your code editor.
+> This package also supports JSDoc type hints with the following APIs, so you'll see more detailed information directly in your code editor.
 
 ## Installation
 
-This package already includes `clang-format-node` as a dependency, so there’s no need to install it separately.
+This package already includes `clang-format-node` as a dependency, so there's no need to install it separately.
 
 ::: code-group
 

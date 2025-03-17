@@ -70,7 +70,7 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/VScode.code-workspace
   - source: ./babel.config.js
     dest: ./configs/babel.config.js
-  - source: ./eslint.config.js
-    dest: ./configs/eslint.config.js
+  - source: ./eslint.config.mjs
+    dest: ./configs/eslint.config.mjs
   - source: ./lint-staged.config.js
     dest: ./configs/lint-staged.config.js
