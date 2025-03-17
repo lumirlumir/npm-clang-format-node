@@ -56,6 +56,6 @@
     "start": "node build/cli.js"
   },
   "dependencies": {
-    "shx": "^0.3.4"
+    "shx": "^0.4.0"
   }
 }
