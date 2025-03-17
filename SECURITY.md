@@ -4,7 +4,7 @@
 
 Some may have concerns about the security of binary files, but the following points should provide assurance about this project:
 
-1. First and foremost, we have no intention of harming anyone’s project.
+1. First and foremost, we have no intention of harming anyone's project.
 
 1. Second, our build processes are fully transparent. You can review exactly how these binaries are built and track the pull requests showing their origins.
 

@@ -25,7 +25,7 @@ const spawned = spawn(clangFormatPath, process.argv.slice(2), {
 
 spawned.on('close', code => {
   if (code !== 0) {
-    console.error(`Process exited with code: ${code}`);
+    console.error(`Process exited with code: ${code}`); // eslint-disable-line no-console
     process.exit(code);
   }
 });

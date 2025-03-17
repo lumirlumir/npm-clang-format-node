@@ -151,7 +151,7 @@ It is simple but can produce an error if the [**Argument list is too long**](htt
 
 ### Using Without the Python3 Dependency
 
-This package provides a standalone executable version of `git-clang-format`, so you won’t need to install Python3. But it's size is quite large.
+This package provides a standalone executable version of `git-clang-format`, so you won't need to install Python3. But it's size is quite large.
 
 See the [`clang-format-git` package](../apis/clang-format-git.md).
 
