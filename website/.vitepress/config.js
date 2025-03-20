@@ -323,7 +323,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `Copyright © 2024-present <a href="https://github.com/lumirlumir">${AUTHOR}(lumirlumir)</a>`,
+      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">${AUTHOR}(lumirlumir)</a>`,
     },
   },
 
