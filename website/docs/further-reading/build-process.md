@@ -8,7 +8,7 @@ description: "Guide for building the `clang-format` native binary on Linux and c
 
 You can build `clang-format` native binary on Linux using the script below.
 
-```bash
+```sh
 sudo apt update -y
 sudo apt install -y git python3 g++ cmake ninja-build
 
