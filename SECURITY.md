@@ -13,7 +13,7 @@ Some may have concerns about the security of binary files, but the following poi
 
 1. Third, when you run the command `clang-format --version`, you can verify the current **LLVM version**, **repository URL**, and **commit SHA**, as shown below:
 
-    ```bash
+    ```sh
     clang-format version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
     ```
 
