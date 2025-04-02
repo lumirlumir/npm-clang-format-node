@@ -76,3 +76,10 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/eslint.config.mjs
   - source: ./lint-staged.config.js
     dest: ./configs/lint-staged.config.js
+  # tsconfig.json
+  - source: ./packages/clang-format-git/tsconfig.json
+    dest: ./configs/tsconfig.json
+  - source: ./packages/clang-format-git-python/tsconfig.json
+    dest: ./configs/tsconfig.json
+  - source: ./packages/clang-format-node/tsconfig.json
+    dest: ./configs/tsconfig.json
