@@ -63,7 +63,7 @@ const binaries = [
 // Test
 // --------------------------------------------------------------------------------
 
-describe('integration-binaries-permission ok testing', () => {
+describe('integration-binaries-permission', () => {
   // Skip test on Windows.
   // On Windows, using `chmod` to change permissions doesn't work correctly,
   // which can lead to unwanted results, as some binary permissions are not changed.

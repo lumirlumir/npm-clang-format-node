@@ -37,7 +37,7 @@ import {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('integration-api-cjs ESM ok testing', () => {
+describe('integration-api-cjs ESM', () => {
   describe('clang-format-node', () => {
     it('clangFormatPath should be imported correctly', () => {
       ok(clangFormatPath);

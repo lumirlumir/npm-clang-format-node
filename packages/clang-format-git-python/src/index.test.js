@@ -15,7 +15,7 @@ const { gitClangFormatPath, clangFormatGitPythonPath } = require('./index');
 // Test
 // --------------------------------------------------------------------------------
 
-describe('index ok testing', () => {
+describe('index', () => {
   it('gitClangFormatPath should be imported correctly', () => {
     ok(gitClangFormatPath);
   });

@@ -16,7 +16,7 @@ const { gitClangFormatPath, clangFormatGitPythonPath } = require('./gitClangForm
 // Test
 // --------------------------------------------------------------------------------
 
-describe('gitClangFormatPath strictEqual testing', () => {
+describe('gitClangFormatPath', () => {
   it('gitClangFormatPath === clangFormatGitPythonPath', () => {
     strictEqual(gitClangFormatPath, clangFormatGitPythonPath);
   });

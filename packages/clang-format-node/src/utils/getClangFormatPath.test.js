@@ -53,7 +53,7 @@ const allowed = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('getClangFormatPath doesNotThrow and throws testing', () => {
+describe('getClangFormatPath', () => {
   osPlatforms.forEach(osPlatform => {
     architectures.forEach(architecture => {
       it(`osPlatform: ${osPlatform}, architecture: ${architecture}`, () => {

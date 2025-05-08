@@ -43,7 +43,6 @@ const architectures = [
 
 /**
  * The possible combinations are `darwin-arm64`, `darwin-x64`, `linux-arm`, `linux-arm64`, `linux-ppc64`, `linux-s390x`, `linux-x64`, `win32-x64`.
- *
  * See {@link getClangFormatPath}.
  */
 const allowed = {
@@ -56,7 +55,7 @@ const allowed = {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('getGitClangFormatPath doesNotThrow and throws testing', () => {
+describe('getGitClangFormatPath', () => {
   osPlatforms.forEach(osPlatform => {
     architectures.forEach(architecture => {
       it(`osPlatform: ${osPlatform}, architecture: ${architecture}`, () => {
