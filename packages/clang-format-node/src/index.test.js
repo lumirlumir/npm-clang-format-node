@@ -20,7 +20,7 @@ const {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('index ok testing', () => {
+describe('index', () => {
   it('clangFormatPath should be imported correctly', () => {
     ok(clangFormatPath);
   });

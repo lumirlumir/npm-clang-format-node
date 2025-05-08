@@ -37,7 +37,7 @@ const {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('integration-api-cjs CJS ok testing', () => {
+describe('integration-api-cjs CJS', () => {
   describe('clang-format-node', () => {
     it('clangFormatPath should be imported correctly', () => {
       ok(clangFormatPath);

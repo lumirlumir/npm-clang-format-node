@@ -20,7 +20,7 @@ const {
 // Test
 // --------------------------------------------------------------------------------
 
-describe('index ok testing', () => {
+describe('index', () => {
   it('getGitClangFormatPath should be imported correctly', () => {
     ok(getGitClangFormatPath);
   });

@@ -17,7 +17,7 @@ const { getGitClangFormatPath } = require('./getGitClangFormatPath');
 // Test
 // --------------------------------------------------------------------------------
 
-describe('gitClangFormatPath strictEqual testing', () => {
+describe('gitClangFormatPath', () => {
   it('gitClangFormatPath === getGitClangFormatPath(platform(), arch())', () => {
     strictEqual(gitClangFormatPath, getGitClangFormatPath(platform(), arch()));
   });

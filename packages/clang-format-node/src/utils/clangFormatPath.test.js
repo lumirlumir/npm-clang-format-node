@@ -17,7 +17,7 @@ const { getClangFormatPath } = require('./getClangFormatPath');
 // Test
 // --------------------------------------------------------------------------------
 
-describe('clangFormatPath strictEqual testing', () => {
+describe('clangFormatPath', () => {
   it('clangFormatPath === getClangFormatPath(platform(), arch())', () => {
     strictEqual(clangFormatPath, getClangFormatPath(platform(), arch()));
   });

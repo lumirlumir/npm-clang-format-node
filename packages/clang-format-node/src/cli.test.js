@@ -21,7 +21,7 @@ const cli = resolve(__dirname, 'cli.js');
 // Test
 // --------------------------------------------------------------------------------
 
-describe('cli doesNotThrow and throws testing', () => {
+describe('cli', () => {
   // Correct
   it('node cli.js --help', () => {
     doesNotThrow(() => {
