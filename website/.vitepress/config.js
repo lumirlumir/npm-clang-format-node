@@ -1,6 +1,5 @@
 /**
  * @fileoverview Vitepress site configuration.
- *
  * @see https://vitepress.dev/reference/site-config#site-config
  */
 
@@ -8,7 +7,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { generateGoogleAnalyticsScript } from 'bananass-utils-vitepress/head';
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
@@ -71,7 +69,18 @@ export default defineConfig({
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
 
     // Google Analytics
-    ...generateGoogleAnalyticsScript(GOOGLE_GA_ID),
+    [
+      'script',
+      { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_GA_ID}` },
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GOOGLE_GA_ID}');`,
+    ],
   ],
   lang: 'en-US',
 
