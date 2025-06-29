@@ -40,7 +40,6 @@ const architectures = [
 
 /**
  * The possible combinations are `darwin-arm64`, `darwin-x64`, `linux-arm`, `linux-arm64`, `linux-ppc64`, `linux-s390x`, `linux-x64`, `win32-x64`.
- *
  * See {@link getClangFormatPath}.
  */
 const allowed = {

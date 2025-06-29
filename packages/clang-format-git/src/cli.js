@@ -11,9 +11,7 @@
 // --------------------------------------------------------------------------------
 
 const { spawn } = require('child_process');
-
 const { clangFormatPath } = require('clang-format-node');
-
 const { gitClangFormatPath } = require('./utils/gitClangFormatPath');
 
 // --------------------------------------------------------------------------------
