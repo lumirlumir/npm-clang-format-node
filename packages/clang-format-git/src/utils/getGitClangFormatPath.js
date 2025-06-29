@@ -21,7 +21,6 @@ const { resolve } = require('path');
  * The possible combinations are `darwin-arm64`, `darwin-x64`, `linux-arm`, `linux-arm64`, `linux-ppc64`, `linux-s390x`, `linux-x64`, `win32-x64`.
  *
  * Throws an error if the executable is not found.
- *
  * @param {string} osPlatform The current operating system platform. (e.g., `darwin`, `linux`, `win32`)
  * @param {string} architecture The current system architecture. (e.g., `arm`, `arm64`, `ppc64`, `s390x`, `x64`)
  * @returns {string} The ABSOLUTE path to the `git-clang-format` executable binary.
@@ -49,7 +48,6 @@ function getGitClangFormatPath(osPlatform, architecture) {
 
 /**
  * Alias for `getGitClangFormatPath`.
- *
  * @alias `getGitClangFormatPath`. See {@link getGitClangFormatPath}.
  * @version `v1.2.0` Initial release.
  * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git
