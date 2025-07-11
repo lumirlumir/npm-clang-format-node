@@ -168,8 +168,8 @@ jobs:
         run: |
           docker exec ${{ matrix.docker.node-name }} /bin/bash -c "
             echo ---Set up dependencies--- &&
-            apt update -y &&
-            apt install -y git &&
+            apt-get update -y &&
+            apt-get install -y git &&
 
             echo ---Debug uname -m--- &&
             uname -m &&

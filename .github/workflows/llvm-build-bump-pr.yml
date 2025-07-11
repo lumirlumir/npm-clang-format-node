@@ -84,8 +84,8 @@ jobs:
 
       - name: Set up dependencies
         run: |
-          sudo apt update -y
-          sudo apt install -y ninja-build
+          sudo apt-get update -y
+          sudo apt-get install -y ninja-build
           pip install pyinstaller
 
       - name: Set up checkout
@@ -167,7 +167,7 @@ jobs:
             ubuntu-image: arm32v7
             node-name: arm
           - platform: arm64/v8
-            ubuntu-image: arm64v8
+            ubuntu-image: arm64v8 # TODO
             node-name: arm64
           - platform: ppc64le
             ubuntu-image: ppc64le
@@ -194,7 +194,7 @@ jobs:
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} buildpack-deps:jammy /bin/bash -c "
             echo ---Set up environment variables--- &&
             export DEBIAN_FRONTEND=noninteractive &&
 
@@ -205,8 +205,8 @@ jobs:
             pwd &&
 
             echo ---Set up dependencies--- &&
-            apt update -y &&
-            apt install -y git python3 python3-pip g++ cmake ninja-build &&
+            apt-get update -y &&
+            apt-get install -y python3 python3-pip cmake ninja-build &&
             pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
