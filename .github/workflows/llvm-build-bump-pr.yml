@@ -194,7 +194,7 @@ jobs:
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} buildpack-deps:jammy /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} python:3.10.18-bookworm /bin/bash -c "
             echo ---Set up environment variables--- &&
             export DEBIAN_FRONTEND=noninteractive &&
 
@@ -206,7 +206,7 @@ jobs:
 
             echo ---Set up dependencies--- &&
             apt-get update -y &&
-            apt-get install -y python3-pip cmake ninja-build &&
+            apt-get install -y cmake ninja-build &&
             pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
