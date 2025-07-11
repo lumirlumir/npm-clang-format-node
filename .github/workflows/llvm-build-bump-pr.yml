@@ -206,7 +206,7 @@ jobs:
 
             echo ---Set up dependencies--- &&
             apt-get update -y &&
-            apt-get install -y python3 python3-pip cmake ninja-build &&
+            apt-get install -y python3-pip cmake ninja-build &&
             pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
