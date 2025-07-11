@@ -187,7 +187,9 @@ jobs:
         run: echo ${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }} ${{ matrix.docker.node-name }}
 
       - name: Set up QEMU
-        run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/${{ matrix.docker.platform }}
 
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
