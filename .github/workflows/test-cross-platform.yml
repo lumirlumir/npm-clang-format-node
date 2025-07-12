@@ -41,6 +41,9 @@ jobs:
       - name: Set up node_modules
         run: npm ci
 
+      - name: Build
+        run: npm run build --if-present
+
       - name: Build packages
         run: mkdir packs && npm pack --workspace packages --pack-destination packs
 
