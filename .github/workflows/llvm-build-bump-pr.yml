@@ -164,16 +164,12 @@ jobs:
       matrix:
         docker:
           - platform: arm/v7
-            ubuntu-image: arm32v7
             node-name: arm
           - platform: arm64/v8
-            ubuntu-image: arm64v8 # TODO
             node-name: arm64
           - platform: ppc64le
-            ubuntu-image: ppc64le
             node-name: ppc64
           - platform: s390x
-            ubuntu-image: s390x
             node-name: s390x
 
     runs-on: ubuntu-22.04
@@ -183,9 +179,6 @@ jobs:
     if: ${{ needs.stage1.outputs.IS_LATEST == 'false' || inputs.force-run }}
 
     steps:
-      - name: Debug matrix
-        run: echo ${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }} ${{ matrix.docker.node-name }}
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         with:
