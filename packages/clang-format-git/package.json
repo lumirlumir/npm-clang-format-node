@@ -49,7 +49,7 @@
   "scripts": {
     "postinstall": "npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && shx cp -r src/bin build && shx cp ../../LICENSE.md ../../README.md .",
+    "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs src/bin build/bin ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "postbuild": "npm run chmod",
     "test": "node --test",
     "chmod": "shx chmod 755 ./src/bin/**/* ./build/bin/**/* || exit 0",

@@ -9,8 +9,8 @@ description: "Guide for building the `clang-format` native binary on Linux and c
 You can build `clang-format` native binary on Linux using the script below.
 
 ```sh
-sudo apt update -y
-sudo apt install -y git python3 g++ cmake ninja-build
+sudo apt-get update -y
+sudo apt-get install -y git python3 g++ cmake ninja-build
 
 # Replace llvmorg-18.1.8 with your desired version. Check the tags at https://github.com/llvm/llvm-project/tags
 git clone --depth 1 --branch llvmorg-18.1.8 https://github.com/llvm/llvm-project.git
