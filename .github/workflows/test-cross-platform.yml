@@ -42,9 +42,7 @@ jobs:
         run: npm ci
 
       - name: Build packages
-        run: |
-          mkdir packs
-          npm pack --workspace packages --pack-destination packs
+        run: mkdir packs && npm pack --workspace packages --pack-destination packs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -54,6 +52,7 @@ jobs:
 
   github-actions-runner-images:
     strategy:
+      fail-fast: false
       matrix:
         runner-image:
           - macos-15
@@ -61,8 +60,10 @@ jobs:
           - macos-13
           - ubuntu-24.04
           - ubuntu-22.04
+          - windows-2025
           - windows-2022
         node-version:
+          - 24
           - 22
           - 20
           - 18
@@ -129,19 +130,16 @@ jobs:
 
   docker-images:
     strategy:
+      fail-fast: false
       matrix:
         docker:
           - platform: arm/v7
-            ubuntu-image: arm32v7
             node-name: arm
           - platform: arm64/v8
-            ubuntu-image: arm64v8
             node-name: arm64
           - platform: ppc64le
-            ubuntu-image: ppc64le
             node-name: ppc64
           - platform: s390x
-            ubuntu-image: s390x
             node-name: s390x
 
     runs-on: ubuntu-22.04
@@ -156,7 +154,7 @@ jobs:
           platforms: linux/${{ matrix.docker.platform }}
 
       - name: Docker run background
-        run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }}/ubuntu:22.04 tail -f /dev/null
+        run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ubuntu:22.04 tail -f /dev/null
 
       - name: Copy git-clang-format file to Docker container
         run: docker cp ./packages/clang-format-git/src/bin/cfg-linux-${{ matrix.docker.node-name }}/git-clang-format ${{ matrix.docker.node-name }}:/
