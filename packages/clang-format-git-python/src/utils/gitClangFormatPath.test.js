@@ -20,10 +20,10 @@ describe('gitClangFormatPath', () => {
   it('gitClangFormatPath === clangFormatGitPythonPath', () => {
     strictEqual(gitClangFormatPath, clangFormatGitPythonPath);
   });
-  it('clangFormatGitPythonPath === resolve(__dirname, `..`, `script`, `git-clang-format`)', () => {
+  it('clangFormatGitPythonPath === resolve(__dirname, `..`, `..`, `script`, `git-clang-format`)', () => {
     strictEqual(
       clangFormatGitPythonPath,
-      resolve(__dirname, `..`, `script`, `git-clang-format`),
+      resolve(__dirname, `..`, `..`, `script`, `git-clang-format`),
     );
   });
 });
