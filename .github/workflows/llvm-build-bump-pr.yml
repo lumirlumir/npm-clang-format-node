@@ -463,7 +463,7 @@ jobs:
       - name: Download artifacts for clang-format-git
         uses: actions/download-artifact@v4
         with:
-          path: packages/clang-format-git/src/bin
+          path: packages/clang-format-git/bin
           pattern: cfg-*
 
       - name: Download artifacts for clang-format-git-python
