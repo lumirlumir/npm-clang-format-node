@@ -1,5 +1,5 @@
 /**
- * @fileoverview Script to change permissions of script.
+ * @fileoverview Script to change permissions of a script.
  */
 
 /* eslint-disable n/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
