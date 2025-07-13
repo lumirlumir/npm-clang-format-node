@@ -469,7 +469,7 @@ jobs:
       - name: Download artifacts for clang-format-git-python
         uses: actions/download-artifact@v4
         with:
-          path: packages/clang-format-git-python/src/script
+          path: packages/clang-format-git-python/script
           name: git-clang-format
 
       - name: Download artifacts for clang-format-node
