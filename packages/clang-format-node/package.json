@@ -52,11 +52,8 @@
     "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "postbuild": "npm run chmod",
     "test": "node --test",
-    "chmod": "shx chmod 755 ./bin/**/* || exit 0",
+    "chmod": "chmod 755 ./bin/**/* || exit 0",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"
-  },
-  "dependencies": {
-    "shx": "^0.4.0"
   }
 }
