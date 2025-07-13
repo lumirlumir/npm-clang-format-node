@@ -475,7 +475,7 @@ jobs:
       - name: Download artifacts for clang-format-node
         uses: actions/download-artifact@v4
         with:
-          path: packages/clang-format-node/src/bin
+          path: packages/clang-format-node/bin
           pattern: cfn-*
 
       - name: Update file permissions to 755

@@ -4,6 +4,7 @@
   "description": "Node wrapper for clang-format native binary inspired by angular/clang-format.🐉",
   "main": "build/index.js",
   "files": [
+    "bin",
     "build",
     "LICENSE.md",
     "README.md"
@@ -48,10 +49,10 @@
   "scripts": {
     "postinstall": "npm run chmod",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs src/bin build/bin ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "postbuild": "npm run chmod",
     "test": "node --test",
-    "chmod": "shx chmod 755 ./src/bin/**/* ./build/bin/**/* || exit 0",
+    "chmod": "shx chmod 755 ./bin/**/* || exit 0",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"
   },
