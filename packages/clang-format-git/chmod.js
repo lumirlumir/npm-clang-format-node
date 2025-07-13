@@ -15,12 +15,12 @@ const { chmodSync, readdirSync } = require('fs');
 // Execution
 // --------------------------------------------------------------------------------
 
-const clangFormatGitPaths = readdirSync(resolve(__dirname, 'bin'), {
+const binPath = resolve(__dirname, 'bin');
+const clangFormatGitPaths = readdirSync(binPath, {
   recursive: true,
-  withFileTypes: true,
 })
-  .filter(dirent => dirent.isFile())
-  .map(dirent => resolve(dirent.parentPath, dirent.name));
+  .filter(path => path.includes('git-clang-format'))
+  .map(path => resolve(binPath, path));
 
 clangFormatGitPaths.forEach(clangFormatGitPath => {
   try {
