@@ -48,7 +48,7 @@
     "provenance": true
   },
   "scripts": {
-    "postinstall": "node chmod.js",
+    "postinstall": "node chmod.js || exit 0",
     "prepublishOnly": "npm run build",
     "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
     "test": "node --test",
