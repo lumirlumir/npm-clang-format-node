@@ -6,6 +6,7 @@
   "files": [
     "build",
     "script",
+    "chmod.js",
     "LICENSE.md",
     "README.md"
   ],
@@ -49,17 +50,14 @@
     "provenance": true
   },
   "scripts": {
-    "postinstall": "npm run chmod",
+    "postinstall": "node chmod.js || exit 0",
     "prepublishOnly": "npm run build",
     "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
-    "postbuild": "npm run chmod",
     "test": "node --test",
-    "chmod": "shx chmod 755 ./script/**/* || exit 0",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"
   },
   "dependencies": {
-    "clang-format-node": "^1.3.4",
-    "shx": "^0.4.0"
+    "clang-format-node": "^1.3.4"
   }
 }
