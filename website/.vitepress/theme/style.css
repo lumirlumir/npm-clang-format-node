@@ -68,7 +68,7 @@
 
 .DocSearch-Button {
   border: 1px solid transparent;
-  transition: 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .DocSearch-Button:hover {
