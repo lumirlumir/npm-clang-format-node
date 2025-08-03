@@ -63,11 +63,11 @@ Each package intends to release a new npm package for every **latest** release o
 
 Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
 
-Please read our [Code of Conduct](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CODE_OF_CONDUCT.md) and [Contributing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM `clang-format`](http://clang-format-node.lumir.page/docs/further-reading/guides-on-llvm-clang-format) mentioned in the documentation before contributing.
+Please read our [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct) and [Contributing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM `clang-format`](http://clang-format-node.lumir.page/docs/further-reading/guides-on-llvm-clang-format) mentioned in the documentation before contributing.
 
 ## Code of Conduct
 
-See [Code of Conduct](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CODE_OF_CONDUCT.md).
+See [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct).
 
 ## Change Log
 
