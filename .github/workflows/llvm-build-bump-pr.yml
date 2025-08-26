@@ -86,6 +86,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y ninja-build
+          pip install wheel setuptools
           pip install pyinstaller
 
       - name: Set up checkout
@@ -200,6 +201,7 @@ jobs:
             echo ---Set up dependencies--- &&
             apt-get update -y &&
             apt-get install -y python3.10 python3-pip cmake ninja-build &&
+            pip install wheel setuptools &&
             pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
@@ -304,6 +306,7 @@ jobs:
         run: |
           brew update
           brew install ninja
+          pip install wheel setuptools
           pip install pyinstaller
 
       - name: Set up checkout
@@ -387,6 +390,7 @@ jobs:
       - name: Set up dependencies
         run: |
           choco install -y ninja
+          pip install wheel setuptools
           pip install pyinstaller
 
       - name: Set up checkout
