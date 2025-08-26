@@ -33,6 +33,7 @@ function getClangFormatPath(osPlatform, architecture) {
   const clangFormatPath = resolve(
     __dirname,
     `..`,
+    `..`,
     `bin`,
     `cfn-${osPlatform}-${architecture}`,
     `clang-format${osPlatform === 'win32' ? '.exe' : ''}`,

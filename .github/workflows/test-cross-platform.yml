@@ -41,6 +41,9 @@ jobs:
       - name: Set up node_modules
         run: npm ci
 
+      - name: Build
+        run: npm run build --if-present
+
       - name: Build packages
         run: mkdir packs && npm pack --workspace packages --pack-destination packs
 
@@ -157,10 +160,10 @@ jobs:
         run: docker run -d --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ubuntu:22.04 tail -f /dev/null
 
       - name: Copy git-clang-format file to Docker container
-        run: docker cp ./packages/clang-format-git/src/bin/cfg-linux-${{ matrix.docker.node-name }}/git-clang-format ${{ matrix.docker.node-name }}:/
+        run: docker cp ./packages/clang-format-git/bin/cfg-linux-${{ matrix.docker.node-name }}/git-clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Copy clang-format file to Docker container
-        run: docker cp ./packages/clang-format-node/src/bin/cfn-linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
+        run: docker cp ./packages/clang-format-node/bin/cfn-linux-${{ matrix.docker.node-name }}/clang-format ${{ matrix.docker.node-name }}:/
 
       - name: Docker exec
         run: |

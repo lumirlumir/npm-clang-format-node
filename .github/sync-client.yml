@@ -1,13 +1,6 @@
 lumirlumir/lumirlumir-configs:
   - source: ./.github/sync-client.yml
     dest: ./clients/npm-clang-format-node.yml
-  # ./.github/ISSUE_TEMPLATE
-  - source: ./.github/ISSUE_TEMPLATE/1-bug.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/1-bug.md
-  - source: ./.github/ISSUE_TEMPLATE/2-suggestion.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/2-suggestion.md
-  - source: ./.github/ISSUE_TEMPLATE/3-others.md
-    dest: ./configs/.github/ISSUE_TEMPLATE/3-others.md
   # ./.github/workflows
   - source: ./.github/workflows/lint.yml
     dest: ./configs/.github/workflows/lint.yml
@@ -26,8 +19,6 @@ lumirlumir/lumirlumir-configs:
   # ./.github
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
-  - source: ./.github/PULL_REQUEST_TEMPLATE.md
-    dest: ./configs/.github/PULL_REQUEST_TEMPLATE.md
   - source: ./.github/dependabot.yml
     dest: ./configs/.github/dependabot.yml
   - source: ./.github/release.yml
@@ -41,6 +32,8 @@ lumirlumir/lumirlumir-configs:
   - source: ./.vscode/settings.json
     dest: ./configs/.vscode/settings.json
   # ./scripts
+  - source: ./scripts/cp.mjs
+    dest: ./configs/scripts/cp.mjs
   - source: ./scripts/vercel-ignore-command.sh
     dest: ./configs/scripts/vercel-ignore-command.sh
   # ./
@@ -60,14 +53,10 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.prettierignore
   - source: ./.textlintrc.cjs
     dest: ./configs/.textlintrc.cjs
-  - source: ./CODE_OF_CONDUCT.md
-    dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./LICENSE.md
     dest: ./configs/LICENSE.md
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
-  - source: ./babel.config.mjs
-    dest: ./configs/babel.config.mjs
   - source: ./eslint.config.mjs
     dest: ./configs/eslint.config.mjs
   - source: ./lint-staged.config.mjs

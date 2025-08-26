@@ -33,6 +33,7 @@ function getGitClangFormatPath(osPlatform, architecture) {
   const gitClangFormatPath = resolve(
     __dirname,
     `..`,
+    `..`,
     `bin`,
     `cfg-${osPlatform}-${architecture}`,
     `git-clang-format${osPlatform === 'win32' ? '.exe' : ''}`,

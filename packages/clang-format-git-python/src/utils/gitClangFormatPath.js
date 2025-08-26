@@ -15,13 +15,13 @@ const { resolve } = require('path');
 // --------------------------------------------------------------------------------
 
 /**
- * The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/packages/clang-format-git-python/src/script/git-clang-format) Python script.
+ * The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/packages/clang-format-git-python/script/git-clang-format) Python script.
  * @type {string}
  * @alias `clangFormatGitPythonPath`. See {@link clangFormatGitPythonPath}.
  * @version `v1.2.0` Initial release.
  * @see https://clang-format-node.lumir.page/docs/apis/clang-format-git-python
  */
-const gitClangFormatPath = resolve(__dirname, `..`, `script`, `git-clang-format`);
+const gitClangFormatPath = resolve(__dirname, `..`, `..`, `script`, `git-clang-format`);
 
 /**
  * Alias for `gitClangFormatPath`.
