@@ -200,8 +200,7 @@ jobs:
             echo ---Set up dependencies--- &&
             apt-get update -y &&
             apt-get install -y python3.10 python3-pip cmake ninja-build &&
-            pip install wheel setuptools &&
-            pip install pyinstaller &&
+            python3.10 -m pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
             git clone --depth 1 --branch ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} https://github.com/${{ env.LLVM_REPO }}.git &&
