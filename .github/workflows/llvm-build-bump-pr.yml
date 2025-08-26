@@ -187,7 +187,7 @@ jobs:
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} python:3.10-bullseye /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} python:3.10-buster /bin/bash -c "
             echo ---Set up environment variables--- &&
             export DEBIAN_FRONTEND=noninteractive &&
 
