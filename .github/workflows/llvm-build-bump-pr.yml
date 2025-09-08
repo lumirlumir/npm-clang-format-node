@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Fetch LLVM current release tag name from local
         run: |
@@ -89,7 +89,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -314,7 +314,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -397,7 +397,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -458,7 +458,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download artifacts for clang-format-git
         uses: actions/download-artifact@v4
