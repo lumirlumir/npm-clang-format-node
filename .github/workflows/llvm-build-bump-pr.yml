@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Fetch LLVM current release tag name from local
         run: |
@@ -70,7 +70,7 @@ jobs:
 
     steps:
       - name: Set up node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
 
       - name: Set up os platform and os arch environment variables
         run: |
@@ -89,7 +89,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -112,7 +112,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
@@ -126,7 +126,7 @@ jobs:
           name: git-clang-format
           path: clang/tools/clang-format/git-clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: git-clang-format
           subject-digest: sha256:${{ steps.upload-clang-format-git-python.outputs.artifact-digest }}
@@ -152,7 +152,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
@@ -247,7 +247,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}/git-clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
           subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
@@ -265,7 +265,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}/clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
           subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
@@ -288,7 +288,7 @@ jobs:
 
     steps:
       - name: Set up node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
 
       - name: Set up os platform and os arch environment variables
         run: |
@@ -307,7 +307,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -330,7 +330,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
@@ -356,7 +356,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
@@ -372,7 +372,7 @@ jobs:
 
     steps:
       - name: Set up node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
 
       - name: Set up os platform and os arch environment variables
         run: |
@@ -390,7 +390,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -410,7 +410,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist\git-clang-format.exe
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-git.outputs.artifact-digest }}
@@ -433,7 +433,7 @@ jobs:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build\bin\clang-format.exe
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           subject-digest: sha256:${{ steps.upload-clang-format-node.outputs.artifact-digest }}
@@ -451,7 +451,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download artifacts for clang-format-git
         uses: actions/download-artifact@v4
