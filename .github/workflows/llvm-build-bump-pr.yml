@@ -164,10 +164,10 @@ jobs:
       matrix:
         docker:
           - platform: arm/v7
-            image: python:3.10-bullseye
+            image: python:3.10.18-bullseye
             node-name: arm
           - platform: arm64/v8
-            image: python:3.10-bullseye
+            image: python:3.10.18-bullseye
             node-name: arm64
           - platform: ppc64le
             image: buildpack-deps:jammy
@@ -206,7 +206,8 @@ jobs:
 
             echo ---Set up dependencies--- &&
             apt-get update -y &&
-            apt-get install -y python3 python3-pip cmake ninja-build &&
+            apt-get install -y cmake ninja-build &&
+            apt-get install -y python3 python3-pip &&
             pip install pyinstaller &&
 
             echo ---Set up checkout--- &&
