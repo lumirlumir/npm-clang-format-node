@@ -164,16 +164,16 @@ jobs:
       matrix:
         docker:
           - platform: arm/v7
-            ubuntu-image: python:3.10-bullseye
+            image: python:3.10-bullseye
             node-name: arm
           - platform: arm64/v8
-            ubuntu-image: python:3.10-bullseye
+            image: python:3.10-bullseye
             node-name: arm64
           - platform: ppc64le
-            ubuntu-image: buildpack-deps:jammy
+            image: buildpack-deps:jammy
             node-name: ppc64
           - platform: s390x
-            ubuntu-image: buildpack-deps:jammy
+            image: buildpack-deps:jammy
             node-name: s390x
 
     runs-on: ubuntu-22.04
@@ -184,7 +184,7 @@ jobs:
 
     steps:
       - name: Debug matrix
-        run: echo ${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }} ${{ matrix.docker.node-name }}
+        run: echo ${{ matrix.docker.platform }} ${{ matrix.docker.image }} ${{ matrix.docker.node-name }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -194,7 +194,7 @@ jobs:
       # Use the oldest ubuntu image version possible for backward compatibility.
       - name: Docker run
         run: |
-          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.ubuntu-image }} /bin/bash -c "
+          docker run --name ${{ matrix.docker.node-name }} --platform linux/${{ matrix.docker.platform }} ${{ matrix.docker.image }} /bin/bash -c "
             echo ---Set up environment variables--- &&
             export DEBIAN_FRONTEND=noninteractive &&
 
