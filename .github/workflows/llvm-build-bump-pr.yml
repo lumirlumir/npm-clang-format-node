@@ -206,9 +206,8 @@ jobs:
 
             echo ---Set up dependencies--- &&
             apt-get update -y &&
-            apt-get install -y cmake ninja-build &&
-            apt-get install -y python3 python3-pip &&
-            pip install pyinstaller &&
+            apt-get install -y python3 python3-pip ninja-build &&
+            pip install cmake==3.31.6 pyinstaller &&
 
             echo ---Set up checkout--- &&
             git clone --depth 1 --branch ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} https://github.com/${{ env.LLVM_REPO }}.git &&
