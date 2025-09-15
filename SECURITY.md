@@ -6,12 +6,16 @@ Some may have concerns about the security of binary files, but the following poi
 
 1. First and foremost, we have no intention of harming anyone's project.
 
-1. Second, our build processes are fully transparent. You can review exactly how these binaries are built and track the pull requests showing their origins.
+1. Binaries are built directly from the [official LLVM project source code](https://github.com/llvm/llvm-project). No third-party binaries are used; everything is built from scratch using [GitHub Actions](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
+
+1. Our build processes are fully transparent. You can review exactly how these binaries are built and track the pull requests showing their origins.
 
     - See [`llvm-build-bump-pr.yml`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
-    - See the [Pull Request list on GitHub](https://github.com/lumirlumir/npm-clang-format-node/pulls?q=is%3Apr+%28deps%29%3A+bump+LLVM+from+label%3Adependencies).
+    - See the [Pull Request list on GitHub](https://github.com/lumirlumir/npm-clang-format-node/pulls?q=is%3Apr+%28deps%29%3A+%22bump+LLVM+from%22+label%3Adependencies+).
 
-1. Third, when you run the command `clang-format --version`, you can verify the current **LLVM version**, **repository URL**, and **commit SHA**, as shown below:
+1. All binaries are fully verified by [GitHub Actions Attestation Provenances](https://github.com/lumirlumir/npm-clang-format-node/attestations) and [npm Build Provenances](https://docs.npmjs.com/generating-provenance-statements).
+
+1. When you run the command `clang-format --version`, you can verify the current **LLVM version**, **repository URL**, and **commit SHA**, as shown below:
 
     ```sh
     clang-format version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)

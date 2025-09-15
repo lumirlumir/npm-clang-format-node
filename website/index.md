@@ -25,17 +25,24 @@ hero:
       link: https://github.com/lumirlumir/npm-clang-format-node
 
 features:
-  - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="M185.7 268.1h76.2l-38.1-91.6-38.1 91.6zM223.8 32L16 106.4l31.8 275.7 176 97.9 176-97.9 31.8-275.7zM354 373.8h-48.6l-26.2-65.4H168.6l-26.2 65.4H93.7L223.8 81.5z"></path></svg>'
-    title: Drop-in replacement for 'angular/clang-format'
-    details: Switch from 'angular/clang-format' to <code>clang-format-node</code> in no time.
-    link: /docs/get-started/migration-from-angular-clang-format
-    linkText: Migration Guide
+  - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-width="2" d="M19,9.9999 L19,1.9999 L7,1.9999 L7,13.9999 L14,13.9999 L14,6.9999 L2,6.9999 L2,18.9999 L10,18.9999 M14,23 L20,17 M21,14 C19.8954305,14 19,14.8954305 19,16 C19,17.1045695 19.8954305,18 21,18 C22.1045695,18 23,17.1045695 23,16"></path></svg>'
+    title: Fully Secure Binaries
+    details: Built directly from the official LLVM project source code. Fully verified by GitHub Actions Attestation Provenances and npm Build Provenances.
+    link: /docs/community/security
+    linkText: Security
+    rel: external
 
   - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.1 389.2.7 376.3.7 362.4V149.3c0-13.8 7.4-26.8 19.4-33.7L204.6 9c11.7-6.6 27.2-6.6 38.8 0l184.7 106.7c12 6.9 19.4 19.8 19.4 33.7v213.1c0 13.8-7.4 26.7-19.4 33.7L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm149.1-210.1c0-39.9-27-50.5-83.7-58-57.4-7.6-63.2-11.5-63.2-24.9 0-11.1 4.9-25.9 47.4-25.9 37.9 0 51.9 8.2 57.7 33.8.5 2.4 2.7 4.2 5.2 4.2h24c1.5 0 2.9-.6 3.9-1.7s1.5-2.6 1.4-4.1c-3.7-44.1-33-64.6-92.2-64.6-52.7 0-84.1 22.2-84.1 59.5 0 40.4 31.3 51.6 81.8 56.6 60.5 5.9 65.2 14.8 65.2 26.7 0 20.6-16.6 29.4-55.5 29.4-48.9 0-59.6-12.3-63.2-36.6-.4-2.6-2.6-4.5-5.3-4.5h-23.9c-3 0-5.3 2.4-5.3 5.3 0 31.1 16.9 68.2 97.8 68.2 58.4-.1 92-23.2 92-63.4z"></path></svg>'
     title: Zero dependencies
     details: No need for Python, C++, or any npm sub-dependencies. Just use Node.js alone, with no extra dependencies.
     link: /docs/get-started/installation
     linkText: Installation
+
+  - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="M185.7 268.1h76.2l-38.1-91.6-38.1 91.6zM223.8 32L16 106.4l31.8 275.7 176 97.9 176-97.9 31.8-275.7zM354 373.8h-48.6l-26.2-65.4H168.6l-26.2 65.4H93.7L223.8 81.5z"></path></svg>'
+    title: Drop-in replacement for 'angular/clang-format'
+    details: Switch from 'angular/clang-format' to <code>clang-format-node</code> in no time.
+    link: /docs/get-started/migration-from-angular-clang-format
+    linkText: Migration Guide
 
   - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.486 2 2 6.486 2 12v4.143C2 17.167 2.897 18 4 18h1a1 1 0 0 0 1-1v-5.143a1 1 0 0 0-1-1h-.908C4.648 6.987 7.978 4 12 4s7.352 2.987 7.908 6.857H19a1 1 0 0 0-1 1V18c0 1.103-.897 2-2 2h-2v-1h-4v3h6c2.206 0 4-1.794 4-4 1.103 0 2-.833 2-1.857V12c0-5.514-4.486-10-10-10z"></path></svg>'
     title: Wide range of support
@@ -54,13 +61,6 @@ features:
     details: Each package releases a new npm version with every clang-format update. GitHub Actions automatically checks for updates, builds the packages, and creates a pull request.
     link: https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml
     linkText: GitHub Actions
-    rel: external
-
-  - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-width="2" d="M19,9.9999 L19,1.9999 L7,1.9999 L7,13.9999 L14,13.9999 L14,6.9999 L2,6.9999 L2,18.9999 L10,18.9999 M14,23 L20,17 M21,14 C19.8954305,14 19,14.8954305 19,16 C19,17.1045695 19.8954305,18 21,18 C22.1045695,18 23,17.1045695 23,16"></path></svg>'
-    title: Continuous maintenance
-    details: LuMir, the author, is deeply passionate about open source. Maintenance never stops.
-    link: https://github.com/lumirlumir
-    linkText: Who is LuMir?
     rel: external
 
   - title: 📦<code>clang-format-node</code>

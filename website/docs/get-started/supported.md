@@ -74,13 +74,13 @@ We used the following Images to build `clang-format` excuatable binaries.
 >
 > If you want to see which software is included in **GitHub Actions runner**, click [here](https://github.com/actions/runner-images?tab=readme-ov-file#available-images) and refer to the 'Included Software' column.
 
-Binary Folder Name | Docker(Build) Image                                                |
------------------- | ------------------------------------------------------------------ |
-`darwin-arm64`     | GitHub Actions runner `macos-14`                                   |
-`darwin-x64`       | GitHub Actions runner `macos-13`                                   |
-`linux-arm`        | [`arm32v7/ubuntu:22.04`](https://hub.docker.com/r/arm32v7/ubuntu/) |
-`linux-arm64`      | [`arm64v8/ubuntu:22.04`](https://hub.docker.com/r/arm64v8/ubuntu/) |
-`linux-ppc64`      | [`ppc64le/ubuntu:22.04`](https://hub.docker.com/r/ppc64le/ubuntu/) |
-`linux-s390x`      | [`s390x/ubuntu:22.04`](https://hub.docker.com/r/s390x/ubuntu/)     |
-`linux-x64`        | GitHub Actions runner `ubuntu-22.04`                               |
-`win32-x64`        | GitHub Actions runner `windows-2022`                               |
+Binary Folder Name | Docker **Build** Image                                             | Docker **Test** Image                                              |
+------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+`darwin-arm64`     | GitHub Actions runner `macos-14`                                   | GitHub Actions runner `macos-14`                                   |
+`darwin-x64`       | GitHub Actions runner `macos-13`                                   | GitHub Actions runner `macos-13`                                   |
+`linux-arm`        | [`python:3.10.18-bullseye`](https://hub.docker.com/_/python)       | [`arm32v7/ubuntu:22.04`](https://hub.docker.com/r/arm32v7/ubuntu/) |
+`linux-arm64`      | [`python:3.10.18-bullseye`](https://hub.docker.com/_/python)       | [`arm64v8/ubuntu:22.04`](https://hub.docker.com/r/arm64v8/ubuntu/) |
+`linux-ppc64`      | [`buildpack-deps:jammy`](https://hub.docker.com/_/buildpack-deps/) | [`ppc64le/ubuntu:22.04`](https://hub.docker.com/r/ppc64le/ubuntu/) |
+`linux-s390x`      | [`buildpack-deps:jammy`](https://hub.docker.com/_/buildpack-deps/) | [`s390x/ubuntu:22.04`](https://hub.docker.com/r/s390x/ubuntu/)     |
+`linux-x64`        | GitHub Actions runner `ubuntu-22.04`                               | GitHub Actions runner `ubuntu-22.04`                               |
+`win32-x64`        | GitHub Actions runner `windows-2022`                               | GitHub Actions runner `windows-2022`                               |

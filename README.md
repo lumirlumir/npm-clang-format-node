@@ -21,6 +21,14 @@ Node wrapper for LLVM Clang's `clang-format` and `git-clang-format` native binar
 
 For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
+## Fully Secure Binaries
+
+Binaries are built directly from the [official LLVM project source code](https://github.com/llvm/llvm-project). No third-party binaries are used; everything is built from scratch using [GitHub Actions](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
+
+All binaries are fully verified by [GitHub Actions Attestation Provenances](https://github.com/lumirlumir/npm-clang-format-node/attestations) and [npm Build Provenances](https://docs.npmjs.com/generating-provenance-statements).
+
+For more information, please refer to the [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SECURITY.md) page.
+
 ## Included Packages
 
 This repository is maintained as a **monorepo** and includes the following **three** packages.
