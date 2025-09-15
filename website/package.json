@@ -11,7 +11,7 @@
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
     "markdown-it-footnote": "^4.0.0",
-    "vitepress": "^2.0.0-alpha.11",
+    "vitepress": "^2.0.0-alpha.12",
     "vitepress-plugin-group-icons": "^1.6.3"
   }
 }
