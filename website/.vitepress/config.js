@@ -199,6 +199,10 @@ export default defineConfig({
               link: 'cli',
             },
             {
+              text: 'Security',
+              link: 'security',
+            },
+            {
               text: 'Supported',
               link: 'supported',
             },
