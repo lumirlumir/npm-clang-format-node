@@ -1,6 +1,6 @@
 {
   "name": "clang-format-node",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Node wrapper for clang-format native binary inspired by angular/clang-format.🐉",
   "main": "build/index.js",
   "files": [
