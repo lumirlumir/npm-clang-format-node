@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "examples-git-clang-format",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "add-a-space-to-line-9-of-main-c-file": "node -e \"require('fs').copyFileSync('src/main_overwrite.txt','src/main.c')\"",
     "git-add": "git add src/main.c && git status",
     "git-clang-format": "npx git-clang-format"
   },
   "dependencies": {
-    "clang-format-git": "^2.0.1"
+    "clang-format-git": "^2.0.2"
   }
 }

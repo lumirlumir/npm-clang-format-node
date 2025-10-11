@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "examples-clang-format",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "formatted:c": "npx clang-format src/formatted.c",
     "formatted:c:dry-run": "npx clang-format -Werror -n src/formatted.c",
@@ -13,6 +13,6 @@
     "unformatted:cpp:dry-run": "npx clang-format -Werror -n src/unformatted.cpp"
   },
   "dependencies": {
-    "clang-format-node": "^2.0.1"
+    "clang-format-node": "^2.0.2"
   }
 }
