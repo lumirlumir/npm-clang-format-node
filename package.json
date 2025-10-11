@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "publish-package": "node -e \"require('child_process').execSync('npm publish --ws' + (require('./lerna.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
+    "publish-package": "node -e \"require('child_process').execSync('npm publish --ws ' + (require('./lerna.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
     "test": "npx lerna run test --concurrency 1",
     "test:pkg:cfg": "npm run test -w packages/clang-format-git",
     "test:pkg:cfgp": "npm run test -w packages/clang-format-git-python",
