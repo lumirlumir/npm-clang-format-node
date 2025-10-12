@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "examples-clang-format",
-  "version": "2.0.2",
   "scripts": {
     "formatted:c": "npx clang-format src/formatted.c",
     "formatted:c:dry-run": "npx clang-format -Werror -n src/formatted.c",
