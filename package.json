@@ -23,7 +23,7 @@
     "test:t:iac": "npm run test -w tests/integration-api-cjs",
     "test:t:iae": "npm run test -w tests/integration-api-esm",
     "test:t:ibp": "npm run test -w tests/integration-binaries-permission",
-    "build": "npm-run-all -c -l -s build:pkg:cfn -p build:!(pkg:cfn)",
+    "build": "npm-run-all -c -l -s build:pkg:cfn -p \"build:!(pkg:cfn)\"",
     "build:pkg:cfg": "npm run build -w packages/clang-format-git",
     "build:pkg:cfgp": "npm run build -w packages/clang-format-git-python",
     "build:pkg:cfn": "npm run build -w packages/clang-format-node",
