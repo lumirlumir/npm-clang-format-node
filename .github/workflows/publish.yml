@@ -38,4 +38,4 @@ jobs:
         run: npm run build --if-present
 
       - name: Publish
-        run: npm run publish-package
+        run: npm run release:publish
