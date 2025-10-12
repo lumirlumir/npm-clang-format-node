@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "tests-integration-binaries-permission",
-  "version": "2.0.2",
   "scripts": {
     "test": "node --test"
   },

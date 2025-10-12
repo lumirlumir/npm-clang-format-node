@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "website",
-  "version": "2.0.2",
   "type": "module",
   "scripts": {
     "dev": "npx vitepress --open --host",
