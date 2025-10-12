@@ -28,15 +28,18 @@ function stringifyBuffer(buffer) {
 }
 
 // --------------------------------------------------------------------------------
-// Script: Bump package versions
+// Script: Bump workspace root and package versions
 // --------------------------------------------------------------------------------
 
-execSync(`npm version ${semver} -w packages --no-git-tag-version --preid ${preid}`, {
-  stdio: 'inherit',
-});
+execSync(
+  `npm version ${semver} --include-workspace-root -w packages --no-git-tag-version --preid ${preid}`,
+  {
+    stdio: 'inherit',
+  },
+);
 
 // --------------------------------------------------------------------------------
-// Script: Bump transitive (dev)-dependencies versions
+// Script: Bump transitive (dev-)dependency versions
 // --------------------------------------------------------------------------------
 
 const packages = stringifyBuffer(execSync('npm pkg get -ws'));

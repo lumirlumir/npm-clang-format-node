@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "npm-clang-format-node",
+  "version": "2.0.2",
   "packageManager": "npm@10.9.2",
   "engines": {
     "node": ">=20.19.4"
@@ -12,7 +14,8 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "publish-package": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./lerna.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
+    "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
+    "release:version": "node ./scripts/version.mjs",
     "test": "npx lerna run test --concurrency 1",
     "test:pkg:cfg": "npm run test -w packages/clang-format-git",
     "test:pkg:cfgp": "npm run test -w packages/clang-format-git-python",
