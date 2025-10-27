@@ -48,7 +48,7 @@ jobs:
         run: mkdir packs && npm pack --workspace packages --pack-destination packs
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: packs
           path: ./packs
