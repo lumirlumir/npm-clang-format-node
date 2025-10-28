@@ -107,7 +107,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-git
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
@@ -121,7 +121,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-git-python
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: git-clang-format
           path: clang/tools/clang-format/git-clang-format
@@ -147,7 +147,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-node
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
@@ -249,7 +249,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-git
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_GIT }}-linux-${{ matrix.docker.node-name }}/git-clang-format
@@ -267,7 +267,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-node
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}
           path: ./${{ env.CLANG_FORMAT_NODE }}-linux-${{ matrix.docker.node-name }}/clang-format
@@ -332,7 +332,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-git
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist/git-clang-format
@@ -358,7 +358,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-node
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build/bin/clang-format
@@ -412,7 +412,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-git
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_GIT }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: dist\git-clang-format.exe
@@ -435,7 +435,7 @@ jobs:
 
       - name: Upload artifact
         id: upload-clang-format-node
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.CLANG_FORMAT_NODE }}-${{ env.OS_PLATFORM }}-${{ env.OS_ARCH }}
           path: build\bin\clang-format.exe
