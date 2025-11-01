@@ -58,9 +58,9 @@ jobs:
       fail-fast: false
       matrix:
         runner-image:
+          - macos-15-intel
           - macos-15
           - macos-14
-          - macos-13
           - ubuntu-24.04
           - ubuntu-22.04
           - windows-2025

@@ -53,8 +53,6 @@ macOS 15                     | `macos-15-large`                                 
 macOS 15 Arm64               | `macos-15` or `macos-15-xlarge`                                        | macOS-15-arm64    |
 macOS 14                     | `macos-latest-large` or `macos-14-large`                               | macOS-14          |
 macOS 14 Arm64               | `macos-latest`, `macos-14`, `macos-latest-xlarge` or `macos-14-xlarge` | macOS-14-arm64    |
-macOS 13                     | `macos-13` or `macos-13-large`                                         | macOS-13          |
-macOS 13 Arm64               | `macos-13-xlarge`                                                      | macOS-13-arm64    |
 Ubuntu 24.04                 | `ubuntu-latest` or `ubuntu-24.04`                                      | ubuntu-24.04      |
 Ubuntu 22.04                 | `ubuntu-22.04`                                                         | ubuntu-22.04      |
 Windows Server 2022          | `windows-latest` or `windows-2022`                                     | windows-2022      |
@@ -77,7 +75,7 @@ We used the following Images to build `clang-format` excuatable binaries.
 Binary Folder Name | Docker **Build** Image                                             | Docker **Test** Image                                              |
 ------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
 `darwin-arm64`     | GitHub Actions runner `macos-14`                                   | GitHub Actions runner `macos-14`                                   |
-`darwin-x64`       | GitHub Actions runner `macos-13`                                   | GitHub Actions runner `macos-13`                                   |
+`darwin-x64`       | GitHub Actions runner `macos-15-intel`                             | GitHub Actions runner `macos-15-intel`                             |
 `linux-arm`        | [`python:3.10.18-bullseye`](https://hub.docker.com/_/python)       | [`arm32v7/ubuntu:22.04`](https://hub.docker.com/r/arm32v7/ubuntu/) |
 `linux-arm64`      | [`python:3.10.18-bullseye`](https://hub.docker.com/_/python)       | [`arm64v8/ubuntu:22.04`](https://hub.docker.com/r/arm64v8/ubuntu/) |
 `linux-ppc64`      | [`buildpack-deps:jammy`](https://hub.docker.com/_/buildpack-deps/) | [`ppc64le/ubuntu:22.04`](https://hub.docker.com/r/ppc64le/ubuntu/) |
