@@ -4,8 +4,8 @@
   "branch": "main",
   "syncs": [
     {
-      "source": ".github/sync-client.yml",
-      "dest": "clients/npm-clang-format-node.yml"
+      "source": ".github/sync-client.json",
+      "dest": "clients/npm-clang-format-node.json"
     },
 
     "./.github/workflows",
