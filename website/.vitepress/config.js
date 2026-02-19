@@ -351,7 +351,7 @@ export default defineConfig({
       groupIconVitePlugin(),
       codecovVitePlugin({
         // Put the Codecov vite plugin after all other plugins
-        enableBundleAnalysis: process.env.CODECOV !== undefined, // Works only in CI when CODECOV is set
+        enableBundleAnalysis: process.env.CODECOV !== undefined, // Enable bundle analysis when CODECOV environment variable is defined
         bundleName: 'website',
         gitService: 'github',
       }),
