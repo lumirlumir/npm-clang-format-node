@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CI: true
+      CODECOV: true
 
     steps:
       - name: Set up checkout
