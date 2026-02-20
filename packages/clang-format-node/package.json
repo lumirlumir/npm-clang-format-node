@@ -31,6 +31,7 @@
     "c++"
   ],
   "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "funding": "https://github.com/sponsors/lumirlumir",
   "license": "MIT",
   "homepage": "https://clang-format-node.lumir.page",
   "repository": {
