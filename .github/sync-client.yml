@@ -63,10 +63,5 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/lint-staged.config.mjs
   - source: ./prettier.config.mjs
     dest: ./configs/prettier.config.mjs
-  # tsconfig.json
-  - source: ./packages/clang-format-git/tsconfig.json
-    dest: ./configs/tsconfig.json
-  - source: ./packages/clang-format-git-python/tsconfig.json
-    dest: ./configs/tsconfig.json
-  - source: ./packages/clang-format-node/tsconfig.json
-    dest: ./configs/tsconfig.json
+  - source: ./tsconfig.base.json
+    dest: ./configs/tsconfig.base.json
