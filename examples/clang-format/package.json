@@ -2,14 +2,14 @@
   "private": true,
   "name": "examples-clang-format",
   "scripts": {
-    "formatted:c": "npx clang-format src/formatted.c",
-    "formatted:c:dry-run": "npx clang-format -Werror -n src/formatted.c",
-    "formatted:cpp": "npx clang-format src/formatted.cpp",
-    "formatted:cpp:dry-run": "npx clang-format -Werror -n src/formatted.cpp",
-    "unformatted:c": "npx clang-format src/unformatted.c",
-    "unformatted:c:dry-run": "npx clang-format -Werror -n src/unformatted.c",
-    "unformatted:cpp": "npx clang-format src/unformatted.cpp",
-    "unformatted:cpp:dry-run": "npx clang-format -Werror -n src/unformatted.cpp"
+    "formatted:c": "node ../../packages/clang-format-node/src/cli.js src/formatted.c",
+    "formatted:c:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/formatted.c",
+    "formatted:cpp": "node ../../packages/clang-format-node/src/cli.js src/formatted.cpp",
+    "formatted:cpp:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/formatted.cpp",
+    "unformatted:c": "node ../../packages/clang-format-node/src/cli.js src/unformatted.c",
+    "unformatted:c:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/unformatted.c",
+    "unformatted:cpp": "node ../../packages/clang-format-node/src/cli.js src/unformatted.cpp",
+    "unformatted:cpp:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/unformatted.cpp"
   },
   "dependencies": {
     "clang-format-node": "^3.0.2"
