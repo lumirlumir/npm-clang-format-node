@@ -2,14 +2,14 @@
   "private": true,
   "name": "examples-clang-format",
   "scripts": {
-    "formatted:c": "node ../../packages/clang-format-node/src/cli.js src/formatted.c",
-    "formatted:c:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/formatted.c",
-    "formatted:cpp": "node ../../packages/clang-format-node/src/cli.js src/formatted.cpp",
-    "formatted:cpp:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/formatted.cpp",
-    "unformatted:c": "node ../../packages/clang-format-node/src/cli.js src/unformatted.c",
-    "unformatted:c:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/unformatted.c",
-    "unformatted:cpp": "node ../../packages/clang-format-node/src/cli.js src/unformatted.cpp",
-    "unformatted:cpp:dry-run": "node ../../packages/clang-format-node/src/cli.js -Werror -n src/unformatted.cpp"
+    "formatted:c": "clang-format src/formatted.c",
+    "formatted:c:dry-run": "clang-format -Werror -n src/formatted.c",
+    "formatted:cpp": "clang-format src/formatted.cpp",
+    "formatted:cpp:dry-run": "clang-format -Werror -n src/formatted.cpp",
+    "unformatted:c": "clang-format src/unformatted.c",
+    "unformatted:c:dry-run": "clang-format -Werror -n src/unformatted.c",
+    "unformatted:cpp": "clang-format src/unformatted.cpp",
+    "unformatted:cpp:dry-run": "clang-format -Werror -n src/unformatted.cpp"
   },
   "dependencies": {
     "clang-format-node": "^3.0.2"
