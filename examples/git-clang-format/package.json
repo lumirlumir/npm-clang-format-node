@@ -4,7 +4,7 @@
   "scripts": {
     "add-a-space-to-line-9-of-main-c-file": "node -e \"require('fs').copyFileSync('src/main_overwrite.txt','src/main.c')\"",
     "git-add": "git add src/main.c && git status",
-    "git-clang-format": "npx git-clang-format"
+    "git-clang-format": "git-clang-format"
   },
   "dependencies": {
     "clang-format-git": "^3.0.2"
