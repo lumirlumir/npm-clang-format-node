@@ -2,6 +2,7 @@
   "private": true,
   "name": "npm-clang-format-node",
   "version": "3.0.2",
+  "type": "module",
   "packageManager": "npm@11.11.0",
   "engines": {
     "node": ">=20.19.6"
@@ -15,7 +16,7 @@
   "scripts": {
     "prepare": "husky",
     "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
-    "release:version": "node ./scripts/version.mjs",
+    "release:version": "node ./scripts/version.js",
     "coverage": "c8 --reporter=lcov npm run test",
     "test": "npm run test -ws --if-present",
     "test:pkg:cfg": "npm run test -w packages/clang-format-git",
