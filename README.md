@@ -5,9 +5,8 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/clang-format-node?color=83ba63)
 ![Node Current](https://img.shields.io/node/v/clang-format-node?color=83ba63)
 
-[![lint](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/lint.yml)
+[![ci](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/ci.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/ci.yml)
 [![test](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test.yml)
-[![test-cross-platform](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml/badge.svg)](https://github.com/lumirlumir/npm-clang-format-node/actions/workflows/test-cross-platform.yml)
 [![codecov](https://codecov.io/gh/lumirlumir/npm-clang-format-node/graph/badge.svg?token=69BF05THA2)](https://codecov.io/gh/lumirlumir/npm-clang-format-node)
 
 > [!IMPORTANT]

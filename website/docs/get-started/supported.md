@@ -39,7 +39,7 @@ Each package supports **ALL** [**Tier1**](https://github.com/nodejs/node/blob/ma
 
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
 
-The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/test-cross-platform.yml).
+The official support for <u>**Node.js version 16 and above**</u> has been confirmed through [testing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/test.yml).
 
 However, this package does not utilize the latest features of Node.js. Therefore, it is expected to work on versions significantly lower than the officially supported ones. (ex. `"node": ">=4.0.0"`) Consequently, **if the current package operates on a version of Node.js that is lower than the officially supported version, it should be perfectly fine to use.**
 
