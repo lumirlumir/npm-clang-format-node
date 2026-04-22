@@ -12,6 +12,6 @@
     "unformatted:cpp:dry-run": "clang-format -Werror -n src/unformatted.cpp"
   },
   "dependencies": {
-    "clang-format-node": "^3.0.2"
+    "clang-format-node": "^3.0.3"
   }
 }

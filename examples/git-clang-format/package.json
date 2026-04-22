@@ -7,6 +7,6 @@
     "git-clang-format": "git-clang-format"
   },
   "dependencies": {
-    "clang-format-git": "^3.0.2"
+    "clang-format-git": "^3.0.3"
   }
 }
