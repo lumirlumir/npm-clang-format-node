@@ -315,7 +315,7 @@ export default defineConfig({
       {
         icon: 'npm',
         link: `${NPM_URL}/~lumir`,
-        ariaLabel: 'npm profile link for LuMir',
+        ariaLabel: 'npm profile link for lumir',
       },
       {
         icon: 'github',
