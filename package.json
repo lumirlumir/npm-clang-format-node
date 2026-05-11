@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "npm-clang-format-node",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "type": "module",
   "packageManager": "npm@11.11.0",
   "engines": {
