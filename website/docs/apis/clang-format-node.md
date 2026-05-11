@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
 
-> [Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)
+> [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)
 
 Node wrapper for `clang-format` native binary inspired by [angular/clang-format](https://github.com/angular/clang-format). (The **CORE** package.)
 

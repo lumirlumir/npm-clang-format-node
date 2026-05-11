@@ -21,7 +21,7 @@ const DESCRIPTION =
   "The official documentation website for clang-format-node, a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries inspired by angular/clang-format.🐉";
 const AUTHOR = 'lumir';
 const SITE_URL = 'https://clang-format-node.lumir.page';
-const GITHUB_URL = 'https://github.com/lumir/npm-clang-format-node';
+const GITHUB_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 const NPM_URL = 'https://www.npmjs.com';
 const GOOGLE_GA_ID = 'G-SVZGJNXDB2';
 
@@ -315,7 +315,7 @@ export default defineConfig({
       {
         icon: 'npm',
         link: `${NPM_URL}/~lumir`,
-        ariaLabel: 'npm profile link for lumir',
+        ariaLabel: 'npm profile link for LuMir',
       },
       {
         icon: 'github',
@@ -335,7 +335,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumir">${AUTHOR}</a>`,
+      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumirlumir">${AUTHOR}(lumirlumir)</a>`,
     },
   },
 

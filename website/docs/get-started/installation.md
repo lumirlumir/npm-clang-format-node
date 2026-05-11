@@ -4,7 +4,7 @@ description: "Installation instructions for `clang-format-node`, `clang-format-g
 
 # Installation {#installation}
 
-## `clang-format-node` - <small>[Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)</small> {#clang-format-node}
+## `clang-format-node` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)</small> {#clang-format-node}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-node)
@@ -43,7 +43,7 @@ $ bun add -d clang-format-node
 
 :::
 
-## `clang-format-git` - <small>[Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)</small> {#clang-format-git}
+## `clang-format-git` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)</small> {#clang-format-git}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git)
@@ -82,7 +82,7 @@ $ bun add -d clang-format-git
 
 :::
 
-## `clang-format-git-python` - <small>[Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)</small> {#clang-format-git-python}
+## `clang-format-git-python` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)</small> {#clang-format-git-python}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git-python)

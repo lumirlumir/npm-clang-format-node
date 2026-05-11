@@ -31,17 +31,17 @@
     "c++",
     "git"
   ],
-  "author": "lumir <rpfos@naver.com> (https://github.com/lumir)",
-  "funding": "https://github.com/sponsors/lumir",
+  "author": "lumir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "funding": "https://github.com/sponsors/lumirlumir",
   "license": "MIT",
   "homepage": "https://clang-format-node.lumir.page",
   "repository": {
     "type": "github",
-    "url": "git+https://github.com/lumir/npm-clang-format-node.git",
+    "url": "git+https://github.com/lumirlumir/npm-clang-format-node.git",
     "directory": "packages/clang-format-git"
   },
   "bugs": {
-    "url": "https://github.com/lumir/npm-clang-format-node/issues"
+    "url": "https://github.com/lumirlumir/npm-clang-format-node/issues"
   },
   "engines": {
     "node": ">=16"

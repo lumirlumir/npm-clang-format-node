@@ -13,7 +13,7 @@ All packages are located in the `packages` directory, and the documentation can 
 1. Clone it to your local directory. ([Git](https://git-scm.com/downloads) is required.)
 
     ```sh
-    git clone https://github.com/lumir/npm-clang-format-node.git
+    git clone https://github.com/lumirlumir/npm-clang-format-node.git
     ```
 
 1. Move to the `npm-clang-format-node` directory.
