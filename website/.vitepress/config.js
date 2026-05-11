@@ -335,7 +335,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumir">${AUTHOR}(lumir)</a>`,
+      copyright: `Copyright © 2024-${new Date().getFullYear()} <a href="https://github.com/lumir">${AUTHOR}</a>`,
     },
   },
 
