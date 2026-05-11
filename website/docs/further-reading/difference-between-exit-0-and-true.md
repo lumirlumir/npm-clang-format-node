@@ -10,7 +10,7 @@ head:
 
 > [!NOTE]
 >
-> I've referred to the [A Clean Exit](https://remysharp.com/2018/01/08/a-clean-exit) blog post, [#170](https://github.com/lumirlumir/npm-clang-format-node/issues/170) and [#171](https://github.com/lumirlumir/npm-clang-format-node/pull/171).
+> I've referred to the [A Clean Exit](https://remysharp.com/2018/01/08/a-clean-exit) blog post, [#170](https://github.com/lumir/npm-clang-format-node/issues/170) and [#171](https://github.com/lumir/npm-clang-format-node/pull/171).
 
 When writing or running shell scripts, the `||` operator is commonly used to handle cases where a specific command fails. The `||` operator is designed to execute the command on its right **only when the preceding command fails**. At first glance, `myscript || exit 0` and `myscript || true` might seem similar, but they have subtle differences, especially regarding the behavior of `|| true` across different platforms.
 

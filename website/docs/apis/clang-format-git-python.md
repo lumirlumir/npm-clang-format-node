@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git-python)](https://www.npmjs.com/package/clang-format-git-python)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git-python)
 
-> [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)
+> [Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-git-python) | [npm](https://www.npmjs.com/package/clang-format-git-python)
 
 Node wrapper for `git-clang-format` Python script. <u>**This package requires Python3 as a dependency**</u>.
 
@@ -91,7 +91,7 @@ These APIs depends on the Node.js `fs` and `path` module and the file system, so
 
 > Type: `string`
 
-The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/packages/clang-format-git-python/script/git-clang-format) Python script.
+The ABSOLUTE path to the [`git-clang-format`](https://github.com/lumir/npm-clang-format-node/blob/main/packages/clang-format-git-python/script/git-clang-format) Python script.
 
 - Type: `string`
 - Alias: `clangFormatGitPythonPath`. See [`clangFormatGitPythonPath`](#clangformatgitpythonpath).

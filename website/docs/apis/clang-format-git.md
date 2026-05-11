@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/clang-format-git)](https://www.npmjs.com/package/clang-format-git)&nbsp;
 ![Node Current](https://img.shields.io/node/v/clang-format-git)
 
-> [Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)
+> [Repository](https://github.com/lumir/npm-clang-format-node/tree/main/packages/clang-format-git) | [npm](https://www.npmjs.com/package/clang-format-git)
 
 Node wrapper for `git-clang-format` Python script as a standalone native binary to <u>**allow execution without a Python dependency**</u>.
 

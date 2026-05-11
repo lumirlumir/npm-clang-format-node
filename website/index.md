@@ -19,10 +19,10 @@ hero:
       link: /docs/apis/clang-format-node
     - theme: alt
       text: Examples
-      link: https://github.com/lumirlumir/npm-clang-format-node/tree/main/examples
+      link: https://github.com/lumir/npm-clang-format-node/tree/main/examples
     - theme: brand
       text: Give It a Star⭐
-      link: https://github.com/lumirlumir/npm-clang-format-node
+      link: https://github.com/lumir/npm-clang-format-node
 
 features:
   - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-width="2" d="M19,9.9999 L19,1.9999 L7,1.9999 L7,13.9999 L14,13.9999 L14,6.9999 L2,6.9999 L2,18.9999 L10,18.9999 M14,23 L20,17 M21,14 C19.8954305,14 19,14.8954305 19,16 C19,17.1045695 19.8954305,18 21,18 C22.1045695,18 23,17.1045695 23,16"></path></svg>'
@@ -59,7 +59,7 @@ features:
   - icon: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="32px" width="32px" xmlns="http://www.w3.org/2000/svg"><path d="M20.001 3C20.5533 3 21.001 3.44772 21.001 4V20C21.001 20.5523 20.5533 21 20.001 21H4.00098C3.44869 21 3.00098 20.5523 3.00098 20V4C3.00098 3.44772 3.44869 3 4.00098 3H20.001ZM17.001 7H7.00098V17H12.001V9.5H14.501V17H17.001V7Z"></path></svg>'
     title: Automated build and release
     details: Each package releases a new npm version with every clang-format update. GitHub Actions automatically checks for updates, builds the packages, and creates a pull request.
-    link: https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml
+    link: https://github.com/lumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml
     linkText: GitHub Actions
     rel: external
 

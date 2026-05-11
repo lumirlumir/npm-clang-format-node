@@ -24,7 +24,7 @@ npx clang-format -Werror -n example.cpp
 
 > `v1.2.0 (llvmorg-19.1.3)` - latest
 
-This feature has been supported since [`v1.2.0 (llvmorg-19.1.3)`](https://github.com/lumirlumir/npm-clang-format-node/releases/tag/v1.2.0), so migration is no longer necessary. Instead, you can use the [`clang-format-git`](../apis/clang-format-git.md) or [`clang-format-git-python`](../apis/clang-format-git-python.md) package.
+This feature has been supported since [`v1.2.0 (llvmorg-19.1.3)`](https://github.com/lumir/npm-clang-format-node/releases/tag/v1.2.0), so migration is no longer necessary. Instead, you can use the [`clang-format-git`](../apis/clang-format-git.md) or [`clang-format-git-python`](../apis/clang-format-git-python.md) package.
 
 > `v1.0.0 (llvmorg-18.1.8)` - `v1.1.3 (llvmorg-19.1.3)`
 
