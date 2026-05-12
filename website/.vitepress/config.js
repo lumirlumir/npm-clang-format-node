@@ -19,7 +19,7 @@ import { codecovVitePlugin } from '@codecov/vite-plugin';
 const TITLE = 'clang-format-node';
 const DESCRIPTION =
   "The official documentation website for clang-format-node, a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries inspired by angular/clang-format.🐉";
-const AUTHOR = '루밀LuMir';
+const AUTHOR = 'lumir';
 const SITE_URL = 'https://clang-format-node.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 const NPM_URL = 'https://www.npmjs.com';
@@ -315,7 +315,7 @@ export default defineConfig({
       {
         icon: 'npm',
         link: `${NPM_URL}/~lumir`,
-        ariaLabel: 'npm profile link for LuMir',
+        ariaLabel: 'npm profile link for lumir',
       },
       {
         icon: 'github',
