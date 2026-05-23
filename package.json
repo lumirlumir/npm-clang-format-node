@@ -3,9 +3,21 @@
   "name": "npm-clang-format-node",
   "version": "3.0.4",
   "type": "module",
-  "packageManager": "npm@11.11.0",
+  "packageManager": "npm@11.12.1",
   "engines": {
-    "node": ">=20.19.6"
+    "node": ">=24.15.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24.15.0",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11.12.1",
+      "onFail": "error"
+    }
   },
   "workspaces": [
     "examples/*",
@@ -41,11 +53,11 @@
     "start:pkg:cfn": "npm run start -w packages/clang-format-node",
     "start:website": "npm run start -w website",
     "fix": "npm-run-all -c -l -p fix:*",
-    "fix:eslint": "eslint --fix",
+    "fix:eslint": "eslint --fix --cache --cache-strategy content",
     "fix:prettier": "prettier . --write --ignore-unknown",
     "fix:markdownlint": "markdownlint **/*.md --fix",
     "lint": "npm-run-all -c -l -p lint:*",
-    "lint:eslint": "eslint",
+    "lint:eslint": "eslint --cache --cache-strategy content",
     "lint:prettier": "prettier . --check --ignore-unknown",
     "lint:editorconfig": "editorconfig-checker -config .editorconfig-checker.json",
     "lint:markdownlint": "markdownlint **/*.md"
@@ -58,9 +70,9 @@
     "eslint-config-bananass": "^0.6.1",
     "eslint-markdown": "^0.9.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
+    "lint-staged": "^17.0.5",
     "markdownlint-cli": "^0.48.0",
-    "npm-run-all2": "^8.0.4",
+    "npm-run-all2": "^9.0.1",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3"
   }
