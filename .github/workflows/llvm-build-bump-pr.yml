@@ -469,7 +469,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-          cache: npm # https://github.com/actions/setup-node#caching-global-packages-data
 
       - name: Download artifacts for clang-format-git
         uses: actions/download-artifact@v8
