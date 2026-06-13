@@ -6,7 +6,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { ok } = require('node:assert');
+const { ok, strictEqual } = require('node:assert');
 const { describe, it } = require('node:test');
 
 const {
@@ -15,12 +15,25 @@ const {
   getClangFormatPath,
   getClangFormatNodePath,
 } = require('./index');
+const { type } = require('../package.json');
 
 // --------------------------------------------------------------------------------
 // Test
 // --------------------------------------------------------------------------------
 
 describe('index', () => {
+  describe('package.json', () => {
+    /*
+     * [Module syntax detection](https://nodejs.org/api/packages.html#determining-module-system) attempts to detect ESM syntax,
+     * and re-run as an ES module when no "type" field is present. It was enabled by default in Node.js v20.19.0 and Node.js v22.7.0.
+     * Detection increases startup time for ES modules, so Node is encouraging everyone -- especially package authors --
+     * to add a type field to `package.json`, even for the default `"type": "commonjs"`.
+     */
+    it('should have `type: "commonjs"`', () => {
+      strictEqual(type, 'commonjs');
+    });
+  });
+
   it('clangFormatPath should be imported correctly', () => {
     ok(clangFormatPath);
   });
