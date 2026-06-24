@@ -1,6 +1,6 @@
 {
   "name": "clang-format-git-python",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "type": "commonjs",
   "description": "Node wrapper for git-clang-format Python script. This package requires Python3 as a dependency.🐉",
   "main": "build/index.js",
@@ -60,6 +60,6 @@
     "start": "node build/cli.js"
   },
   "dependencies": {
-    "clang-format-node": "^3.0.6"
+    "clang-format-node": "^3.0.7"
   }
 }
