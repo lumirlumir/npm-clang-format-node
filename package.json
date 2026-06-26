@@ -30,7 +30,7 @@
     "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
     "release:version": "node ./scripts/version.js",
     "precoverage": "node -e \"require('node:fs').mkdirSync('coverage', { recursive: true })\"",
-    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"**/build/**\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"**/build/**\" --test-coverage-exclude=\"**/*.test.{js,mjs,cjs}\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info",
     "test": "node --test",
     "test:pkg:cfg": "npm run test -w packages/clang-format-git",
     "test:pkg:cfgp": "npm run test -w packages/clang-format-git-python",
