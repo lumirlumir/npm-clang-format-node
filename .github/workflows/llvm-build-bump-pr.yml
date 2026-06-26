@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Fetch LLVM current release tag name from local
         run: |
@@ -89,7 +89,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -314,7 +314,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -402,7 +402,7 @@ jobs:
           pip install pyinstaller
 
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.LLVM_REPO }}
           ref: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
@@ -463,7 +463,7 @@ jobs:
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up node
         uses: actions/setup-node@v6
