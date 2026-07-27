@@ -9,7 +9,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { execSync } from 'node:child_process';
+import { execSync, spawnSync } from 'node:child_process';
 import { styleText } from 'node:util';
 
 // --------------------------------------------------------------------------------
@@ -18,6 +18,16 @@ import { styleText } from 'node:util';
 
 const semver = process.argv[2];
 const preid = process.argv[3] ?? '';
+
+// Validate inputs to prevent shell command injection.
+if (!/^(major|minor|patch|premajor|preminor|prepatch|prerelease|from-git|\d+\.\d+\.\d+[\w.+-]*)$/.test(semver)) {
+  console.error(`Invalid semver argument: ${semver}`);
+  process.exit(1);
+}
+if (!/^[\w.-]*$/.test(preid)) {
+  console.error(`Invalid preid argument: ${preid}`);
+  process.exit(1);
+}
 
 /** @param {Buffer<ArrayBufferLike>} buffer @returns {Record<string, any>} */
 function stringifyBuffer(buffer) {
@@ -48,31 +58,21 @@ function magenta(text) {
 // Script: Bump workspace root and package versions
 // --------------------------------------------------------------------------------
 
-console.log(`
-${bgCyan('Bump workspace root and package versions')}
+console.log('\n' + bgCyan('Bump workspace root and package versions') + '\n\n> semver: ' + cyan(semver) + '\n> preid: ' + cyan(preid) + '\n');
 
-> semver: ${cyan(semver)}
-> preid: ${cyan(preid)}
-`);
-
-execSync(
-  `npm version ${semver} --preid ${preid} -w packages --no-workspaces-update --include-workspace-root --no-git-tag-version`,
-  {
-    stdio: 'inherit',
-  },
+spawnSync(
+  'npm',
+  ['version', semver, '--preid', preid, '-w', 'packages', '--no-workspaces-update', '--include-workspace-root', '--no-git-tag-version'],
+  { stdio: 'inherit' },
 );
 
-console.log(`
-${green('Successfully bumped workspace root and package versions')}
-`);
+console.log('\n' + green('Successfully bumped workspace root and package versions') + '\n');
 
 // --------------------------------------------------------------------------------
 // Script: Bump transitive dependency and dev-dependency versions
 // --------------------------------------------------------------------------------
 
-console.log(`
-${bgCyan('Bump transitive dependency and dev-dependency versions')}
-`);
+console.log('\n' + bgCyan('Bump transitive dependency and dev-dependency versions') + '\n');
 
 const packages = stringifyBuffer(execSync('npm pkg get -ws'));
 const bumpedPackages = stringifyBuffer(execSync('npm pkg get -w packages'));
@@ -81,7 +81,7 @@ const bumpedPackages = stringifyBuffer(execSync('npm pkg get -w packages'));
 const bumpedPackagesMap = new Map(
   Object.entries(bumpedPackages).map(([packageName, packageJson]) => [
     packageName,
-    `^${packageJson.version}`,
+    '^' + packageJson.version,
   ]),
 );
 
@@ -104,9 +104,7 @@ for (const [packageName, packageJson] of Object.entries(packages)) {
         cyan(newDepVersion),
       );
 
-      execSync(
-        `npm pkg set dependencies.${depName}="${newDepVersion}" -w ${packageName}`,
-      );
+      spawnSync('npm', ['pkg', 'set', 'dependencies.' + depName + '=' + newDepVersion, '-w', packageName], { stdio: 'inherit' });
     }
   }
 
@@ -126,29 +124,21 @@ for (const [packageName, packageJson] of Object.entries(packages)) {
         cyan(newDepVersion),
       );
 
-      execSync(
-        `npm pkg set devDependencies.${depName}="${newDepVersion}" -w ${packageName}`,
-      );
+      spawnSync('npm', ['pkg', 'set', 'devDependencies.' + depName + '=' + newDepVersion, '-w', packageName], { stdio: 'inherit' });
     }
   }
 
   console.log(); // New line.
 }
 
-console.log(`
-${green('Successfully bumped transitive dependency and dev-dependency versions')}
-`);
+console.log('\n' + green('Successfully bumped transitive dependency and dev-dependency versions') + '\n');
 
 // --------------------------------------------------------------------------------
 // Script: Run `npm install` to update lockfile
 // --------------------------------------------------------------------------------
 
-console.log(`
-${bgCyan('Run `npm install` to update lockfile')}
-`);
+console.log('\n' + bgCyan('Run `npm install` to update lockfile') + '\n');
 
 execSync('npm install --no-audit --no-fund', { stdio: 'inherit' });
 
-console.log(`
-${green('Successfully ran `npm install` to update lockfile')}
-`);
+console.log('\n' + green('Successfully ran `npm install` to update lockfile') + '\n');
