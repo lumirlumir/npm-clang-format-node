@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/clang-format-git/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/clang-format-git-python/tsconfig.build.json"
+    },
+    {
+      "path": "./packages/clang-format-node/tsconfig.build.json"
+    }
+  ]
+}
