@@ -10,7 +10,7 @@
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-import { codecovVitePlugin } from '@codecov/vite-plugin';
+import codecovVitePlugin from './plugin.js';
 
 // --------------------------------------------------------------------------------
 // Constants
