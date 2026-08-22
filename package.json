@@ -3,19 +3,19 @@
   "name": "npm-clang-format-node",
   "version": "3.0.7",
   "type": "module",
-  "packageManager": "npm@11.12.1",
+  "packageManager": "npm@11.16.0",
   "engines": {
-    "node": ">=24.15.0"
+    "node": ">=24.18.0"
   },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">=24.15.0",
+      "version": ">=24.18.0",
       "onFail": "error"
     },
     "packageManager": {
       "name": "npm",
-      "version": ">=11.12.1",
+      "version": ">=11.16.0",
       "onFail": "error"
     }
   },
