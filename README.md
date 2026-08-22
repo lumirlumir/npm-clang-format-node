@@ -20,7 +20,7 @@ Node wrapper for LLVM Clang's `clang-format` and `git-clang-format` native binar
 
 For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
-## Binary Security
+## Fully Secure Binaries
 
 Binaries are built directly from the [official LLVM project source code](https://github.com/llvm/llvm-project). No third-party binaries are used; everything is built from scratch using [GitHub Actions](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
 
