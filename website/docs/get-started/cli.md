@@ -51,11 +51,11 @@ If you want to learn more about `clang-format` itself, see the [Clang-Format Sty
     Output example
 
     ```sh
-    clang-format version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+    clang-format version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
     ```
 
     - `https://github.com/llvm/llvm-project`: The Git repository URL for the LLVM project, which includes Clang.
-    - `3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff`: The commit hash for the specific version used to build `clang-format`, allowing you to trace the source code exactly.
+    - `ca7933e47d3a3451d81e72ac174dcb5aa28b59d1`: The commit hash for the specific version used to build `clang-format`, allowing you to trace the source code exactly.
 
 1. `--help`: Help view additional options.
 
@@ -63,7 +63,7 @@ If you want to learn more about `clang-format` itself, see the [Clang-Format Sty
     npx clang-format --help
     ```
 
-1. `--dry-run` or `-n`: Makes an **WARNING** when `example.cpp` is not correctly formatted.
+1. `--dry-run` or `-n`: Reports a **warning** when `example.cpp` is not correctly formatted.
 
     `--dry-run` and `-n` options are equivalent.
 
@@ -75,7 +75,7 @@ If you want to learn more about `clang-format` itself, see the [Clang-Format Sty
     npx clang-format -n example.cpp
     ```
 
-1. `-Werror --dry-run` or `-Werror -n`: Makes an **ERROR** when `example.cpp` is not correctly formatted.
+1. `-Werror --dry-run` or `-Werror -n`: Reports an **error** when `example.cpp` is not correctly formatted.
 
     > [!TIP]
     >
@@ -103,11 +103,11 @@ If you want to learn more about `clang-format` itself, see the [Clang-Format Sty
 
 ### Glob patterns
 
-Unfortunately, there is no way to apply `clang-format` recursively. `*.cpp` will only match files in the current directory, not subdirectories. Even `**/*` doesn't work.
+`clang-format` itself does not search for files recursively. `*.cpp` will only match files in the current directory, not subdirectories. Whether `**/*` works depends on your shell and its settings.
 
-**So, you need to use the `find` command in POSIX.** If you are a Windows user, use ***git bash***. then you can use the `find` command. The `find` command recursively searches through directories.
+**So, you can use the `find` command in POSIX.** If you are a Windows user, use ***Git Bash***. Then you can use the `find` command. The `find` command recursively searches through directories.
 
-It is simple but can produce an error if the [**Argument list is too long**](https://stackoverflow.com/questions/11289551/argument-list-too-long-error-for-rm-cp-mv-commands). In that case, use `xargs`
+Using command substitution is simple but can produce an [**Argument list is too long**](https://stackoverflow.com/questions/11289551/argument-list-too-long-error-for-rm-cp-mv-commands) error. In that case, use `xargs`.
 
 1. Basic
 
@@ -145,7 +145,7 @@ It is simple but can produce an error if the [**Argument list is too long**](htt
 >
 > This feature is included in the [`clang-format-git`](../apis/clang-format-git.md) and [`clang-format-git-python`](../apis/clang-format-git-python.md) package.
 
-`clang-format-git` and `clang-format-git-python` are two options for using `git-clang-format`, so you can choose the one that best fits your setup. The usage is same to ['angular/clang-format'](https://github.com/angular/clang-format).
+`clang-format-git` and `clang-format-git-python` are two options for using `git-clang-format`, so you can choose the one that best fits your setup. The usage is the same as [angular/clang-format](https://github.com/angular/clang-format), which is no longer maintained.
 
 ---
 

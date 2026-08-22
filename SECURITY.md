@@ -13,17 +13,17 @@ Some may have concerns about the security of binary files, but the following poi
     - See [`llvm-build-bump-pr.yml`](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
     - See the [Pull Request list on GitHub](https://github.com/lumirlumir/npm-clang-format-node/pulls?q=is%3Apr+%28deps%29%3A+%22bump+LLVM+from%22+label%3Adependencies+).
 
-1. All binaries are fully verified by [GitHub Actions Attestation Provenances](https://github.com/lumirlumir/npm-clang-format-node/attestations) and [npm Build Provenances](https://docs.npmjs.com/generating-provenance-statements).
+1. All binaries can be verified using [GitHub Actions provenance attestations](https://github.com/lumirlumir/npm-clang-format-node/attestations), and published packages include [npm provenance](https://docs.npmjs.com/generating-provenance-statements).
 
 1. When you run the command `clang-format --version`, you can verify the current **LLVM version**, **repository URL**, and **commit SHA**, as shown below:
 
     ```sh
-    clang-format version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+    clang-format version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
     ```
 
-    - `18.1.8`: The current LLVM version.
+    - `22.1.8`: The current LLVM version.
     - `https://github.com/llvm/llvm-project`: The Git repository URL for the LLVM project, which includes Clang.
-    - `3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff`: The commit hash for the specific version used to build `clang-format`, allowing you to trace the source code exactly.
+    - `ca7933e47d3a3451d81e72ac174dcb5aa28b59d1`: The commit hash for the specific version used to build `clang-format`, allowing you to trace the source code exactly.
 
 ## Reporting a Vulnerability
 

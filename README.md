@@ -20,11 +20,11 @@ Node wrapper for LLVM Clang's `clang-format` and `git-clang-format` native binar
 
 For full documentation, see the [official documentation of the `clang-format-node`](https://clang-format-node.lumir.page).
 
-## Fully Secure Binaries
+## Binary Security
 
 Binaries are built directly from the [official LLVM project source code](https://github.com/llvm/llvm-project). No third-party binaries are used; everything is built from scratch using [GitHub Actions](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
 
-All binaries are fully verified by [GitHub Actions Attestation Provenances](https://github.com/lumirlumir/npm-clang-format-node/attestations) and [npm Build Provenances](https://docs.npmjs.com/generating-provenance-statements).
+All binaries can be verified using [GitHub Actions provenance attestations](https://github.com/lumirlumir/npm-clang-format-node/attestations), and published packages include [npm provenance](https://docs.npmjs.com/generating-provenance-statements).
 
 For more information, please refer to the [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SECURITY.md) page.
 
@@ -70,7 +70,7 @@ Each package intends to release a new npm package for every **latest** release o
 
 Thanks for having attention to this package🙇‍♂️. We appreciate you spending the time to work on these things. Every issue and pull request about bugs, suggestions and the other topics is always welcome!
 
-Please read our [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct) and [Contributing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM `clang-format`](http://clang-format-node.lumir.page/docs/further-reading/guides-on-llvm-clang-format) mentioned in the documentation before contributing.
+Please read our [Code of Conduct](https://github.com/lumirlumir/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct) and [Contributing](https://github.com/lumirlumir/npm-clang-format-node/blob/main/CONTRIBUTING.md) Guides before you work on these things. We also recommend you to read the [Guides on LLVM `clang-format`](https://clang-format-node.lumir.page/docs/further-reading/guides-on-llvm-clang-format) mentioned in the documentation before contributing.
 
 ## Code of Conduct
 
@@ -82,7 +82,7 @@ See [Change Log](https://github.com/lumirlumir/npm-clang-format-node/blob/main/C
 
 ## Versioning
 
-See [Versioning](http://clang-format-node.lumir.page/docs/community/versioning).
+See [Versioning](https://clang-format-node.lumir.page/docs/community/versioning).
 
 ## Security
 
@@ -90,4 +90,4 @@ See [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SEC
 
 ## License
 
-[MIT](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
+Project source is [MIT licensed](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md); bundled LLVM-derived components use the [Apache License 2.0 with LLVM Exceptions](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).

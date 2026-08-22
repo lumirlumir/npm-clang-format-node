@@ -9,7 +9,7 @@ description: Questions and answers about clang-format-node.
 > [!NOTE] References
 >
 > - [Why are the results of `clang-format` and `git-clang-format` different?](https://stackoverflow.com/questions/76968316/why-are-the-results-of-clang-format-and-git-clang-format-different) on Stack Overflow.
-> - [Git Intergration](https://clang.llvm.org/docs/ClangFormat.html#git-integration) on LLVM Clang.
+> - [Git Integration](https://clang.llvm.org/docs/ClangFormat.html#git-integration) on LLVM Clang.
 
 `git-clang-format` only formats changes. `clang-format` formats the whole document.
 

@@ -94,7 +94,7 @@ This ensures that the changes you've made are properly formatted!
 
 ### Formatting a Single Commit
 
-`git-clang-format` operates on staged changes. The workflow is simple:
+By default, `git-clang-format` formats changed lines in the working tree. The workflow is simple:
 
 1. Write and edit your files however you like (it's okay to be messy).
 1. Stage your changes using `git add`.
@@ -155,11 +155,11 @@ Here's an example:
     +int main() {} # [!code ++]
     ```
 
-This workflow allows you to review `clang-format`'s changes independently of your development changes. If you don't like them, you can discard them by purging your working tree using `git checkout`. If you're satisfied, simply stage the formatting changes with `git add`.
+This workflow allows you to review `clang-format`'s changes independently of your development changes. If you don't like them, you can discard them from the working tree using `git restore <file>`. If you're satisfied, simply stage the formatting changes with `git add`.
 
 ### Specifying a Formatting Style
 
-You can customize the formatting style using the `--style` option. Predefined styles include `LLVM`, `Google`, `Chromium`, `Mozilla`, and `WebKit`. If your project has a `.clang-format` file, you can use it by specifying `file` as the style:
+You can customize the formatting style using the `--style` option. Predefined styles include `LLVM`, `GNU`, `Google`, `Chromium`, `Microsoft`, `Mozilla`, and `WebKit`. If your project has a `.clang-format` file, you can use it by specifying `file` as the style:
 
 ```sh
 $ git-clang-format --style=WebKit
@@ -174,4 +174,4 @@ You can use `git-clang-format` with a `pre-commit` hook to format your code befo
 
 `clang-format` is a powerful tool, but its real-world application often requires more than just running `clang-format -i`. For most developers, the practical approach is to use `git-clang-format` to format only the specific changes in your pull request.
 
-Since `git-clang-format` works on the staging tree, it's easy to review formatting changes separately from development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you're tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.
+Since `git-clang-format` works on the working tree by default, it's easy to review formatting changes separately from development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you're tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.
