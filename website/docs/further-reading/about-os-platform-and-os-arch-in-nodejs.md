@@ -4,7 +4,7 @@ description: "Explanation of `os.platform()` and `os.arch()` in Node.js with ret
 
 # About `os.platform()` and `os.arch()` in Node.js
 
-## [`os.platform()`](https://nodejs.org/docs/v20.17.0/api/os.html#osplatform)
+## [`os.platform()`](https://nodejs.org/api/os.html#osplatform)
 
 The return value is equivalent to `process.platform`.
 
@@ -14,7 +14,7 @@ macOS   | `darwin`                           |
 Linux   | `linux`                            |
 Windows | `win32`                            |
 
-## [`os.arch()`](https://nodejs.org/docs/v20.17.0/api/os.html#osarch)
+## [`os.arch()`](https://nodejs.org/api/os.html#osarch)
 
 The return value is equivalent to `process.arch`.
 

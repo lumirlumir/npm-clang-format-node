@@ -24,7 +24,7 @@ my-project/
 
 ### Monorepo
 
-If you are using monorepo, you can place the configuration file in the root of the monorepo.
+In a monorepo, place a shared configuration at the repository root or a package-specific configuration inside a package. `clang-format` uses the closest configuration in an input file's parent directories.
 
 ```sh {8,9}
 my-monorepo/
@@ -65,7 +65,7 @@ You can use the `.clang-format` file to configure the style of your code. Here i
     ColumnLimit: 90
     ```
 
-- Advanced:
+- Advanced (snapshots; use the linked repository files as the current source):
 
     ::: details Node.js project's configuration. See [Node.js repository](https://github.com/nodejs/node/blob/main/.clang-format).
 

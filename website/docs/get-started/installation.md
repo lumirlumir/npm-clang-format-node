@@ -4,6 +4,8 @@ description: "Installation instructions for `clang-format-node`, `clang-format-g
 
 # Installation {#installation}
 
+All three packages require Node.js 16 or later.
+
 ## `clang-format-node` - <small>[Repository](https://github.com/lumirlumir/npm-clang-format-node/tree/main/packages/clang-format-node) | [npm](https://www.npmjs.com/package/clang-format-node)</small> {#clang-format-node}
 
 [![NPM Version](https://img.shields.io/npm/v/clang-format-node)](https://www.npmjs.com/package/clang-format-node)&nbsp;
@@ -27,9 +29,16 @@ $ pnpm add -g clang-format-node
 $ pnpm add -D clang-format-node
 ```
 
-```sh [yarn]
+```sh [yarn v1]
 # Global
 $ yarn global add clang-format-node
+# Local
+$ yarn add --dev clang-format-node
+```
+
+```sh [yarn v2+]
+# Run without adding to the project
+$ yarn dlx clang-format-node
 # Local
 $ yarn add --dev clang-format-node
 ```
@@ -66,9 +75,16 @@ $ pnpm add -g clang-format-git
 $ pnpm add -D clang-format-git
 ```
 
-```sh [yarn]
+```sh [yarn v1]
 # Global
 $ yarn global add clang-format-git
+# Local
+$ yarn add --dev clang-format-git
+```
+
+```sh [yarn v2+]
+# Run without adding to the project
+$ yarn dlx clang-format-git
 # Local
 $ yarn add --dev clang-format-git
 ```
@@ -105,9 +121,16 @@ $ pnpm add -g clang-format-git-python
 $ pnpm add -D clang-format-git-python
 ```
 
-```sh [yarn]
+```sh [yarn v1]
 # Global
 $ yarn global add clang-format-git-python
+# Local
+$ yarn add --dev clang-format-git-python
+```
+
+```sh [yarn v2+]
+# Run without adding to the project
+$ yarn dlx clang-format-git-python
 # Local
 $ yarn add --dev clang-format-git-python
 ```
