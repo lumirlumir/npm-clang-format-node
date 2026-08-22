@@ -94,7 +94,7 @@ This ensures that the changes you've made are properly formatted!
 
 ### Formatting a Single Commit
 
-By default, `git-clang-format` formats changed lines in the working tree. The workflow is simple:
+By default, `git-clang-format` formats staged changes and applies the formatting to the working tree. The workflow is simple:
 
 1. Write and edit your files however you like (it's okay to be messy).
 1. Stage your changes using `git add`.
@@ -174,4 +174,4 @@ You can use `git-clang-format` with a `pre-commit` hook to format your code befo
 
 `clang-format` is a powerful tool, but its real-world application often requires more than just running `clang-format -i`. For most developers, the practical approach is to use `git-clang-format` to format only the specific changes in your pull request.
 
-Since `git-clang-format` works on the working tree by default, it's easy to review formatting changes separately from development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you're tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.
+Since `git-clang-format` applies formatting changes to the working tree by default, it's easy to review them separately from staged development changes. This makes code reviews smoother and helps you maintain a clean, professional codebase without sacrificing flexibility during development. Whether you're tidying up a single commit or an entire branch, a few additional Git commands can go a long way toward keeping your formatting clean and reviewers happy.
