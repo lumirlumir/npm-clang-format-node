@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node -v && npm run build",
   "cleanUrls": true,
   "framework": "vitepress",
   "ignoreCommand": "node ../scripts/vercel-ignore-command.js",
