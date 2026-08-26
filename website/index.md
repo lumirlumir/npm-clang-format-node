@@ -4,7 +4,7 @@ title: clang-format-node
 
 hero:
   name: clang-format-node
-  text: High-performance source code formatter for C, C++, Java, JavaScript, JSON, Objective-C, Protobuf, and C# based on clang-format
+  text: Native-powered source code formatter for C, C++, Java, JavaScript, JSON, Objective-C, Protobuf, and C# based on LLVM clang-format
   tagline: A Node.js wrapper for LLVM's native <code>clang-format</code> and <code>git-clang-format</code> binaries.🐉
   image:
     light: /logo-white.svg
