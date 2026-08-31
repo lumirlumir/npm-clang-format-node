@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
-    "editorconfig-checker": "^6.1.1",
+    "editorconfig-checker": "^7.0.0",
     "eslint": "^9.39.5",
     "eslint-config-bananass": "^0.8.0",
     "eslint-markdown": "^0.14.0",
