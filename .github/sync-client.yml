@@ -65,3 +65,4 @@ lumirlumir/lumirlumir:
   - source: ./packages/clang-format-git-python/LICENSE.md
     dest: ./configs/LICENSE.md
   - source: ./packages/clang-format-node/LICENSE.md
+    dest: ./configs/LICENSE.md
