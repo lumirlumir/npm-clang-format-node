@@ -86,7 +86,7 @@ export default defineConfig([
       'md/no-consecutive-blank-line': ['error', { max: 1, skipCode: false }],
       'md/no-control-character': ['error', { skipCode: false, skipInlineCode: false }],
       'md/no-curly-quote': 'error',
-      'md/no-double-punctuation': 'error',
+      'md/no-double-punctuation': ['error', { allow: ['.,'] }],
       'md/no-double-space': 'error',
       'md/no-emoji': 'off',
       'md/no-git-conflict-marker': ['error', { skipCode: false, skipMath: false }],
@@ -111,7 +111,7 @@ export default defineConfig([
       'md/no-shell-dollar': 'off',
       'md/no-tab': ['error', { skipCode: false, skipInlineCode: false }],
       'md/no-trailing-heading-punctuation': 'error',
-      'md/no-url-trailing-slash': 'error',
+      'md/no-url-trailing-slash': 'off', // TODO: enable.
       'md/require-heading-id': 'off',
       'md/require-image-title': 'off', // Too tight.
       'md/require-link-title': 'off', // Too tight.

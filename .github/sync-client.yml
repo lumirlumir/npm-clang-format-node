@@ -51,11 +51,17 @@ lumirlumir/lumirlumir:
     dest: ./configs/LICENSE.md
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
-  - source: ./eslint.config.js
-    dest: ./configs/eslint.config.js
   - source: ./lint-staged.config.js
     dest: ./configs/lint-staged.config.js
   - source: ./prettier.config.js
     dest: ./configs/prettier.config.js
   - source: ./tsconfig.base.json
     dest: ./configs/tsconfig.base.json
+  # LICENSE.md
+  - source: ./LICENSE.md
+    dest: ./configs/LICENSE.md
+  - source: ./packages/clang-format-git/LICENSE.md
+    dest: ./configs/LICENSE.md
+  - source: ./packages/clang-format-git-python/LICENSE.md
+    dest: ./configs/LICENSE.md
+  - source: ./packages/clang-format-node/LICENSE.md
