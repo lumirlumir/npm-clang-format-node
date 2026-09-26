@@ -10,7 +10,7 @@
 import footnote from 'markdown-it-footnote';
 import { defineConfig } from 'vitepress';
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons';
-import { codecovVitePlugin } from '@codecov/vite-plugin';
+import codecovVitePlugin from './plugin.js';
 
 // --------------------------------------------------------------------------------
 // Constants
@@ -19,7 +19,7 @@ import { codecovVitePlugin } from '@codecov/vite-plugin';
 const TITLE = 'clang-format-node';
 const DESCRIPTION =
   "The official documentation website for clang-format-node, a Node.js wrapper for LLVM Clang's clang-format and git-clang-format native binaries inspired by angular/clang-format.🐉";
-const AUTHOR = '루밀LuMir';
+const AUTHOR = 'lumir';
 const SITE_URL = 'https://clang-format-node.lumir.page';
 const GITHUB_URL = 'https://github.com/lumirlumir/npm-clang-format-node';
 const NPM_URL = 'https://www.npmjs.com';
@@ -315,7 +315,7 @@ export default defineConfig({
       {
         icon: 'npm',
         link: `${NPM_URL}/~lumir`,
-        ariaLabel: 'npm profile link for LuMir',
+        ariaLabel: 'npm profile link for lumir',
       },
       {
         icon: 'github',
@@ -351,9 +351,8 @@ export default defineConfig({
       groupIconVitePlugin(),
       codecovVitePlugin({
         // Put the Codecov vite plugin after all other plugins
-        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined, // Works only in CI when CODECOV_TOKEN is set
+        enableBundleAnalysis: process.env.CODECOV !== undefined, // Enable bundle analysis when CODECOV environment variable is defined
         bundleName: 'website',
-        uploadToken: process.env.CODECOV_TOKEN,
         gitService: 'github',
       }),
     ],

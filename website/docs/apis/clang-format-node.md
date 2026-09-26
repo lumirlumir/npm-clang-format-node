@@ -31,9 +31,16 @@ $ pnpm add -g clang-format-node
 $ pnpm add -D clang-format-node
 ```
 
-```sh [yarn]
+```sh [yarn v1]
 # Global
 $ yarn global add clang-format-node
+# Local
+$ yarn add --dev clang-format-node
+```
+
+```sh [yarn v2+]
+# Run without adding to the project
+$ yarn dlx clang-format-node
 # Local
 $ yarn add --dev clang-format-node
 ```
@@ -65,7 +72,7 @@ npx clang-format-node
 
 ## Node.js APIs
 
-These APIs depends on the Node.js `fs` and `path` module and the file system, so you cannot use it in browsers.
+These APIs depend on the Node.js `fs` and `path` modules and the file system, so you cannot use them in browsers.
 
 - CommonJS
 

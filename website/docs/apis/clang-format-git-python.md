@@ -7,6 +7,8 @@
 
 Node wrapper for `git-clang-format` Python script. <u>**This package requires Python3 as a dependency**</u>.
 
+The CLI invokes a command named `python`, so ensure that `python --version` resolves to Python 3 in your environment.
+
 > [!TIP]
 >
 > This package also supports JSDoc type hints with the following APIs, so you'll see more detailed information directly in your code editor.
@@ -31,9 +33,16 @@ $ pnpm add -g clang-format-git-python
 $ pnpm add -D clang-format-git-python
 ```
 
-```sh [yarn]
+```sh [yarn v1]
 # Global
 $ yarn global add clang-format-git-python
+# Local
+$ yarn add --dev clang-format-git-python
+```
+
+```sh [yarn v2+]
+# Run without adding to the project
+$ yarn dlx clang-format-git-python
 # Local
 $ yarn add --dev clang-format-git-python
 ```
@@ -65,7 +74,7 @@ npx clang-format-git-python
 
 ## Node.js APIs
 
-These APIs depends on the Node.js `fs` and `path` module and the file system, so you cannot use it in browsers.
+These APIs depend on the Node.js `fs` and `path` modules and the file system, so you cannot use them in browsers.
 
 - CommonJS
 

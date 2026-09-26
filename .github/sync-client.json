@@ -1,6 +1,6 @@
 {
   "org": "lumirlumir",
-  "repo": "lumirlumir-configs",
+  "repo": "lumirlumir",
   "branch": "main",
   "syncs": [
     {
@@ -10,8 +10,8 @@
 
     "./.github/workflows",
     {
-      "source": ".github/workflows/lint.yml",
-      "dest": "configs/.github/workflows/lint.yml"
+      "source": ".github/workflows/ci.yml",
+      "dest": "configs/.github/workflows/ci.yml"
     },
     {
       "source": ".github/workflows/publish.yml",
@@ -28,10 +28,6 @@
     {
       "source": ".github/workflows/sync-client.yml",
       "dest": "configs/.github/workflows/sync-client.yml"
-    },
-    {
-      "source": ".github/workflows/test.yml",
-      "dest": "configs/.github/workflows/test.yml"
     },
     {
       "source": ".github/workflows/version-monorepo.yml",
@@ -70,16 +66,16 @@
 
     "./scripts",
     {
-      "source": "scripts/cp.mjs",
-      "dest": "configs/scripts/cp.mjs"
+      "source": "scripts/cp.js",
+      "dest": "configs/scripts/cp.js"
     },
     {
-      "source": "scripts/vercel-ignore-command.sh",
-      "dest": "configs/scripts/vercel-ignore-command.sh"
+      "source": "scripts/vercel-ignore-command.js",
+      "dest": "configs/scripts/vercel-ignore-command.js"
     },
     {
-      "source": "scripts/version.mjs",
-      "dest": "configs/scripts/version.mjs"
+      "source": "scripts/version.js",
+      "dest": "configs/scripts/version.js"
     },
 
     ".",
@@ -94,14 +90,6 @@
     {
       "source": ".gitignore",
       "dest": "configs/.gitignore"
-    },
-    {
-      "source": ".markdownlint.json",
-      "dest": "configs/.markdownlint.json"
-    },
-    {
-      "source": ".markdownlintignore",
-      "dest": "configs/.markdownlintignore"
     },
     {
       "source": ".nvmrc",
@@ -120,30 +108,36 @@
       "dest": "configs/VScode.code-workspace"
     },
     {
-      "source": "eslint.config.mjs",
-      "dest": "configs/eslint.config.mjs"
+      "source": "lint-staged.config.js",
+      "dest": "configs/lint-staged.config.js"
     },
     {
-      "source": "lint-staged.config.mjs",
-      "dest": "configs/lint-staged.config.mjs"
-    },
-    {
-      "source": "prettier.config.mjs",
-      "dest": "configs/prettier.config.mjs"
+      "source": "prettier.config.js",
+      "dest": "configs/prettier.config.js"
     },
 
-    "tsconfig.json",
+    "tsconfig.base.json",
     {
-      "source": "packages/clang-format-git/tsconfig.json",
-      "dest": "configs/tsconfig.json"
+      "source": "tsconfig.base.json",
+      "dest": "configs/tsconfig.base.json"
+    },
+
+    "LICENSE.md",
+    {
+      "source": "LICENSE.md",
+      "dest": "configs/LICENSE.md"
     },
     {
-      "source": "packages/clang-format-git-python/tsconfig.json",
-      "dest": "configs/tsconfig.json"
+      "source": "packages/clang-format-git/LICENSE.md",
+      "dest": "configs/LICENSE.md"
     },
     {
-      "source": "packages/clang-format-node/tsconfig.json",
-      "dest": "configs/tsconfig.json"
+      "source": "packages/clang-format-git-python/LICENSE.md",
+      "dest": "configs/LICENSE.md"
+    },
+    {
+      "source": "packages/clang-format-node/LICENSE.md",
+      "dest": "configs/LICENSE.md"
     }
   ]
 }

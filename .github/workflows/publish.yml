@@ -7,32 +7,29 @@ on:
 permissions:
   id-token: write
 
+env:
+  HUSKY: 0 # Skip Husky during CI: https://typicode.github.io/husky/how-to.html#ci-server-and-docker
+
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-          cache: npm
+          cache: npm # https://github.com/actions/setup-node#caching-global-packages-data
           registry-url: https://registry.npmjs.org
 
-      - name: Set up cache
-        uses: actions/cache@v5
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
       - name: Update npm
-        run: npm install -g npm@latest
+        run: npm install --no-audit --no-fund -g npm@latest
 
-      - name: Set up node_modules
-        run: npm ci
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
 
       - name: Build
         run: npm run build --if-present

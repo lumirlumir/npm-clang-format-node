@@ -1,6 +1,7 @@
 {
   "name": "clang-format-node",
-  "version": "2.0.7",
+  "version": "4.0.0",
+  "type": "commonjs",
   "description": "Node wrapper for clang-format native binary inspired by angular/clang-format.🐉",
   "main": "build/index.js",
   "files": [
@@ -30,7 +31,8 @@
     "cpp",
     "c++"
   ],
-  "author": "루밀LuMir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "author": "lumir <rpfos@naver.com> (https://github.com/lumirlumir)",
+  "funding": "https://github.com/sponsors/lumirlumir",
   "license": "MIT",
   "homepage": "https://clang-format-node.lumir.page",
   "repository": {
@@ -50,7 +52,7 @@
   "scripts": {
     "postinstall": "node chmod.js || exit 0",
     "prepublishOnly": "npm run build",
-    "build": "npx babel src -d build && npx tsc && node ../../scripts/cp.mjs ../../LICENSE.md LICENSE.md ../../README.md README.md",
+    "build": "tsc -b tsconfig.build.json && node ../../scripts/cp.js ../../README.md README.md",
     "test": "node --test",
     "dev": "node src/cli.js",
     "start": "node build/cli.js"

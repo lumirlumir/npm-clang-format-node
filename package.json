@@ -1,10 +1,23 @@
 {
   "private": true,
   "name": "npm-clang-format-node",
-  "version": "2.0.7",
-  "packageManager": "npm@10.9.2",
+  "version": "4.0.0",
+  "type": "module",
+  "packageManager": "npm@11.16.0",
   "engines": {
-    "node": ">=20.19.4"
+    "node": ">=24.18.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24.18.0",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11.16.0",
+      "onFail": "error"
+    }
   },
   "workspaces": [
     "examples/*",
@@ -15,9 +28,10 @@
   "scripts": {
     "prepare": "husky",
     "release:publish": "node -e \"require('child_process').execSync('npm publish -w packages ' + (require('./package.json').version.includes('-') ? '--tag next' : ''), { stdio: 'inherit' })\"",
-    "release:version": "node ./scripts/version.mjs",
-    "coverage": "npx c8 --reporter=lcov npm run test",
-    "test": "npm run test -ws --if-present",
+    "release:version": "node ./scripts/version.js",
+    "test": "node --test",
+    "test:coverage": "node -e \"require('node:fs').mkdirSync('coverage', { recursive: true })\" && node --test --experimental-test-coverage --test-coverage-exclude=\"**/build/**\" --test-coverage-exclude=\"**/*.test.{js,mjs,cjs}\" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info",
+    "test:types": "tsc -b",
     "test:pkg:cfg": "npm run test -w packages/clang-format-git",
     "test:pkg:cfgp": "npm run test -w packages/clang-format-git-python",
     "test:pkg:cfn": "npm run test -w packages/clang-format-node",
@@ -40,30 +54,26 @@
     "start:pkg:cfn": "npm run start -w packages/clang-format-node",
     "start:website": "npm run start -w website",
     "fix": "npm-run-all -c -l -p fix:*",
-    "fix:eslint": "npx eslint --fix",
-    "fix:prettier": "npx prettier . --write --ignore-unknown",
-    "fix:markdownlint": "npx markdownlint **/*.md --fix",
+    "fix:eslint": "eslint --fix --cache --cache-strategy content",
+    "fix:prettier": "prettier . --write --ignore-unknown",
     "lint": "npm-run-all -c -l -p lint:*",
-    "lint:eslint": "npx eslint",
-    "lint:prettier": "npx prettier . --check --ignore-unknown",
-    "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint:markdownlint": "npx markdownlint **/*.md"
+    "lint:eslint": "eslint --cache --cache-strategy content",
+    "lint:prettier": "prettier . --check --ignore-unknown",
+    "lint:editorconfig": "editorconfig-checker -config .editorconfig-checker.json"
+  },
+  "allowScripts": {
+    "esbuild": true
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.3",
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
-    "@types/node": "^24.10.4",
-    "c8": "^10.1.3",
-    "editorconfig-checker": "^6.1.1",
-    "eslint": "^9.39.2",
-    "eslint-config-bananass": "^0.5.2",
-    "eslint-plugin-mark": "^0.1.0-canary.10",
+    "@types/node": "^24.13.6",
+    "editorconfig-checker": "^7.0.0",
+    "eslint": "^9.39.5",
+    "eslint-config-bananass": "^0.8.0",
+    "eslint-markdown": "^0.17.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "markdownlint-cli": "^0.47.0",
-    "npm-run-all2": "^8.0.4",
-    "prettier": "^3.7.4",
-    "typescript": "^5.9.3"
+    "lint-staged": "^17.5.1",
+    "npm-run-all2": "^9.0.3",
+    "prettier": "^3.9.8",
+    "typescript": "^6.0.3"
   }
 }

@@ -13,11 +13,11 @@ concurrency:
 
 jobs:
   lint-pull-request-title:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
       - name: Set up checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       # This step extracts the correct package names because it runs right after the checkout.
       - name: Extract package names from the monorepo structure for use as scopes.
@@ -70,7 +70,7 @@ jobs:
           # The variables `subject` and `title` can be used within the message.
           subjectPatternError: The subject "{subject}" found in the pull request title "{title}" didn't match the configured pattern. Please ensure that the subject doesn't start with an uppercase character.
 
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - uses: marocchino/sticky-pull-request-comment@v3
         # When the previous steps fails, the workflow would stop. By adding this
         # condition you can continue the execution with the populated error message.
         if: always() && (steps.lint-pull-request-title.outputs.error_message != null)
@@ -135,7 +135,7 @@ jobs:
 
       # Delete the previous comment when the issue has been resolved.
       - if: ${{ steps.lint-pull-request-title.outputs.error_message == null }}
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: pull-request-title-lint-error
           delete: true
@@ -147,14 +147,14 @@ jobs:
   labeler:
     if: github.event.action == 'opened' || github.event.changes.title || github.event.action == 'synchronize'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     needs:
       - lint-pull-request-title
 
     steps:
       - name: Labeler
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         id: labeler
         with:
           result-encoding: string
@@ -274,13 +274,13 @@ jobs:
 
       # Delete the previous comment if it exists.
       - if: ${{ steps.labeler.outputs.result != 'skipped' }}
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: labeler
           delete: true
 
       - if: ${{ steps.labeler.outputs.result != 'skipped' }}
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
           header: labeler
           message: |

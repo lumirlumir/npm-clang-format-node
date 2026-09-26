@@ -7,7 +7,7 @@ description: "A collection of useful documentation and guide links related to LL
 If you want to learn more about LLVM `clang-format`, check out the links below.
 
 - [LLVM GitHub Repository](https://github.com/llvm/llvm-project)
-- [LLVM Download Page](https://releases.llvm.org/download.html)
+- [LLVM Download Page](https://github.com/llvm/llvm-project/releases/latest)
 - [LLVM `git-clang-format` Python Script](https://github.com/llvm/llvm-project/blob/main/clang/tools/clang-format/git-clang-format)
 - [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [Clang-Format CLI](https://clang.llvm.org/docs/ClangFormat.html)
