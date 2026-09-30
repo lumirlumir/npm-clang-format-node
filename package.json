@@ -65,11 +65,11 @@
     "esbuild": true
   },
   "devDependencies": {
-    "@types/node": "^24.13.6",
+    "@types/node": "^24.19.0",
     "editorconfig-checker": "^7.0.0",
     "eslint": "^9.39.5",
     "eslint-config-bananass": "^0.8.0",
-    "eslint-markdown": "^0.17.1",
+    "eslint-markdown": "^0.18.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "npm-run-all2": "^9.0.3",
