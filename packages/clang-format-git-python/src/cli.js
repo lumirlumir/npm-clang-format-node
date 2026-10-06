@@ -33,6 +33,6 @@ const spawned = spawn(
 spawned.on('close', code => {
   if (code !== 0) {
     console.error(`Process exited with code: ${code}`); // eslint-disable-line no-console
-    process.exit(code);
+    process.exit(code ?? 1);
   }
 });
