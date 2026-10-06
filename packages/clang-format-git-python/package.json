@@ -57,7 +57,8 @@
     "build": "tsc -b tsconfig.build.json && node ../../scripts/cp.js ../../README.md README.md",
     "test": "node --test",
     "dev": "node src/cli.js",
-    "start": "node build/cli.js"
+    "start": "node build/cli.js",
+    "chmod": "node chmod.js"
   },
   "dependencies": {
     "clang-format-node": "^4.0.1"
