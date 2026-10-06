@@ -9,7 +9,7 @@
 // --------------------------------------------------------------------------------
 
 const { ok } = require('node:assert');
-const { execSync } = require('node:child_process');
+const { statSync } = require('node:fs');
 const { describe, it } = require('node:test');
 const { platform } = require('node:os');
 
@@ -21,8 +21,8 @@ const { clangFormatGitPythonPath } = require('clang-format-git-python');
 // Declaration
 // --------------------------------------------------------------------------------
 
-const isPermission755 = path =>
-  execSync(`stat -c '%a' ${path}`).toString().trim() === '755';
+// eslint-disable-next-line no-bitwise -- Mask file type bits to compare POSIX permissions.
+const isPermission755 = path => (statSync(path).mode & 0o777) === 0o755;
 
 const binaries = [
   {
