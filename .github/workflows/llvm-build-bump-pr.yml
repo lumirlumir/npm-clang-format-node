@@ -485,6 +485,15 @@ jobs:
       - name: Bump version
         run: echo ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} > .clang-format-version
 
+      - name: Update LLVM license
+        env:
+          LLVM_RELEASE_TAG: ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }}
+        run: |
+          curl -fsSL "https://raw.githubusercontent.com/$LLVM_REPO/$LLVM_RELEASE_TAG/LICENSE.TXT" -o "$RUNNER_TEMP/LICENSE-LLVM.txt"
+          for package in packages/clang-format-{node,git,git-python}; do
+            cp "$RUNNER_TEMP/LICENSE-LLVM.txt" "$package/LICENSE-LLVM.txt"
+          done
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
