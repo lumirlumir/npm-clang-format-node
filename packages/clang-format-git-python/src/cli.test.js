@@ -10,7 +10,7 @@ const { doesNotThrow, strictEqual, throws } = require('node:assert');
 const childProcess = require('node:child_process');
 const { EventEmitter } = require('node:events');
 const { resolve } = require('node:path');
-const { describe, it, mock } = require('node:test');
+const { describe, it } = require('node:test');
 
 // --------------------------------------------------------------------------------
 // Declaration
@@ -24,11 +24,11 @@ const cli = resolve(__dirname, 'cli.js');
 // --------------------------------------------------------------------------------
 
 describe('cli', () => {
-  it('returns failure when the child is terminated by a signal', () => {
+  it('returns failure when the child is terminated by a signal', t => {
     const child = new EventEmitter();
-    mock.method(childProcess, 'spawn', () => child);
-    const exit = mock.method(process, 'exit', () => {});
-    mock.method(console, 'error', () => {});
+    t.mock.method(childProcess, 'spawn', () => child);
+    const exit = t.mock.method(process, 'exit', () => {});
+    t.mock.method(console, 'error', () => {});
 
     require(cli); // eslint-disable-line n/global-require -- Load CLI after mocking spawn.
     child.emit('close', null, 'SIGTERM');
