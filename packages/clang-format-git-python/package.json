@@ -9,6 +9,7 @@
     "script",
     "chmod.js",
     "LICENSE.md",
+    "LICENSE-LLVM.txt",
     "README.md"
   ],
   "bin": {

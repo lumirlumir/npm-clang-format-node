@@ -24,7 +24,7 @@ For full documentation, see the [official documentation of the `clang-format-nod
 
 Binaries are built directly from the [official LLVM project source code](https://github.com/llvm/llvm-project). No third-party binaries are used; everything is built from scratch using [GitHub Actions](https://github.com/lumirlumir/npm-clang-format-node/blob/main/.github/workflows/llvm-build-bump-pr.yml).
 
-All binaries are fully verified by [GitHub Actions Attestation Provenances](https://github.com/lumirlumir/npm-clang-format-node/attestations) and [npm Build Provenances](https://docs.npmjs.com/generating-provenance-statements).
+All binaries can be verified using [GitHub Actions provenance attestations](https://github.com/lumirlumir/npm-clang-format-node/attestations), and published packages include [npm provenance](https://docs.npmjs.com/generating-provenance-statements).
 
 For more information, please refer to the [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SECURITY.md) page.
 
@@ -90,4 +90,4 @@ See [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SEC
 
 ## License
 
-[MIT](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md) under [LLVM Apache License 2.0](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
+Project source is [MIT licensed](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md); bundled LLVM-derived components use the [Apache License 2.0 with LLVM Exceptions](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT), included in each package as `LICENSE-LLVM.txt`.

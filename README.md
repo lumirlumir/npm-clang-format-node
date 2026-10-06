@@ -90,4 +90,4 @@ See [Security](https://github.com/lumirlumir/npm-clang-format-node/blob/main/SEC
 
 ## License
 
-Project source is [MIT licensed](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md); bundled LLVM-derived components use the [Apache License 2.0 with LLVM Exceptions](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT).
+Project source is [MIT licensed](https://github.com/lumirlumir/npm-clang-format-node/blob/main/LICENSE.md); bundled LLVM-derived components use the [Apache License 2.0 with LLVM Exceptions](https://github.com/llvm/llvm-project/blob/main/LICENSE.TXT), included in each package as `LICENSE-LLVM.txt`.
