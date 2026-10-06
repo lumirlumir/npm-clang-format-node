@@ -10,7 +10,7 @@ const { ok, strictEqual } = require('node:assert');
 const { describe, it } = require('node:test');
 
 const { gitClangFormatPath, clangFormatGitPythonPath } = require('./index');
-const { type } = require('../package.json');
+const { scripts, type } = require('../package.json');
 
 // --------------------------------------------------------------------------------
 // Test
@@ -26,6 +26,9 @@ describe('index', () => {
      */
     it('should have `type: "commonjs"`', () => {
       strictEqual(type, 'commonjs');
+    });
+    it('should have `chmod` script', () => {
+      strictEqual(scripts.chmod, 'node chmod.js');
     });
   });
 

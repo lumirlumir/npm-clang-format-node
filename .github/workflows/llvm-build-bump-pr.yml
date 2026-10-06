@@ -489,7 +489,7 @@ jobs:
           pattern: cfn-*
 
       - name: Update file permissions to 755
-        run: npm run chmod --workspaces --if-present
+        run: npm run chmod -w packages
 
       - name: Bump version
         run: echo ${{ needs.stage1.outputs.LLVM_LATEST_RELEASE_TAG_NAME }} > .clang-format-version
