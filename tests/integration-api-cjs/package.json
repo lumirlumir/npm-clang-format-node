@@ -6,8 +6,8 @@
     "test": "node --test"
   },
   "dependencies": {
-    "clang-format-git": "^4.0.1",
-    "clang-format-git-python": "^4.0.1",
-    "clang-format-node": "^4.0.1"
+    "clang-format-git": "^4.0.2",
+    "clang-format-git-python": "^4.0.2",
+    "clang-format-node": "^4.0.2"
   }
 }
