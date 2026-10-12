@@ -11,6 +11,6 @@
     "@codecov/bundler-plugin-core": "^2.0.1",
     "markdown-it-footnote": "^4.0.0",
     "vitepress": "2.0.0-alpha.17",
-    "vitepress-plugin-group-icons": "^1.7.6"
+    "vitepress-plugin-group-icons": "^1.7.7"
   }
 }
