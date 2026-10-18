@@ -6,7 +6,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { strictEqual } = require('node:assert');
+const { strictEqual } = require('node:assert/strict');
 const { resolve } = require('node:path');
 const { describe, it } = require('node:test');
 

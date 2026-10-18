@@ -11,7 +11,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { ok } = require('node:assert');
+const { ok } = require('node:assert/strict');
 const { describe, it } = require('node:test');
 
 const {
