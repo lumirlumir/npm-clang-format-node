@@ -8,7 +8,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { ok } = require('node:assert');
+const { ok } = require('node:assert/strict');
 const { statSync } = require('node:fs');
 const { describe, it } = require('node:test');
 const { platform } = require('node:os');

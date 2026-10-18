@@ -67,11 +67,10 @@
   "devDependencies": {
     "@types/node": "^24.19.2",
     "editorconfig-checker": "^7.0.0",
-    "eslint": "^9.39.5",
-    "eslint-config-bananass": "^0.8.0",
-    "eslint-markdown": "^0.18.1",
+    "eslint": "^10.13.0",
+    "eslint-lumir": "^0.0.0-canary.2",
     "husky": "^9.1.7",
-    "lint-staged": "^17.5.1",
+    "lint-staged": "^17.6.0",
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.10",
     "typescript": "^6.0.3"

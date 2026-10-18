@@ -6,7 +6,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { doesNotThrow, throws } = require('node:assert');
+const { doesNotThrow, throws } = require('node:assert/strict');
 const { describe, it } = require('node:test');
 
 const { getClangFormatPath, getClangFormatNodePath } = require('./getClangFormatPath');

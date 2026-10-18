@@ -6,7 +6,7 @@
 // Require
 // --------------------------------------------------------------------------------
 
-const { doesNotThrow, strictEqual, throws } = require('node:assert');
+const { doesNotThrow, strictEqual, throws } = require('node:assert/strict');
 const childProcess = require('node:child_process');
 const { EventEmitter } = require('node:events');
 const { resolve } = require('node:path');
@@ -30,7 +30,7 @@ describe('cli', () => {
     const exit = t.mock.method(process, 'exit', () => {});
     t.mock.method(console, 'error', () => {});
 
-    require(cli); // eslint-disable-line n/global-require -- Load CLI after mocking spawn.
+    require(cli); // eslint-disable-line node/global-require -- Load CLI after mocking spawn.
     child.emit('close', null, 'SIGTERM');
 
     strictEqual(exit.mock.calls.length, 1);

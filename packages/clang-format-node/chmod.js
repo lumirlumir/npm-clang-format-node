@@ -2,7 +2,7 @@
  * @fileoverview Script to change permissions of binaries.
  */
 
-/* eslint-disable n/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
+/* eslint-disable node/prefer-node-protocol -- DO NOT USE `node:` namespace for backward compatibility */
 
 // --------------------------------------------------------------------------------
 // Require
