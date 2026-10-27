@@ -71,10 +71,10 @@ jobs:
 
       - name: Test installed commands
         run: |
-          npm exec --no -- clang-format --version
-          npm exec --no -- clang-format --help
-          npm exec --no -- clang-format-git --help
-          npm exec --no -- clang-format-git-python --help
+          npx --no -- clang-format --version
+          npx --no -- clang-format --help
+          npx --no -- clang-format-git --help
+          npx --no -- clang-format-git-python --help
 
   yarn-v1-install:
     needs: build-packages
@@ -159,7 +159,7 @@ jobs:
           name: packs
 
       - name: Install pnpm
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+        uses: pnpm/action-setup@v6
         with:
           version: latest
 
@@ -170,11 +170,12 @@ jobs:
 
       - name: pnpm add
         run: |
-          cat > .npmrc <<EOT
-          auto-install-peers=true
-          node-linker=hoisted
+          cat > pnpm-workspace.yaml <<EOT
+          autoInstallPeers: true
+          nodeLinker: hoisted
+          dangerouslyAllowAllBuilds: true # Allow install scripts in this isolated CI job.
           EOT
-          pnpm add --allow-build=clang-format-node,clang-format-git,clang-format-git-python ./*.tgz -D
+          pnpm add ./*.tgz -D
 
       - name: Test installed commands
         run: |
@@ -200,7 +201,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: Set up Bun
-        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        uses: oven-sh/setup-bun@v2
 
       - name: bun install
         run: bun install ./*.tgz -D --trust
