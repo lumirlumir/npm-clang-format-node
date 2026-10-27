@@ -136,6 +136,8 @@ jobs:
             "clang-format-git-python"
           ]'
           yarn config set enableScripts true
+          # Make the Git wrappers use the built core package, including unpublished versions.
+          npm pkg set "resolutions.clang-format-node=file:$(echo clang-format-node-*.tgz)"
           yarn add ./*.tgz -D
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: 0 # Allow installs to modify lockfile
