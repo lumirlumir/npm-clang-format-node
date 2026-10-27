@@ -170,11 +170,7 @@ jobs:
 
       - name: pnpm add
         run: |
-          cat > pnpm-workspace.yaml <<EOT
-          autoInstallPeers: true
-          nodeLinker: hoisted
-          dangerouslyAllowAllBuilds: true # Allow install scripts in this isolated CI job.
-          EOT
+          echo 'dangerouslyAllowAllBuilds: true' > pnpm-workspace.yaml
           pnpm add ./*.tgz -D
 
       - name: Test installed commands
