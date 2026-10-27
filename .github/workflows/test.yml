@@ -50,6 +50,167 @@ jobs:
           name: packs
           path: ./packs
 
+  npm-install:
+    needs: build-packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: packs
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: npm install
+        run: npm install ./*.tgz -D
+
+      - name: Test installed commands
+        run: |
+          npx --no -- clang-format --version
+          npx --no -- clang-format --help
+          npx --no -- clang-format-git --help
+          npx --no -- clang-format-git-python --help
+
+  yarn-v1-install:
+    needs: build-packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: packs
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: Install Yarn Classic
+        run: npm install -g yarn@1
+
+      - name: yarn add
+        run: yarn add ./*.tgz -D
+
+      - name: Test installed commands
+        run: |
+          yarn run clang-format --version
+          yarn run clang-format --help
+          yarn run clang-format-git --help
+          yarn run clang-format-git-python --help
+
+  yarn-install:
+    needs: build-packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: packs
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: Install Corepack latest
+        run: |
+          npm install -g corepack@latest
+          corepack enable yarn
+
+      - name: yarn add
+        run: |
+          corepack use yarn@latest
+          yarn init -p
+          yarn config set npmPreapprovedPackages --json '[
+            "clang-format-node",
+            "clang-format-git",
+            "clang-format-git-python"
+          ]'
+          yarn config set enableScripts true
+          # Make the Git wrappers use the built core package, including unpublished versions.
+          npm pkg set "resolutions.clang-format-node=file:$(echo clang-format-node-*.tgz)"
+          yarn add ./*.tgz -D
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: 0 # Allow installs to modify lockfile
+
+      - name: Test installed commands
+        run: |
+          yarn run clang-format --version
+          yarn run clang-format --help
+          yarn run clang-format-git --help
+          yarn run clang-format-git-python --help
+
+  pnpm-install:
+    needs: build-packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: packs
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: pnpm add
+        run: |
+          echo 'dangerouslyAllowAllBuilds: true' > pnpm-workspace.yaml
+          pnpm add ./*.tgz -D
+
+      - name: Test installed commands
+        run: |
+          pnpm exec clang-format --version
+          pnpm exec clang-format --help
+          pnpm exec clang-format-git --help
+          pnpm exec clang-format-git-python --help
+
+  bun-install:
+    needs: build-packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: packs
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: bun install
+        run: bun install ./*.tgz -D --trust
+
+      - name: Test installed commands
+        run: |
+          bun run clang-format --version
+          bun run clang-format --help
+          bun run clang-format-git --help
+          bun run clang-format-git-python --help
+
   github-actions-runner-images:
     strategy:
       fail-fast: false
