@@ -48,7 +48,7 @@ If you want to use `clang-format-node` or `clang-format-git` in continuous integ
 
 Image                        | YAML Label                                  | Included Software |
 ---------------------------- | ------------------------------------------- | ----------------- |
-macOS 15                     | `macos-15-intel` or `macos-15-large`         | macOS-15          |
+macOS 15                     | `macos-15-intel` or `macos-15-large`        | macOS-15          |
 macOS 15 Arm64               | `macos-15` or `macos-15-xlarge`             | macOS-15-arm64    |
 Ubuntu 24.04                 | `ubuntu-latest` or `ubuntu-24.04`           | ubuntu-24.04      |
 Ubuntu 22.04                 | `ubuntu-22.04`                              | ubuntu-22.04      |
