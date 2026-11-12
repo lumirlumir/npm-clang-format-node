@@ -279,9 +279,9 @@ jobs:
       matrix:
         type:
           - macos-15-intel # x64
-          - macos-14 # arm64
+          - macos-15 # arm64
 
-    # Use the oldest version possible for backward compatibility.
+    # Use the oldest supported runner image for backward compatibility.
     runs-on: ${{ matrix.type }}
 
     needs: stage1
