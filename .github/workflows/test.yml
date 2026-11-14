@@ -96,7 +96,12 @@ jobs:
         run: npm install -g yarn@1
 
       - name: yarn add
-        run: yarn add ./*.tgz -D
+        run: |
+          yarn init -yp
+          # Make the Git wrappers use the built core package, including unpublished versions.
+          npm pkg set "resolutions.clang-format-node=file:$(echo clang-format-node-*.tgz)"
+          # The ./ prefix prevents Yarn Classic's resolution patterns from matching.
+          yarn add $(printf 'file:%s ' *.tgz) -D
 
       - name: Test installed commands
         run: |
@@ -172,7 +177,12 @@ jobs:
 
       - name: pnpm add
         run: |
-          echo 'dangerouslyAllowAllBuilds: true' > pnpm-workspace.yaml
+          # Make the Git wrappers use the built core package, including unpublished versions.
+          cat > pnpm-workspace.yaml <<EOF
+          dangerouslyAllowAllBuilds: true
+          overrides:
+            clang-format-node: file:$(echo clang-format-node-*.tgz)
+          EOF
           pnpm add ./*.tgz -D
 
       - name: Test installed commands
@@ -202,7 +212,11 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: bun install
-        run: bun install ./*.tgz -D --trust
+        run: |
+          npm init -y
+          # Make the Git wrappers use the built core package, including unpublished versions.
+          npm pkg set "overrides.clang-format-node=file:$(echo clang-format-node-*.tgz)"
+          bun install ./*.tgz -D --trust
 
       - name: Test installed commands
         run: |
